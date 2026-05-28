@@ -1,0 +1,32 @@
+aid: digi-key
+name: Digi-Key
+description: "Retrieve price and inventory of electronic components as well as place orders"
+url: https://www.digikey.com/en/resources/api-solutions
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Shopping"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Shopping
+  - Public APIs
+apis:
+  - name: Digi-Key
+    description: "Retrieve price and inventory of electronic components as well as place orders"
+    humanURL: https://www.digikey.com/en/resources/api-solutions
+    baseURL: https://www.digikey.com/en/resources/api-solutions
+    tags:
+      - Shopping
+    properties:
+      - type: Documentation
+        url: https://www.digikey.com/en/resources/api-solutions
+common:
+  - type: Website
+    url: https://www.digikey.com/en/resources/api-solutions
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

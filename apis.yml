@@ -23,6 +23,8 @@ apis:
       - type: Documentation
         url: https://www.digikey.com/en/resources/api-solutions
 common:
+  - type: DomainSecurity
+    url: security/digi-key-domain-security.yml
   - type: Website
     url: https://www.digikey.com/en/resources/api-solutions
   - type: PublicAPIsListing

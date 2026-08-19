@@ -14,7 +14,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/digi-key.p
 name: Digi-Key
 description: "Retrieve price and inventory of electronic components as well as place orders"
 url: https://www.digikey.com/en/resources/api-solutions
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-05-28'
 x-source: public-apis/public-apis

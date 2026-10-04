@@ -39,7 +39,6 @@ apis:
   - name: Digi-Key
     description: "Retrieve price and inventory of electronic components as well as place orders"
     humanURL: https://www.digikey.com/en/resources/api-solutions
-    baseURL: https://www.digikey.com/en/resources/api-solutions
     tags:
       - Shopping
     properties:

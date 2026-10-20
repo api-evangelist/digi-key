@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-package-type-by-quantity-response-schema.json",
+  "title": "PackageTypeByQuantityResponse",
+  "description": "Response from a PackageTypeByQuantity Search Service request",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-product-search-api-openapi.yml#/components/schemas/PackageTypeByQuantityResponse",
+  "type": "object",
+  "properties": {
+    "Products": {
+      "description": "List of products that matched the PackageTypeByQuantitySearchService request.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PackageTypeByQuantityProduct"
+      }
+    },
+    "AccountIdUsed": {
+      "format": "int32",
+      "description": "The AccountID we used for the transaction. It may have been entered in the X-DIGIKEY-Account-ID field or determined from the API user’s authentication request.",
+      "type": "integer"
+    },
+    "CustomerIdUsed": {
+      "format": "int32",
+      "description": "The CustomerID we used for the transaction.",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "CategoryNode": {
+      "description": "Category Information",
+      "type": "object",
+      "properties": {
+        "CategoryId": {
+          "format": "int32",
+          "description": "The Category Id",
+          "type": "integer"
+        },
+        "ParentId": {
+          "format": "int32",
+          "description": "If this is a child category, this is the Id of the parent category",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Category name",
+          "type": "string"
+        },
+        "ProductCount": {
+          "format": "int64",
+          "description": "The number of products in the category",
+          "type": "integer"
+        },
+        "NewProductCount": {
+          "format": "int64",
+          "description": "The number of new products in the category",
+          "type": "integer"
+        },
+        "ImageUrl": {
+          "description": "The URL of the image of the category",
+          "type": "string"
+        },
+        "SeoDescription": {
+          "description": "The SEO description for the category",
+          "type": "string"
+        },
+        "ChildCategories": {
+          "description": "A list of all children of the category - Their parent Id will be Category Id",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CategoryNode"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackageType": {
+      "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel(TR), Cut Tape(CT), Digi-Reel(DKR), Tube, Tray, and Bulk.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "PackageType Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "PackageType Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackageTypeByQuantityProduct": {
+      "description": "Aggregator Product Dto",
+      "type": "object",
+      "properties": {
+        "RecommendedQuantity": {
+          "format": "int32",
+          "description": "Recommended quantity for product",
+          "type": "integer"
+        },
+        "DigiKeyProductNumber": {
+          "description": "The Digi-Key part number.",
+          "type": "string"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "description": "Quantity of the product available for immediate sale.",
+          "type": "integer"
+        },
+        "ProductDescription": {
+          "description": "Catalog description of the product.",
+          "type": "string"
+        },
+        "DetailedDescription": {
+          "description": "Extended catalog description of the product.",
+          "type": "string"
+        },
+        "ManufacturerName": {
+          "description": "Manufacturer of the product.",
+          "type": "string"
+        },
+        "ManufacturerProductNumber": {
+          "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for\ndifferent parts.",
+          "type": "string"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "description": "The minimum quantity to order from Digi-Key.",
+          "type": "integer"
+        },
+        "PrimaryDatasheetUrl": {
+          "description": "The URL to the product's datasheet.",
+          "type": "string"
+        },
+        "PrimaryPhotoUrl": {
+          "description": "The URL to the product's image.",
+          "type": "string"
+        },
+        "ProductStatus": {
+          "description": "Status of the product. Options include: Active, Obsolete, Discontinued at Digi-Key,\nLast Time Buy, Not For New Designs, Preliminary. For obsolete parts the part\nwill become a non-stocking item when stock is depleted; minimums will apply.\nOrder the quantity available or the quantity available plus a multiple of the\nminimum order quantity.\n///",
+          "type": "string"
+        },
+        "ManufacturerLeadWeeks": {
+          "description": "The number of weeks expected to receive stock from manufacturer.",
+          "type": "string"
+        },
+        "ManufacturerWarehouseQuantity": {
+          "format": "int32",
+          "description": "Quantity of this product available to order from manufacturer.",
+          "type": "integer"
+        },
+        "RohsStatus": {
+          "description": "RoHS status. Can be RoHS Compliant, RoHS non-compliant, RoHS Compliant By Exemption, Not Applicable, Vendor\nundefined, Request Inventory Verification, or ROHS3 Compliant.",
+          "type": "string"
+        },
+        "RoHSCompliant": {
+          "description": "Boolean value for RoHS compliance.",
+          "type": "boolean"
+        },
+        "Category": {
+          "$ref": "#/$defs/CategoryNode"
+        },
+        "ReachStatus": {
+          "description": "",
+          "type": "string"
+        },
+        "MoistureSensitivityLevel": {
+          "description": "",
+          "type": "string"
+        },
+        "HtsusCode": {
+          "description": "",
+          "type": "string"
+        },
+        "ExportControlClassNumber": {
+          "description": "",
+          "type": "string"
+        },
+        "PackageType": {
+          "$ref": "#/$defs/PackageType"
+        },
+        "MaxQuantityForDistribution": {
+          "format": "int64",
+          "description": "Maximum order quantity for Distribution",
+          "type": "integer"
+        },
+        "StandardPackage": {
+          "format": "int32",
+          "description": "The number of products in the manufacturer's standard package.",
+          "type": "integer"
+        },
+        "TariffActive": {
+          "description": "Is a Tariff active",
+          "type": "boolean"
+        },
+        "QuantityOnOrder": {
+          "format": "int32",
+          "description": "Quantity of this product ordered but not immediately available.",
+          "type": "integer"
+        },
+        "StandardPricing": {
+          "description": "Standard pricing for the validated locale.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PriceBreak"
+          }
+        },
+        "MyPricing": {
+          "description": "My pricing for the validated locale.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PriceBreak"
+          }
+        },
+        "ProductUrl": {
+          "description": "Full URL of the Digi-Key catalog page to purchase the product. This is based on your provided Locale values.",
+          "type": "string"
+        },
+        "MarketPlace": {
+          "description": "Is this product a marketplace product",
+          "type": "boolean"
+        },
+        "Supplier": {
+          "description": "Name of product supplier",
+          "type": "string"
+        },
+        "StockNote": {
+          "description": "Description of Digi-Key's current stocking status for the product. Possible values include: In Stock, Temporarily\nOut of Stock, and Limited Supply - Call.",
+          "type": "string"
+        },
+        "PackageTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PriceBreak": {
+      "description": "Price when a product is purchased by specific quantities",
+      "type": "object",
+      "properties": {
+        "BreakQuantity": {
+          "format": "int32",
+          "description": "The quantity at which the price takes effect",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "The unit price for the quantity",
+          "type": "number"
+        },
+        "TotalPrice": {
+          "format": "double",
+          "description": "The total price",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

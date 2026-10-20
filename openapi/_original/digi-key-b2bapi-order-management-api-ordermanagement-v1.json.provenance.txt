@@ -1,0 +1,15 @@
+publisher: DigiKey
+method: assembled from provider-published fragments
+how: each DigiKey developer-portal operation page embeds its Swagger 2.0 fragment verbatim in drupalSettings.spec;
+     the fragments were fetched 2026-10-19 and merged by info.title + basePath. Content is DigiKey's; the merge is ours.
+pages:
+  - https://developer.digikey.com/products/ordering/ordermanagement/salesorderbyid
+  - https://developer.digikey.com/products/ordering/ordermanagement/salesordersbyponumber
+  - https://developer.digikey.com/products/ordering/ordermanagement/changeeligibility
+  - https://developer.digikey.com/products/ordering/ordermanagement/nextavailabledeliverydate
+  - https://developer.digikey.com/products/ordering/ordermanagement/salesorderdetails
+  - https://developer.digikey.com/products/ordering/ordermanagement/salesorderdetailbyid
+  - https://developer.digikey.com/products/ordering/ordermanagement/salesorderschedules
+  - https://developer.digikey.com/products/ordering/ordermanagement/replaceschedule
+  - https://developer.digikey.com/products/ordering/ordermanagement/salesorderschedulebyid
+  - https://developer.digikey.com/products/ordering/ordermanagement/partialscheduleupdate

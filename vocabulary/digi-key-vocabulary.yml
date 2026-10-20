@@ -1,0 +1,426 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/digi-key-barcoding-api-openapi.yml
+- openapi/digi-key-bondedinventory-api-openapi.yml
+- openapi/digi-key-customerresource-api-openapi.yml
+- openapi/digi-key-lists-api-openapi.yml
+- openapi/digi-key-orderhistory-api-openapi.yml
+vocabulary:
+  name: Digi-Key Domain Vocabulary
+  description: 'Terms declared by Digi-Key''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-20'
+  terms:
+  - term: Product2DBarcodeResponse
+    definition: Data retrieved from a 2D barcode on a product.
+    tags:
+    - Object
+    source: openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/Product2DBarcodeResponse
+  - term: PackListBarcodeResponse
+    definition: Data retrieved from a Packlist.
+    tags:
+    - Object
+    source: openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/PackListBarcodeResponse
+  - term: ApiErrorResponse
+    definition: 'Object declared by the contract with fields: ErrorResponseVersion, StatusCode, ErrorMessage, ErrorDetails, RequestId, ValidationErrors.'
+    tags:
+    - Object
+    source: openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/ApiErrorResponse
+  - term: ProductBarcodeResponse
+    definition: Barcode Response model containing a basic product information and the quantity.
+    tags:
+    - Object
+    source: openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/ProductBarcodeResponse
+  - term: PackListDetail
+    definition: A detail from a Packlist containing the DigiKeyPartNumber and Quantity.
+    tags:
+    - Object
+    source: openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/PackListDetail
+  - term: ApiValidationError
+    definition: 'Object declared by the contract with fields: Field, Message.'
+    tags:
+    - Object
+    source: openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/ApiValidationError
+  - term: BondedInventoryProductResponse
+    definition: Bonded Inventory response model
+    tags:
+    - Object
+    source: openapi/digi-key-bondedinventory-api-openapi.yml#/components/schemas/BondedInventoryProductResponse
+  - term: CustomerLocationResponse
+    definition: 'Object declared by the contract with fields: CustomerId, BondedInventory, Currency, ShippingAddress.'
+    tags:
+    - Object
+    source: openapi/digi-key-bondedinventory-api-openapi.yml#/components/schemas/CustomerLocationResponse
+  - term: Address
+    definition: Company or Organization address
+    tags:
+    - Object
+    source: openapi/digi-key-bondedinventory-api-openapi.yml#/components/schemas/Address
+  - term: AccountAddress
+    definition: Address for account
+    tags:
+    - Object
+    source: openapi/digi-key-customerresource-api-openapi.yml#/components/schemas/AccountAddress
+  - term: AccountInformation
+    definition: Information on a particular account
+    tags:
+    - Object
+    source: openapi/digi-key-customerresource-api-openapi.yml#/components/schemas/AccountInformation
+  - term: DKProblemDetails
+    definition: 'Object declared by the contract with fields: type, title, status, detail, instance, correlationId, errors.'
+    tags:
+    - Object
+    source: openapi/digi-key-customerresource-api-openapi.yml#/components/schemas/DKProblemDetails
+  - term: AccountAssociationResponse
+    definition: AccountAssociationResponse
+    tags:
+    - Object
+    source: openapi/digi-key-customerresource-api-openapi.yml#/components/schemas/AccountAssociationResponse
+  - term: ListData
+    definition: 'Object declared by the contract with fields: Id, ListName, CreatedBy, CustomerId, AccountId, CompanyName, FirstName, LastName,
+      Notes, TotalParts, DateCreated, DateLastAccessed. (7 more)'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/ListData
+  - term: Column
+    definition: 'Object declared by the contract with fields: ColumnName, IsVisible.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/Column
+  - term: RequestedQuantity
+    definition: 'Object declared by the contract with fields: SelectedPackType, SelectedSubPackType, Quantity, TargetPrice.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/RequestedQuantity
+  - term: ListSettings
+    definition: 'Object declared by the contract with fields: Visibility, PackagePreference, ColumnPreferences, AutoCorrectQuantities, AttritionEnabled,
+      AutoPopulateCref.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/ListSettings
+  - term: CreateListRequest
+    definition: Information need for creating a new MyList
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/CreateListRequest
+  - term: Revision
+    definition: 'Object declared by the contract with fields: Id, ListId, RevisionNumber, DateCreated, Parts.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/Revision
+  - term: UserInformation
+    definition: 'Object declared by the contract with fields: ContactId, AccountId.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/UserInformation
+  - term: ReferenceList
+    definition: 'Object declared by the contract with fields: ListId, IsGuestList, IsRevision.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/ReferenceList
+  - term: RequestedPart
+    definition: 'Object declared by the contract with fields: UniqueId, PartId, RequestedPartNumber, OriginalPartNumber, ManufacturerName, CustomerReference,
+      ReferenceDesignator, Notes, SelectedQuantityIndex, Attrition, AlternateParts, Quantities.'
+    tags:
+    - Object
+    source: openapi/digi-key-lists-api-openapi.yml#/components/schemas/RequestedPart
+  - term: Schedule
+    definition: 'Object declared by the contract with fields: QuantityScheduled, ScheduledDate, DigiKeyReleaseDate.'
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/Schedule
+  - term: SalesOrderStatusInfo
+    definition: 'Object declared by the contract with fields: SalesOrderStatus, ShortDescription, LongDescription.'
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/SalesOrderStatusInfo
+  - term: Order
+    definition: 'Object declared by the contract with fields: OrderNumber, CustomerId, DateEntered, Currency, PONumber, EntireOrderStatus, SalesOrders.'
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/Order
+  - term: ItemShipInfo
+    definition: 'Object declared by the contract with fields: QuantityShipped, InvoiceId, ShippedDate, TrackingNumber, ExpectedDeliveryDate.'
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/ItemShipInfo
+  - term: OrderStatusInfo
+    definition: 'Object declared by the contract with fields: OrderStatus, ShortDescription, LongDescription.'
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/OrderStatusInfo
+  - term: Contact
+    definition: The contact information for a given customer
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/Contact
+  - term: OrderResponse
+    definition: 'Object declared by the contract with fields: TotalOrders, Orders.'
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/OrderResponse
+  - term: SalesOrder
+    definition: DTO for a Sales Order
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/SalesOrder
+  - term: LineItem
+    definition: LineItem for a given Sales Order
+    tags:
+    - Object
+    source: openapi/digi-key-orderhistory-api-openapi.yml#/components/schemas/LineItem
+  - term: SalesOrderScheduleForUpdate
+    definition: 'Object declared by the contract with fields: ScheduleDate, QuantityScheduled.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderScheduleForUpdate
+  - term: SalesOrdersByPoNumberView
+    definition: 'Object declared by the contract with fields: SalesOrdersDetails.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrdersByPoNumberView
+  - term: Operation
+    definition: 'Object declared by the contract with fields: value, path, op, from.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/Operation
+  - term: SalesOrderView
+    definition: 'Object declared by the contract with fields: Currency, SalesOrderId, CustomerId, PurchaseOrderNumber, ShipMethod, Details.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderView
+  - term: SalesOrderSchedulesView
+    definition: 'Object declared by the contract with fields: ScheduleDate, DetailId, QuantityScheduled, SalesOrderId, ScheduleIndex.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderSchedulesView
+  - term: SalesOrderByPoNumberDetail
+    definition: 'Object declared by the contract with fields: SalesOrderId, CustomerId, AccountId, OrderName, PurchaseOrder, DateEntered, ProcessingState,
+      DisplayFlag.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderByPoNumberDetail
+  - term: SchedulePatchView
+    definition: 'Object declared by the contract with fields: Original, Patched.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SchedulePatchView
+  - term: SalesOrderDetailView
+    definition: 'Object declared by the contract with fields: PoLineItemNumber, SalesOrderId, DetailId, DigiKeyPartNumber, ManufacturerPartNumber,
+      Quantity, QuantityBackorder, QuantityShipped, InvoiceId, StandardPackSize, Schedules.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderDetailView
+  - term: NextAvailableDeliveryDateView
+    definition: 'Object declared by the contract with fields: NextRelease, EstimatedDeliveryDate.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/NextAvailableDeliveryDateView
+  - term: SalesOrderEligibilityView
+    definition: 'Object declared by the contract with fields: Eligibility, SalesOrderId, DetailsWithOpenSchedulesCount.'
+    tags:
+    - Object
+    source: openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderEligibilityView
+  - term: ShippingContact
+    definition: Shipping contact information
+    tags:
+    - Object
+    source: openapi/digi-key-orders-api-openapi.yml#/components/schemas/ShippingContact
+  - term: ExportQuestions
+    definition: Required structure for Independent Distributors if product is shipping outside of the US. Otherwise do not include.
+    tags:
+    - Object
+    source: openapi/digi-key-orders-api-openapi.yml#/components/schemas/ExportQuestions
+  - term: BuyerContact
+    definition: Contact information for buyer
+    tags:
+    - Object
+    source: openapi/digi-key-orders-api-openapi.yml#/components/schemas/BuyerContact
+  - term: OrderRequest
+    definition: Model that contains all information required for an order.
+    tags:
+    - Object
+    source: openapi/digi-key-orders-api-openapi.yml#/components/schemas/OrderRequest
+  - term: SalesOrderPackList
+    definition: PackList from provided Sales Order Id
+    tags:
+    - Object
+    source: openapi/digi-key-packlist-api-openapi.yml#/components/schemas/SalesOrderPackList
+  - term: PoNumberPackList
+    definition: 'Object declared by the contract with fields: SalesOrderPackLists, PoNumber.'
+    tags:
+    - Object
+    source: openapi/digi-key-packlist-api-openapi.yml#/components/schemas/PoNumberPackList
+  - term: PackingListItem
+    definition: 'Object declared by the contract with fields: InvoiceId, SalesOrderId, PurchaseOrderNumber, OrderedQuantity, QuantityShipped,
+      QuantityBackOrder, CustomerLineItemId, LineItem, ProductNumber, Description, ECCN, CustomerPartNumber. (7 more)'
+    tags:
+    - Object
+    source: openapi/digi-key-packlist-api-openapi.yml#/components/schemas/PackingListItem
+  - term: InvoicePackingList
+    definition: 'Object declared by the contract with fields: PackingListItem, InvoiceIdEntered, IncludePdfEntered, PdfFound, EncodedString.'
+    tags:
+    - Object
+    source: openapi/digi-key-packlist-api-openapi.yml#/components/schemas/InvoicePackingList
+  - term: ListPart
+    definition: 'Object declared by the contract with fields: PartId, UniqueId, CustomerReference, ReferenceDesignator, Notes, MinOrderQty, MaxOrderQty,
+      OriginalPartNumber, RequestedPartNumber, DigiKeyPartNumber, ManufacturerPartNumber, RequestedManufacturerName. (29 more)'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/ListPart
+  - term: PackOptionWithPricing
+    definition: 'Object declared by the contract with fields: PartId, DigiKeyPartNumber, ManufacturerPartNumber, Quantity, PackType, QuantityAvailable,
+      MinimumOrderQuantity, CalculatedUnitPrice, ExtendedPrice, BreakPrice, BreakQuantity, IsUpsell. (4 more)'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/PackOptionWithPricing
+  - term: PartOption
+    definition: 'Object declared by the contract with fields: PartId, DigiKeyPartNumber, Manufacturer, ManufacturerPartNumber, Description, PartDetailUrl,
+      SubstituteType, MinimumOrderQuantity, QuantityAvailable, TariffStatus, MasterPartId, UnitPrice.'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/PartOption
+  - term: CrefPartOption
+    definition: 'Object declared by the contract with fields: ManufacturerPartnumber, Manufacturer, MinimumOrderQuantity, Description, QuantityAvailable.'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/CrefPartOption
+  - term: PartsByListIdResponse
+    definition: 'Object declared by the contract with fields: PartsList, TotalParts.'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/PartsByListIdResponse
+  - term: ListPartQuantity
+    definition: 'Object declared by the contract with fields: QuantityRequested, CalculatedQuantity, TargetPrice, SelectedPackType, SelectedSubPackType,
+      IsInactive, SelectedPackOptionIndex, SelectedSubPackOptionIndex, PackOptions.'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/ListPartQuantity
+  - term: ListPartFlags
+    definition: 'Object declared by the contract with fields: NonStock, IsNCNR, IsSDS, IsValueAdd, IsMatched, IsMarketPlace, BoNotAllowed, DisplayRegularLeadTime,
+      DisplayCheckActiveLeadTime, MultipleCrefsForPart, MultiplePartsForCref, IsChecked. (4 more)'
+    tags:
+    - Object
+    source: openapi/digi-key-parts-api-openapi.yml#/components/schemas/ListPartFlags
+  - term: ChangeNotification
+    definition: The change notification details.
+    tags:
+    - Object
+    source: openapi/digi-key-pcn-api-openapi.yml#/components/schemas/ChangeNotification
+  - term: PcnResponse
+    definition: The response containing the Product Change Notifications
+    tags:
+    - Object
+    source: openapi/digi-key-pcn-api-openapi.yml#/components/schemas/PcnResponse
+  - term: KeywordResponse
+    definition: 'Object declared by the contract with fields: Products, ProductsCount, ExactMatches, FilterOptions, SearchLocaleUsed, AppliedParametricFiltersDto.'
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/KeywordResponse
+  - term: ProductStatusV4
+    definition: 'Object declared by the contract with fields: Id, Status.'
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductStatusV4
+  - term: SortOptions
+    definition: Options available to sort by
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/SortOptions
+  - term: Supplier
+    definition: Supplier Information
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/Supplier
+  - term: PriceBreak
+    definition: Price when a product is purchased by specific quantities
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/PriceBreak
+  - term: ProductVariation
+    definition: Variations of the requested product
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductVariation
+  - term: ProductPricingResponse
+    definition: A sub set of the product infromation
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductPricingResponse
+  - term: ProductPricingVariation
+    definition: Variations of the requested ProductPricing
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductPricingVariation
+  - term: ProductPricing
+    definition: Product
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductPricing
+  - term: PricingOptionsForQuantityResponse
+    definition: Pricing options for quantity response
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/PricingOptionsForQuantityResponse
+  - term: MediaResponse
+    definition: Response model for Media
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/MediaResponse
+  - term: CategoriesResponse
+    definition: Response model for Categories call.
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/CategoriesResponse
+  - term: RecommendedProduct
+    definition: The recommended product based on the submitted DigiKeyProductNumber.
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/RecommendedProduct
+  - term: PackageTypeByQuantityProduct
+    definition: Aggregator Product Dto
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/PackageTypeByQuantityProduct
+  - term: DigiReelPricing
+    definition: Response for Digi-Reel Pricing Request
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/DigiReelPricing
+  - term: CategoryResponse
+    definition: Response model for a single Category call.
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/CategoryResponse
+  - term: KeywordRequest
+    definition: Criteria for Keyword Requests
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/KeywordRequest
+  - term: AlternatePackaging
+    definition: Alternate Packaging
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/AlternatePackaging
+  - term: ProductAssociationsResponse
+    definition: Response model for ProductAssociations
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductAssociationsResponse
+  - term: ProductSummary
+    definition: Product Summary used by kits and associations
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductSummary
+  - term: ProductSubstitutesResponse
+    definition: Response model for ProductSubstitutes
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductSubstitutesResponse
+  - term: FilterValue
+    definition: Filter Values
+    tags:
+    - Object
+    source: openapi/digi-key-product-search-api-openapi.yml#/components/schemas/FilterValue

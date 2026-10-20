@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-add-products-to-quote-response-schema.json",
+  "title": "AddProductsToQuoteResponse",
+  "description": "Response model when adding details to a quote via API.",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-quotes-api-openapi.yml#/components/schemas/AddProductsToQuoteResponse",
+  "type": "object",
+  "properties": {
+    "QuoteId": {
+      "format": "int32",
+      "description": "The unique Id which identifies this quote.",
+      "type": "integer"
+    },
+    "Errors": {
+      "description": "Errors will contain issues with specific details and will indicate that the detail will likely be incorrect or not\nadded.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Comments": {
+      "description": "Comments will contain warnings or comments about specific details that you may want to take note of but should not\nprevent the detail from being added.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

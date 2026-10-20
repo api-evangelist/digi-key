@@ -1,0 +1,241 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "title": "Product Change Notifications Api",
+  "description": "Display all Product Change Notifications for a given DigiKey product",
+  "termsOfService": "https://www.digikey.com/en/terms-and-conditions",
+  "contact": {
+   "name": "API Support",
+   "url": "https://developer.digikey.com/support"
+  },
+  "version": "v3"
+ },
+ "host": "api.digikey.com",
+ "x-host-sandbox": "sandbox-api.digikey.com",
+ "x-host-production": "api.digikey.com",
+ "basePath": "/ChangeNotifications/v3",
+ "schemes": [
+  "https"
+ ],
+ "paths": {
+  "/Products/{DigiKeyPartNumber}": {
+   "get": {
+    "tags": [
+     "Pcn"
+    ],
+    "summary": "This returns all change notifications for the given DigiKey product.",
+    "operationId": "ProductChangeNotifications",
+    "produces": [
+     "application/json"
+    ],
+    "parameters": [
+     {
+      "in": "path",
+      "name": "DigiKeyPartNumber",
+      "description": "The product to retrieve change notifications for.",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "query",
+      "name": "Includes",
+      "description": "Comma separated list of fields to return. Used to customize response to reduce bandwidth by selecting fields that you wish to receive. For example: \"ProductChangeNotifications\\[2\\](PcnType,PcnDescription)\"",
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "Authorization",
+      "description": "OAuth Bearer Token. Please see<a href= \"https://developer.digikey.com/documentation/oauth\" target= \"_blank\" > OAuth 2.0 Documentation </a > page for more info.",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "X-DIGIKEY-Client-Id",
+      "description": "The Client Id for your App.",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "X-DIGIKEY-Locale-Site",
+      "description": "Two letter code for Digi-Key product website to search on. Different countries sites have different part restrictions, supported languages, and currencies. Acceptable values include: US, CA, JP, UK, DE, AT, BE, DK, FI, GR, IE, IT, LU, NL, NO, PT, ES, KR, HK, SG, CN, TW, AU, FR, IN, NZ, SE, MX, CH, IL, PL, SK, SI, LV, LT, EE, CZ, HU, BG, MY, ZA, RO, TH, PH.",
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "X-DIGIKEY-Locale-Language",
+      "description": "Two letter code for language to search on. Langauge must be supported by the selected site. If searching on keyword, this language is used to find matches. Acceptable values include: en, ja, de, fr, ko, zhs, zht, it, es, he, nl, sv, pl, fi, da, no.",
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "X-DIGIKEY-Locale-Currency",
+      "description": "Three letter code for Currency to return part pricing for. Currency must be supported by the selected site. Acceptable values include: USD, CAD, JPY, GBP, EUR, HKD, SGD, TWD, KRW, AUD, NZD, INR, DKK, NOK, SEK, ILS, CNY, PLN, CHF, CZK, HUF, RON, ZAR, MYR, THB, PHP.",
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "X-DIGIKEY-Locale-ShipToCountry",
+      "description": "ISO code for country to ship to.",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/PcnResponse"
+      }
+     },
+     "401": {
+      "description": "Unauthorized - Token is expired or client Id or subscription are invalid",
+      "schema": {
+       "$ref": "#/definitions/ApiErrorResponse"
+      }
+     },
+     "404": {
+      "description": "Not Found - There were no change notifications found for this product",
+      "schema": {
+       "$ref": "#/definitions/ApiErrorResponse"
+      }
+     },
+     "429": {
+      "description": "Too Many Requests - Your rate limit has been exceeded",
+      "schema": {
+       "$ref": "#/definitions/ApiErrorResponse"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable - The service is temporarily unavailable",
+      "schema": {
+       "$ref": "#/definitions/ApiErrorResponse"
+      }
+     }
+    }
+   }
+  }
+ },
+ "securityDefinitions": {
+  "apiKeySecurity": {
+   "type": "apiKey",
+   "name": "X-DIGIKEY-Client-Id",
+   "in": "header"
+  },
+  "oauth2AccessCodeSecurity": {
+   "type": "oauth2",
+   "flow": "accessCode",
+   "authorizationUrl": "https://api.digikey.com/v1/oauth2/authorize",
+   "tokenUrl": "https://api.digikey.com/v1/oauth2/token"
+  }
+ },
+ "security": [
+  {
+   "apiKeySecurity": [],
+   "oauth2AccessCodeSecurity": []
+  }
+ ],
+ "definitions": {
+  "ChangeNotification": {
+   "description": "The change notification details.",
+   "type": "object",
+   "properties": {
+    "DigiKeyPartNumber": {
+     "description": "The Digi-Key part number",
+     "type": "string",
+     "example": "FJAF4210RTU-ND"
+    },
+    "PcnChangeDate": {
+     "description": "The release date of the product change notification. Date is in ISO 8601.",
+     "type": "string",
+     "example": "2017-10-25T09:19:28Z"
+    },
+    "PcnTypeId": {
+     "description": "The product change notification category id - this is included for easy sorting",
+     "type": "string",
+     "example": "40"
+    },
+    "PcnType": {
+     "description": "The product change notification type - in the language of the user (if available) - otherwise English",
+     "type": "string",
+     "example": "PCN Packaging"
+    },
+    "PcnDescription": {
+     "description": "A brief description of the change.",
+     "type": "string",
+     "example": "Mult Devices 24/Oct/2017"
+    },
+    "PcnLink": {
+     "description": "The link to the online pdf describing the change.",
+     "type": "string",
+     "example": "https://media.digikey.com/pdf/PCNs/On%20Semi/P7A2AAB.pdf"
+    }
+   }
+  },
+  "PcnResponse": {
+   "description": "The response containing the Product Change Notifications",
+   "required": [
+    "DigiKeyPartNumber",
+    "ProductChangeNotifications"
+   ],
+   "type": "object",
+   "properties": {
+    "DigiKeyPartNumber": {
+     "description": "The product for which we are returning the change notifications.",
+     "type": "string",
+     "example": "FJAF4210RTU-ND"
+    },
+    "ProductChangeNotifications": {
+     "description": "The list of change notifications for the requested product.",
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/ChangeNotification"
+     }
+    }
+   }
+  },
+  "ApiValidationError": {
+   "type": "object",
+   "properties": {
+    "Field": {
+     "type": "string"
+    },
+    "Message": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiErrorResponse": {
+   "type": "object",
+   "properties": {
+    "ErrorResponseVersion": {
+     "type": "string",
+     "readOnly": true
+    },
+    "StatusCode": {
+     "format": "int32",
+     "type": "integer"
+    },
+    "ErrorMessage": {
+     "type": "string"
+    },
+    "ErrorDetails": {
+     "type": "string"
+    },
+    "RequestId": {
+     "type": "string"
+    },
+    "ValidationErrors": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/ApiValidationError"
+     }
+    }
+   }
+  }
+ },
+ "tags": [],
+ "x-source-pages": [
+  "https://developer.digikey.com/products/product-information-v4/productchangenotifications/productchangenotifications"
+ ]
+}

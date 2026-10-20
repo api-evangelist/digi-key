@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-bonded-inventory-product-response-schema.json",
+  "title": "BondedInventoryProductResponse",
+  "description": "Bonded Inventory response model",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-bondedinventory-api-openapi.yml#/components/schemas/BondedInventoryProductResponse",
+  "type": "object",
+  "properties": {
+    "DigiKeyPartNumber": {
+      "description": "The Digi-Key part number.",
+      "type": "string"
+    },
+    "ManufacturerPartNumber": {
+      "description": "The Manufacturer Part Number.",
+      "type": "string"
+    },
+    "CustomerPartNumber": {
+      "description": "The Customer Part Number.",
+      "type": "string"
+    },
+    "ProductDescription": {
+      "description": "Catalog description of the product.",
+      "type": "string"
+    },
+    "Manufacturer": {
+      "description": "The Manufacturer of the product.",
+      "type": "string"
+    },
+    "UnitPrice": {
+      "format": "double",
+      "description": "The price for a single unit of this product.",
+      "type": "number"
+    },
+    "PackType": {
+      "description": "The Package Type of the product",
+      "type": "string"
+    },
+    "CountryOfOrigin": {
+      "description": "The Country Of Origin of the product",
+      "type": "string"
+    },
+    "ReserveQuantity": {
+      "format": "int32",
+      "description": "The quantity reserved on backorder on the master/program.",
+      "type": "integer"
+    },
+    "BackOrderReserveQuantity": {
+      "format": "int32",
+      "description": "The Reserve Quantity on backorder",
+      "type": "integer"
+    },
+    "VendorLeadWeeks": {
+      "description": "The number of weeks lead time",
+      "type": "string"
+    },
+    "CustomerId": {
+      "format": "int32",
+      "description": "The unique Id assigned to your Account’s location. This CustomerID is not the same value as the user’s individual CustomerID.",
+      "type": "integer"
+    },
+    "NcnrQuantity": {
+      "format": "int32",
+      "description": "Date NCNR was signed.  Note:  If there is no NCNR applicable, the date will default to 1858-11-17.",
+      "type": "integer"
+    },
+    "NcnrDateSigned": {
+      "format": "date-time",
+      "description": "NCNR Date Signed",
+      "type": "string"
+    },
+    "MinimumReleaseQuantityOverride": {
+      "description": "Override for MFG Sales Pack.  If value is TRUE, MOQ = 1 pc unless there is a quantity greater than “0” in the Minimum Quantity Threshold field.  If value is FALSE, MOQ = MFG Sales Pack.",
+      "type": "boolean"
+    },
+    "MinimumQuantityThreshold": {
+      "format": "int32",
+      "description": "*Only applicable if previous field “MinimumReleaseQuantityOverride” value = TRUE*.  The adjusted minimum order quantity.  If the value = “0” (the default) then the MOQ = 1 pc.  If the value is greater than “0”, that is the new MOQ.",
+      "type": "integer"
+    },
+    "NonCancelable": {
+      "description": "Supply Chain Non-Cancelable, Non-Returnable Agreement.  If value is TRUE, part is considered NCNR.",
+      "type": "boolean"
+    },
+    "StandardPackage": {
+      "format": "int32",
+      "description": "The number of products in the manufacturer's standard package.",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

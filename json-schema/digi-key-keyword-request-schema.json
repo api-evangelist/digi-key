@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-keyword-request-schema.json",
+  "title": "KeywordRequest",
+  "description": "Criteria for Keyword Requests",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-product-search-api-openapi.yml#/components/schemas/KeywordRequest",
+  "type": "object",
+  "properties": {
+    "Keywords": {
+      "description": "A String of Keywords, up to 250 characters",
+      "type": "string"
+    },
+    "Limit": {
+      "format": "int32",
+      "description": "Number of products to return between 1 and 50.",
+      "type": "integer"
+    },
+    "Offset": {
+      "format": "int32",
+      "description": "The starting index of the records returned. This is used to paginate beyond RecordCount number of results.",
+      "type": "integer"
+    },
+    "FilterOptionsRequest": {
+      "$ref": "#/$defs/FilterOptionsRequest"
+    },
+    "SortOptions": {
+      "$ref": "#/$defs/SortOptions"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "FilterId": {
+      "description": "Filter Id",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The Id of the Filter",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FilterOptionsRequest": {
+      "description": "Filtering options for keyword search",
+      "type": "object",
+      "properties": {
+        "ManufacturerFilter": {
+          "description": "Filter on Manufacturer",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterId"
+          }
+        },
+        "CategoryFilter": {
+          "description": "Category",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterId"
+          }
+        },
+        "StatusFilter": {
+          "description": "Status",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterId"
+          }
+        },
+        "PackagingFilter": {
+          "description": "Packaging",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterId"
+          }
+        },
+        "MarketPlaceFilter": {
+          "description": "MarketPlaceFilter",
+          "enum": [
+            "NoFilter",
+            "ExcludeMarketPlace",
+            "MarketPlaceOnly"
+          ],
+          "type": "string"
+        },
+        "TariffFilter": {
+          "description": "TariffFilter",
+          "enum": [
+            "None",
+            "ExcludeTariff",
+            "TariffOnly"
+          ],
+          "type": "string"
+        },
+        "SeriesFilter": {
+          "description": "SeriesFilter",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterId"
+          }
+        },
+        "MinimumQuantityAvailable": {
+          "format": "int32",
+          "description": "The MinimumQuantityAvailable for the result to display",
+          "type": "integer"
+        },
+        "ParameterFilterRequest": {
+          "$ref": "#/$defs/ParameterFilterRequest"
+        },
+        "SearchOptions": {
+          "description": "/SearchOptions",
+          "type": "array",
+          "items": {
+            "enum": [
+              "ChipOutpost",
+              "Has3DModel",
+              "HasCadModel",
+              "HasDatasheet",
+              "HasProductPhoto",
+              "InStock",
+              "NewProduct",
+              "NonRohsCompliant",
+              "NormallyStocking",
+              "RohsCompliant"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ParameterFilterRequest": {
+      "description": "Request information for using parameter filters",
+      "type": "object",
+      "properties": {
+        "CategoryFilter": {
+          "$ref": "#/$defs/FilterId"
+        },
+        "ParameterFilters": {
+          "description": "The list of search parameters",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParametricCategory"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ParametricCategory": {
+      "description": "Parametric Category",
+      "type": "object",
+      "properties": {
+        "ParameterId": {
+          "format": "int32",
+          "description": "Parameter Id",
+          "type": "integer"
+        },
+        "FilterValues": {
+          "description": "List of FilterIdDtos",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterId"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "SortOptions": {
+      "description": "Options available to sort by",
+      "type": "object",
+      "properties": {
+        "Field": {
+          "description": "Field in response to sort by",
+          "enum": [
+            "None",
+            "Packaging",
+            "ProductStatus",
+            "DigiKeyProductNumber",
+            "ManufacturerProductNumber",
+            "Manufacturer",
+            "MinimumQuantity",
+            "QuantityAvailable",
+            "Price",
+            "Supplier",
+            "PriceManufacturerStandardPackage"
+          ],
+          "type": "string"
+        },
+        "SortOrder": {
+          "description": "Direction to sort by Ascending or Descending",
+          "enum": [
+            "Ascending",
+            "Descending"
+          ],
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

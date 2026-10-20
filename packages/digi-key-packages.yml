@@ -1,0 +1,29 @@
+name: Digi-Key packages
+generated: '2026-10-19'
+method: searched
+source: https://developer.digikey.com/resources
+packages:
+- name: ApiClient.V3
+  registry: github
+  url: https://github.com/Digi-Key/ApiClient.V3
+  language: C#
+  official: true
+  version: null
+  published: null
+  note: Source repo only; no GitHub release published (last push 2024-01-04). Linked from developer.digikey.com/resources.
+- name: ApiClient.V3-Java
+  registry: github
+  url: https://github.com/Digi-Key/ApiClient.V3-Java
+  language: Java
+  official: true
+  version: null
+  published: null
+  note: Source repo only; no GitHub release published (last push 2022-05-20).
+- name: Postman-Collection
+  registry: github
+  url: https://github.com/Digi-Key/Postman-Collection
+  language: Postman
+  official: true
+  version: null
+  published: null
+  note: OAuth2 collection for Sandbox and Production; no release (last push 2023-03-09).

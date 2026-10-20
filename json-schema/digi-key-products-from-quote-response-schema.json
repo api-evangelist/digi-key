@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-products-from-quote-response-schema.json",
+  "title": "ProductsFromQuoteResponse",
+  "description": "A range of Products from a quote",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-quotes-api-openapi.yml#/components/schemas/ProductsFromQuoteResponse",
+  "type": "object",
+  "properties": {
+    "TotalProducts": {
+      "format": "int32",
+      "description": "Total number of products in the quote, may be greater than the number of products returned in this response due to page limits.",
+      "type": "integer"
+    },
+    "QuoteProducts": {
+      "description": "A range of products from a quote",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/QuoteProduct"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "QuoteProduct": {
+      "description": "Extends the quote detail class with more information",
+      "type": "object",
+      "properties": {
+        "DetailId": {
+          "format": "int32",
+          "description": "Unique Identifier for a product.",
+          "type": "integer"
+        },
+        "DigikeyProductNumber": {
+          "description": "Digikey product number",
+          "type": "string"
+        },
+        "RequestedProductNumber": {
+          "description": "Product number that was requested by the customer",
+          "type": "string"
+        },
+        "ManufacturerProductNumber": {
+          "description": "ManufacturerProductNumber",
+          "type": "string"
+        },
+        "ManufacturerName": {
+          "description": "Manufacturer name",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Description of the product",
+          "type": "string"
+        },
+        "CustomerReference": {
+          "description": "The CustomerReference that was entered by the customer.",
+          "type": "string"
+        },
+        "CountryOfOrigin": {
+          "description": "Country of Origin",
+          "type": "string"
+        },
+        "PackageType": {
+          "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but\nare not limited to: Tape and Reel(TR), Cut Tape(CT), Digi-Reel, Tube, Tray, and Bulk.",
+          "type": "string"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "description": "Minimum Order Quantity",
+          "type": "integer"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "description": "In-stock quantity that is available for immediate shipping.",
+          "type": "integer"
+        },
+        "IsObsolete": {
+          "description": "Product is obsolete",
+          "type": "boolean"
+        },
+        "IsDiscontinued": {
+          "description": "This product is no longer sold at DigiKey and will no longer be restocked.",
+          "type": "boolean"
+        },
+        "IsMfgQuoteRequired": {
+          "description": "Product requires a quote from the manufacturer.",
+          "type": "boolean"
+        },
+        "IsMarketplace": {
+          "description": "Product is a Marketplace product that ships direct from the supplier. A separate shipping fee may apply",
+          "type": "boolean"
+        },
+        "RoHSStatus": {
+          "$ref": "#/$defs/RoHSStatusCode"
+        },
+        "ReachStatus": {
+          "$ref": "#/$defs/ReachStatusCode"
+        },
+        "StandardPackage": {
+          "format": "int32",
+          "description": "Quantity of the standard package for the part",
+          "type": "integer"
+        },
+        "ExpirationDate": {
+          "format": "date-time",
+          "description": "Date that the product expires on this quote",
+          "type": "string"
+        },
+        "IsTariffActive": {
+          "description": "True if a tariff is applied",
+          "type": "boolean"
+        },
+        "Quantities": {
+          "description": "List of quantities with unit and extended prices on it",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/QuoteProductQuantity"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "QuoteProductQuantity": {
+      "description": "Contains all quantity information",
+      "type": "object",
+      "properties": {
+        "Quantity": {
+          "format": "int32",
+          "description": "Quoted Quantity",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "Quoted Unit Price",
+          "type": "number"
+        },
+        "ExtendedPrice": {
+          "format": "double",
+          "description": "Quoted Extended Price",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReachStatusCode": {
+      "enum": [
+        "Unknown",
+        "Affected",
+        "Unaffected",
+        "NotApplicable"
+      ],
+      "type": "string"
+    },
+    "RoHSStatusCode": {
+      "enum": [
+        "Unknown",
+        "Compliant",
+        "Mix",
+        "NonCompliant",
+        "ByException",
+        "NotApplicable",
+        "VendorUndefined",
+        "Compliant3"
+      ],
+      "type": "string"
+    }
+  }
+}

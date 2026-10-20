@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-create-list-request-schema.json",
+  "title": "CreateListRequest",
+  "description": "Information need for creating a new MyList",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-lists-api-openapi.yml#/components/schemas/CreateListRequest",
+  "required": [
+    "ListName"
+  ],
+  "type": "object",
+  "properties": {
+    "ListName": {
+      "description": "Gets or sets name of the new list",
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreatedBy": {
+      "description": "Gets or sets who the list was created by (rep or customer)",
+      "type": "string"
+    },
+    "Tags": {
+      "description": "Gets or sets assigns any tags entered to the newly created list",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Source": {
+      "description": "Gets or Sets Source",
+      "enum": [
+        "other",
+        "internal",
+        "external",
+        "mobile",
+        "search",
+        "b2b"
+      ],
+      "type": "string"
+    },
+    "ListSettings": {
+      "$ref": "#/$defs/ListSettings"
+    },
+    "RefList": {
+      "$ref": "#/$defs/ReferenceList"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Column": {
+      "type": "object",
+      "properties": {
+        "ColumnName": {
+          "type": "string"
+        },
+        "IsVisible": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListSettings": {
+      "type": "object",
+      "properties": {
+        "Visibility": {
+          "enum": [
+            "Private",
+            "ReadOnly",
+            "ReadWrite"
+          ],
+          "type": "string"
+        },
+        "PackagePreference": {
+          "enum": [
+            "CutTapeOrTR",
+            "DigiReelOrTR",
+            "EnteredPartNumber",
+            "StandardPack"
+          ],
+          "type": "string"
+        },
+        "ColumnPreferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Column"
+          }
+        },
+        "AutoCorrectQuantities": {
+          "type": "boolean"
+        },
+        "AttritionEnabled": {
+          "type": "boolean"
+        },
+        "AutoPopulateCref": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenceList": {
+      "type": "object",
+      "properties": {
+        "ListId": {
+          "type": "string"
+        },
+        "IsGuestList": {
+          "type": "boolean"
+        },
+        "IsRevision": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-product-barcode-response-schema.json",
+  "title": "ProductBarcodeResponse",
+  "description": "Barcode Response model containing a basic product information and the quantity.",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/ProductBarcodeResponse",
+  "type": "object",
+  "properties": {
+    "DigiKeyPartNumber": {
+      "description": "The Digi-Key part number.",
+      "type": "string"
+    },
+    "ManufacturerPartNumber": {
+      "description": "The manufacturer part number.",
+      "type": "string"
+    },
+    "ManufacturerName": {
+      "description": "Manufacturer of the product.",
+      "type": "string"
+    },
+    "ProductDescription": {
+      "description": "Catalog description of the product.",
+      "type": "string"
+    },
+    "Quantity": {
+      "format": "int32",
+      "description": "Quantity of the product.",
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+generated: '2026-10-19'
+method: derived
+source: openapi/digi-key-b2bapi-order-management-api-ordermanagement-v1-openapi.yml, openapi/digi-key-barcoding-barcoding-v3-openapi.yml,
+  openapi/digi-key-customerresource-customerresource-v1-openapi.yml, openapi/digi-key-mylists-api-mylists-v1-openapi.yml,
+  openapi/digi-key-ordering-api-v3-ordering-v3-openapi.yml, openapi/digi-key-orderstatus-orderstatus-v4-openapi.yml,
+  openapi/digi-key-packinglist-api-packinglist-openapi.yml, openapi/digi-key-product-change-notifications-api-changenotifications-v3-openapi.yml,
+  openapi/digi-key-productsearch-api-products-v4-openapi.yml, openapi/digi-key-quote-api-quoting-v4-openapi.yml,
+  openapi/digi-key-supply-chain-api-supplychain-v1-openapi.yml
+schemes:
+- name: oauth2AccessCodeSecurity
+  source: openapi/digi-key-b2bapi-order-management-api-ordermanagement-v1-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.digikey.com/v1/oauth2/authorize
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2AccessCodeSecurity
+  source: openapi/digi-key-barcoding-barcoding-v3-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.digikey.com/v1/oauth2/authorize
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2ApplicationSecurity
+  source: openapi/digi-key-customerresource-customerresource-v1-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2ApplicationSecurity
+  source: openapi/digi-key-mylists-api-mylists-v1-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2AccessCodeSecurity
+  source: openapi/digi-key-ordering-api-v3-ordering-v3-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.digikey.com/v1/oauth2/authorize
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2ApplicationSecurity
+  source: openapi/digi-key-orderstatus-orderstatus-v4-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2AccessCodeSecurity
+  source: openapi/digi-key-packinglist-api-packinglist-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.digikey.com/v1/oauth2/authorize
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2AccessCodeSecurity
+  source: openapi/digi-key-product-change-notifications-api-changenotifications-v3-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.digikey.com/v1/oauth2/authorize
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2ApplicationSecurity
+  source: openapi/digi-key-productsearch-api-products-v4-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2SecurityScheme
+  source: openapi/digi-key-quote-api-quoting-v4-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.digikey.com/v1/oauth2/authorize
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+- name: oauth2ApplicationSecurity
+  source: openapi/digi-key-supply-chain-api-supplychain-v1-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.digikey.com/v1/oauth2/token
+scopes:
+- scope: Audience
+  description: developer.digikey.com HTTP Api
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/digi-key-quote-api-quoting-v4-openapi.yml

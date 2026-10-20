@@ -1,0 +1,399 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "title": "Supply Chain Api",
+  "description": "Provides ReST API operations for interacting with the Digi-Key Supply Chain services.",
+  "termsOfService": "https://www.digikey.com/en/terms-and-conditions",
+  "contact": {
+   "name": "API Support",
+   "url": "https://developer.digikey.com/support"
+  },
+  "version": "v1"
+ },
+ "securityDefinitions": {
+  "apiKeySecurity": {
+   "type": "apiKey",
+   "name": "X-DIGIKEY-Client-Id",
+   "in": "header"
+  },
+  "oauth2ApplicationSecurity": {
+   "type": "oauth2",
+   "flow": "application",
+   "tokenUrl": "https://api.digikey.com/v1/oauth2/token"
+  }
+ },
+ "security": [
+  {
+   "apiKeySecurity": [],
+   "oauth2ApplicationSecurity": []
+  }
+ ],
+ "host": "api.digikey.com",
+ "x-host-sandbox": "sandbox-api.digikey.com",
+ "x-host-production": "api.digikey.com",
+ "basePath": "/SupplyChain/v1",
+ "schemes": [
+  "http"
+ ],
+ "paths": {
+  "/BondedQuantity/Locations": {
+   "get": {
+    "tags": [
+     "BondedInventory"
+    ],
+    "summary": "Returns the authorized locations",
+    "operationId": "GetLocations",
+    "produces": [
+     "application/json"
+    ],
+    "parameters": [
+     {
+      "in": "header",
+      "name": "Authorization",
+      "description": "OAuth Bearer Token. Please see<a href= \"https://developer.digikey.com/documentation/oauth\" target= \"_blank\" > OAuth 2.0 Documentation </a > page for more info.",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/CustomerLocationResponse"
+       }
+      }
+     }
+    }
+   }
+  },
+  "/BondedQuantity/Products": {
+   "get": {
+    "tags": [
+     "BondedInventory"
+    ],
+    "summary": "Returns all the products with bonded inventory for all authorized locations",
+    "operationId": "GetAllProducts",
+    "produces": [
+     "application/json"
+    ],
+    "parameters": [
+     {
+      "in": "header",
+      "name": "Authorization",
+      "description": "OAuth Bearer Token. Please see<a href= \"https://developer.digikey.com/documentation/oauth\" target= \"_blank\" > OAuth 2.0 Documentation </a > page for more info.",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/BondedInventoryProductResponse"
+       }
+      }
+     }
+    }
+   }
+  },
+  "/BondedQuantity/Locations/{accountId}": {
+   "get": {
+    "tags": [
+     "BondedInventory"
+    ],
+    "summary": "Returns information for a specific location",
+    "operationId": "GetOneLocation",
+    "produces": [
+     "application/json"
+    ],
+    "parameters": [
+     {
+      "in": "path",
+      "name": "accountId",
+      "description": "The unique Id assigned to your Account\u2019s location. This CustomerID is not the same value as the user\u2019s individual CustomerID.\\nYou can identify your SupplyChain CustomerIDs by calling GetLocations or GetAllProducts.",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     },
+     {
+      "in": "header",
+      "name": "Authorization",
+      "description": "OAuth Bearer Token. Please see<a href= \"https://developer.digikey.com/documentation/oauth\" target= \"_blank\" > OAuth 2.0 Documentation </a > page for more info.",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/CustomerLocationResponse"
+      }
+     }
+    }
+   }
+  },
+  "/BondedQuantity/Locations/{accountId}/Products": {
+   "get": {
+    "tags": [
+     "BondedInventory"
+    ],
+    "summary": "Returns all the products with bonded inventory for specific location",
+    "operationId": "GetLocationProducts",
+    "produces": [
+     "application/json"
+    ],
+    "parameters": [
+     {
+      "in": "path",
+      "name": "accountId",
+      "description": "The unique Id assigned to your Account\u2019s location. This CustomerID is not the same value as the user\u2019s individual CustomerID.\\nYou can identify your SupplyChain CustomerIDs by calling GetLocations or GetAllProducts.",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     },
+     {
+      "in": "header",
+      "name": "Authorization",
+      "description": "OAuth Bearer Token. Please see<a href= \"https://developer.digikey.com/documentation/oauth\" target= \"_blank\" > OAuth 2.0 Documentation </a > page for more info.",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/BondedInventoryProductResponse"
+       }
+      }
+     }
+    }
+   }
+  },
+  "/BondedQuantity/Locations/{accountId}/Products/{partNumber}": {
+   "get": {
+    "tags": [
+     "BondedInventory"
+    ],
+    "summary": "Returns Bonded Quantity for a specific part from a specific location",
+    "operationId": "GetProductByPartNumber",
+    "produces": [
+     "application/json"
+    ],
+    "parameters": [
+     {
+      "in": "path",
+      "name": "accountId",
+      "description": "The unique Id assigned to your Account\u2019s location. This CustomerID is not the same value as the user\u2019s individual CustomerID.\\nYou can identify your SupplyChain CustomerIDs by calling GetLocations or GetAllProducts.",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     },
+     {
+      "in": "path",
+      "name": "partNumber",
+      "description": "",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "header",
+      "name": "Authorization",
+      "description": "OAuth Bearer Token. Please see<a href= \"https://developer.digikey.com/documentation/oauth\" target= \"_blank\" > OAuth 2.0 Documentation </a > page for more info.",
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success",
+      "schema": {
+       "$ref": "#/definitions/BondedInventoryProductResponse"
+      }
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "Address": {
+   "description": "Company or Organization address",
+   "type": "object",
+   "properties": {
+    "Company": {
+     "description": "Company or Organization name",
+     "type": "string",
+     "example": "Universal Solutions"
+    },
+    "AddressLineOne": {
+     "description": "First line of address",
+     "type": "string",
+     "example": "Mailstop 15"
+    },
+    "AddressLineTwo": {
+     "description": "Second line of address",
+     "type": "string",
+     "example": "1000 Main Street"
+    },
+    "AddressLineThree": {
+     "description": "Third line of address",
+     "type": "string",
+     "example": "Suite 300"
+    },
+    "City": {
+     "description": "City",
+     "type": "string",
+     "example": "Bloomington"
+    },
+    "Province": {
+     "description": "Province or State",
+     "type": "string",
+     "example": "MN"
+    },
+    "PostalCode": {
+     "description": "Postal Code or Zip Code",
+     "type": "string",
+     "example": "554250000"
+    },
+    "Country": {
+     "description": "Country 2 digit ISO code",
+     "type": "string",
+     "example": "US"
+    }
+   },
+   "additionalProperties": false
+  },
+  "BondedInventoryProductResponse": {
+   "description": "Bonded Inventory response model",
+   "type": "object",
+   "properties": {
+    "DigiKeyPartNumber": {
+     "description": "The Digi-Key part number.",
+     "type": "string",
+     "example": "P5555-ND"
+    },
+    "ManufacturerPartNumber": {
+     "description": "The Manufacturer Part Number.",
+     "type": "string",
+     "example": "ECA-1VHG102"
+    },
+    "CustomerPartNumber": {
+     "description": "The Customer Part Number.",
+     "type": "string",
+     "example": "ECA-1VHG102"
+    },
+    "ProductDescription": {
+     "description": "Catalog description of the product.",
+     "type": "string",
+     "example": "CAP ALUM 1000UF 20% 35V RADIAL"
+    },
+    "Manufacturer": {
+     "description": "The Manufacturer of the product.",
+     "type": "string",
+     "example": "Panasonic Electronic Components"
+    },
+    "UnitPrice": {
+     "format": "double",
+     "description": "The price for a single unit of this product.",
+     "type": "number"
+    },
+    "PackType": {
+     "description": "The Package Type of the product",
+     "type": "string",
+     "example": "BULK"
+    },
+    "CountryOfOrigin": {
+     "description": "The Country Of Origin of the product",
+     "type": "string",
+     "example": "US"
+    },
+    "ReserveQuantity": {
+     "format": "int32",
+     "description": "The quantity reserved on backorder on the master/program.",
+     "type": "integer",
+     "example": 50
+    },
+    "BackOrderReserveQuantity": {
+     "format": "int32",
+     "description": "The Reserve Quantity on backorder",
+     "type": "integer",
+     "example": 50
+    },
+    "VendorLeadWeeks": {
+     "description": "The number of weeks lead time",
+     "type": "string",
+     "example": "12"
+    },
+    "CustomerId": {
+     "format": "int32",
+     "description": "The unique Id assigned to your Account\u2019s location. This CustomerID is not the same value as the user\u2019s individual CustomerID.",
+     "type": "integer"
+    },
+    "NcnrQuantity": {
+     "format": "int32",
+     "description": "Date NCNR was signed.  Note:  If there is no NCNR applicable, the date will default to 1858-11-17.",
+     "type": "integer"
+    },
+    "NcnrDateSigned": {
+     "format": "date-time",
+     "description": "NCNR Date Signed",
+     "type": "string"
+    },
+    "MinimumReleaseQuantityOverride": {
+     "description": "Override for MFG Sales Pack.  If value is TRUE, MOQ = 1 pc unless there is a quantity greater than \u201c0\u201d in the Minimum Quantity Threshold field.  If value is FALSE, MOQ = MFG Sales Pack.",
+     "type": "boolean"
+    },
+    "MinimumQuantityThreshold": {
+     "format": "int32",
+     "description": "*Only applicable if previous field \u201cMinimumReleaseQuantityOverride\u201d value = TRUE*.  The adjusted minimum order quantity.  If the value = \u201c0\u201d (the default) then the MOQ = 1 pc.  If the value is greater than \u201c0\u201d, that is the new MOQ.",
+     "type": "integer"
+    },
+    "NonCancelable": {
+     "description": "Supply Chain Non-Cancelable, Non-Returnable Agreement.  If value is TRUE, part is considered NCNR.",
+     "type": "boolean"
+    },
+    "StandardPackage": {
+     "format": "int32",
+     "description": "The number of products in the manufacturer's standard package.",
+     "type": "integer"
+    }
+   },
+   "additionalProperties": false
+  },
+  "CustomerLocationResponse": {
+   "type": "object",
+   "properties": {
+    "CustomerId": {
+     "format": "int32",
+     "description": "The unique Id assigned to your Account\u2019s location. This CustomerID is not the same value as the user\u2019s individual CustomerID.",
+     "type": "integer",
+     "example": 123456789
+    },
+    "BondedInventory": {
+     "description": "Does the location have bonded Inventory",
+     "type": "boolean",
+     "example": true
+    },
+    "Currency": {
+     "description": "ISO code for currency used in the order.",
+     "type": "string",
+     "example": "USD"
+    },
+    "ShippingAddress": {
+     "$ref": "#/definitions/Address"
+    }
+   },
+   "additionalProperties": false
+  }
+ },
+ "tags": [],
+ "x-source-pages": [
+  "https://developer.digikey.com/products/supplychain/supplychain/getlocations",
+  "https://developer.digikey.com/products/supplychain/supplychain/getallproducts",
+  "https://developer.digikey.com/products/supplychain/supplychain/getonelocation",
+  "https://developer.digikey.com/products/supplychain/supplychain/getlocationproducts",
+  "https://developer.digikey.com/products/supplychain/supplychain/getproductbypartnumber"
+ ]
+}

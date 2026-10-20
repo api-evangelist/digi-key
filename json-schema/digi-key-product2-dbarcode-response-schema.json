@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-product2-dbarcode-response-schema.json",
+  "title": "Product2DBarcodeResponse",
+  "description": "Data retrieved from a 2D barcode on a product.",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-barcoding-api-openapi.yml#/components/schemas/Product2DBarcodeResponse",
+  "type": "object",
+  "properties": {
+    "DigiKeyPartNumber": {
+      "description": "The Digi-Key part number.",
+      "type": "string"
+    },
+    "ManufacturerPartNumber": {
+      "description": "The manufacturer part number.",
+      "type": "string"
+    },
+    "ManufacturerName": {
+      "description": "Manufacturer of the product.",
+      "type": "string"
+    },
+    "ProductDescription": {
+      "description": "Catalog description of the product.",
+      "type": "string"
+    },
+    "Quantity": {
+      "format": "int32",
+      "description": "Quantity of the product.",
+      "type": "integer"
+    },
+    "SalesorderId": {
+      "format": "int32",
+      "description": "The Id for the Salesorder. Note that if the barcode was from a \"Prepack\" label, this will not be populated.",
+      "type": "integer"
+    },
+    "InvoiceId": {
+      "format": "int32",
+      "description": "The Id for the invoice. Note that if the barcode was from a \"Prepack\" label, this will not be populated.",
+      "type": "integer"
+    },
+    "PurchaseOrder": {
+      "description": "Customer PurchaseOrder (custom notes or identifier) on the order. Note that if the barcode was from a \"Prepack\" label, this will not be populated.",
+      "type": "string"
+    },
+    "CountryOfOrigin": {
+      "description": "The country that the product orginates from.",
+      "type": "string"
+    },
+    "LotCode": {
+      "description": "The Lot Code",
+      "type": "string"
+    },
+    "DateCode": {
+      "description": "The date code",
+      "type": "string"
+    }
+  }
+}

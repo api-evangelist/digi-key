@@ -1,0 +1,8 @@
+name: Digi-Key lifecycle
+generated: '2026-10-19'
+method: searched
+source: https://developer.digikey.com/changelog
+versioning: URL path major versions per API product; per-API semantic-versioned changelogs.
+deprecation: https://developer.digikey.com/changelog
+deprecation_note: Sunsetting X-DIGIKEY-Customer-Id (2025-11-24); QuotingAPI replaced by Quote-v4 (supported into 2025); PackageTypeByQuantity marked deprecated in favour of PricingByQuantity.
+status_page: null

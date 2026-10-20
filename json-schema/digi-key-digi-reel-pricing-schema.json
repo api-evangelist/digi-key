@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-digi-reel-pricing-schema.json",
+  "title": "DigiReelPricing",
+  "description": "Response for Digi-Reel Pricing Request",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-product-search-api-openapi.yml#/components/schemas/DigiReelPricing",
+  "type": "object",
+  "properties": {
+    "ReelingFee": {
+      "format": "double",
+      "description": "Fee per reel ordered.",
+      "type": "number"
+    },
+    "UnitPrice": {
+      "format": "double",
+      "description": "Price of a single unit of the product.",
+      "type": "number"
+    },
+    "ExtendedPrice": {
+      "format": "double",
+      "description": "The total price of the requested reels and the reeling fee.",
+      "type": "number"
+    },
+    "RequestedQuantity": {
+      "format": "int32",
+      "description": "The passed in quantity of the product you are looking to create a Digi-Reel with.",
+      "type": "integer"
+    },
+    "SearchLocaleUsed": {
+      "$ref": "#/$defs/IsoSearchLocale"
+    },
+    "AccountIdUsed": {
+      "format": "int32",
+      "description": "The AccountID we used for the transaction. It may have been entered in the X-DIGIKEY-Account-ID field or determined from the API user’s authentication request.",
+      "type": "integer"
+    },
+    "CustomerIdUsed": {
+      "format": "int32",
+      "description": "The CustomerID we used for the transaction.",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "IsoSearchLocale": {
+      "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections.",
+      "type": "object",
+      "properties": {
+        "Site": {
+          "description": "The site we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values.",
+          "type": "string"
+        },
+        "Language": {
+          "description": "The language we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "The currency we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

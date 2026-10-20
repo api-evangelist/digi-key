@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-pricing-options-for-quantity-response-schema.json",
+  "title": "PricingOptionsForQuantityResponse",
+  "description": "Pricing options for quantity response",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-product-search-api-openapi.yml#/components/schemas/PricingOptionsForQuantityResponse",
+  "type": "object",
+  "properties": {
+    "RequestedProduct": {
+      "description": "The requested product used for the API call.",
+      "type": "string"
+    },
+    "RequestedQuantity": {
+      "format": "int32",
+      "description": "The RequestedQuantity we used for the API call. Note we may have lowered or increased your requested amount if it is outside allowed quantities or to provide you a better deal.",
+      "type": "integer"
+    },
+    "ProductUrl": {
+      "description": "Full URL of the DigiKey page to purchase the product. This is based on your provided Locale values.",
+      "type": "string"
+    },
+    "ManufacturerPartNumber": {
+      "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+      "type": "string"
+    },
+    "Manufacturer": {
+      "$ref": "#/$defs/Manufacturer"
+    },
+    "Description": {
+      "$ref": "#/$defs/Description"
+    },
+    "SettingsUsed": {
+      "$ref": "#/$defs/PriceSettingsUsed"
+    },
+    "MyPricingOptions": {
+      "description": "MyPricingOptions",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PricingOptionsForQuantity"
+      }
+    },
+    "StandardPricingOptions": {
+      "description": "StandardPricingOptions",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PricingOptionsForQuantity"
+      }
+    },
+    "AccountIdUsed": {
+      "format": "int32",
+      "description": "The AccountID we used for the transaction. It may have been entered in the X-DIGIKEY-Account-ID field or determined from the API user’s authentication request.",
+      "type": "integer"
+    },
+    "CustomerIdUsed": {
+      "format": "int32",
+      "description": "The CustomerID we used for the transaction.",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Description": {
+      "type": "object",
+      "properties": {
+        "ProductDescription": {
+          "description": "Description of the product. If you entered a valid Locale and Language in the input, we will return the description in that language. Otherwise, we’ll return the English description.",
+          "type": "string"
+        },
+        "DetailedDescription": {
+          "description": "Detailed description of the product. If you entered a valid Locale and Language in the input, we will return the description in that language. Otherwise, we’ll return the English description.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "IsoSearchLocale": {
+      "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections.",
+      "type": "object",
+      "properties": {
+        "Site": {
+          "description": "The site we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values.",
+          "type": "string"
+        },
+        "Language": {
+          "description": "The language we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "The currency we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Manufacturer": {
+      "description": "Manufacturer Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Manufacturer Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Manufacturer Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackageType": {
+      "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel(TR), Cut Tape(CT), Digi-Reel(DKR), Tube, Tray, and Bulk.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "PackageType Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "PackageType Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PriceSettingsUsed": {
+      "type": "object",
+      "properties": {
+        "SearchLocaleUsed": {
+          "$ref": "#/$defs/IsoSearchLocale"
+        },
+        "CustomerIdUsed": {
+          "format": "int32",
+          "description": "The CustomerId that was used for the search and pricing",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PricingOptionsForQuantity": {
+      "type": "object",
+      "properties": {
+        "PricingOption": {
+          "description": "Pricing option for product configuration",
+          "enum": [
+            "Exact",
+            "MinimumOrderQuantity",
+            "BetterValue",
+            "MaxOrderQuantity"
+          ],
+          "type": "string"
+        },
+        "TotalQuantityPriced": {
+          "format": "int32",
+          "description": "Nested within this are the different package types. Each of those has a QuantityPriced.",
+          "type": "integer"
+        },
+        "TotalPrice": {
+          "format": "double",
+          "description": "Nested within this are the different package types. Each of those has a ExtendedPrice.",
+          "type": "number"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "description": "The total quantity available",
+          "type": "integer"
+        },
+        "Products": {
+          "description": "PricingOptionsForQuantityProduct",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PricingOptionsForQuantityProduct"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PricingOptionsForQuantityProduct": {
+      "type": "object",
+      "properties": {
+        "DigiKeyProductNumber": {
+          "description": "DigiKey Product Number for product",
+          "type": "string"
+        },
+        "QuantityPriced": {
+          "format": "int32",
+          "description": "QuantityPriced",
+          "type": "integer"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "description": "Minimum quantity available for order",
+          "type": "integer"
+        },
+        "ExtendedPrice": {
+          "format": "double",
+          "description": "The extended price of the product",
+          "type": "number"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "The unit price of the product",
+          "type": "number"
+        },
+        "PackageType": {
+          "$ref": "#/$defs/PackageType"
+        },
+        "TariffInformation": {
+          "$ref": "#/$defs/TariffInformation"
+        },
+        "Marketplace": {
+          "description": "Product is a Marketplace product that ships direct from the supplier. A separate shipping fee may apply.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TariffInformation": {
+      "description": "Tariff information regarding this product",
+      "type": "object",
+      "properties": {
+        "TariffActive": {
+          "description": "If tariff is currently active",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

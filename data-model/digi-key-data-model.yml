@@ -1,0 +1,971 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/digi-key-barcoding-api-openapi.yml
+- openapi/digi-key-bondedinventory-api-openapi.yml
+- openapi/digi-key-customerresource-api-openapi.yml
+- openapi/digi-key-lists-api-openapi.yml
+- openapi/digi-key-orderhistory-api-openapi.yml
+- openapi/digi-key-ordermanagement-api-openapi.yml
+- openapi/digi-key-orders-api-openapi.yml
+- openapi/digi-key-packlist-api-openapi.yml
+- openapi/digi-key-parts-api-openapi.yml
+- openapi/digi-key-pcn-api-openapi.yml
+- openapi/digi-key-product-search-api-openapi.yml
+- openapi/digi-key-quotes-api-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 127
+  entities_in_spec: 127
+  relationships: 153
+entities:
+- name: AccountAddress
+  fields: 8
+  description: Address for account
+- name: AccountAssociationResponse
+  fields: 2
+  description: AccountAssociationResponse
+- name: AccountInformation
+  fields: 2
+  description: Information on a particular account
+- name: AddProductToQuote
+  fields: 3
+  description: Add Product information to a quote
+- name: AddProductsToQuoteResponse
+  fields: 3
+  description: Response model when adding details to a quote via API.
+- name: Address
+  fields: 8
+  description: Company or Organization address
+- name: AlternatePackaging
+  fields: 1
+  description: Alternate Packaging
+- name: AlternatePackagingResponse
+  fields: 2
+  description: Response model for AlternatePackaging
+- name: ApiErrorResponse
+  fields: 6
+- name: ApiValidationError
+  fields: 2
+- name: BaseFilterV4
+  fields: 3
+- name: BaseProduct
+  fields: 2
+  description: Base Product Information
+- name: BondedInventoryProductResponse
+  fields: 18
+  description: Bonded Inventory response model
+- name: BuyerContact
+  fields: 4
+  description: Contact information for buyer
+- name: CategoriesResponse
+  fields: 3
+  description: Response model for Categories call.
+- name: Category
+  fields: 5
+  description: Categories are used to filter results of a given search
+- name: CategoryNode
+  fields: 8
+  description: Category Information
+- name: CategoryResponse
+  fields: 2
+  description: Response model for a single Category call.
+- name: CategoryType
+  fields: 3
+- name: ChangeNotification
+  fields: 6
+  description: The change notification details.
+- name: Classifications
+  fields: 5
+  description: Environmental and Export Classifications
+- name: Column
+  fields: 2
+- name: Contact
+  fields: 3
+  description: The contact information for a given customer
+- name: CreateListRequest
+  fields: 6
+  description: Information need for creating a new MyList
+- name: CreateQuoteRequest
+  fields: 1
+  description: Create request parameters
+- name: CrefPartOption
+  fields: 5
+- name: CustomerLocationResponse
+  fields: 4
+- name: DKProblemDetails
+  fields: 7
+- name: Description
+  fields: 2
+- name: DigiReelPricing
+  fields: 7
+  description: Response for Digi-Reel Pricing Request
+- name: ExportQuestions
+  fields: 5
+  description: Required structure for Independent Distributors if product is shipping outside of the US. Otherwise
+    do not include.
+- name: FilterId
+  fields: 1
+  description: Filter Id
+- name: FilterOptions
+  fields: 7
+- name: FilterOptionsRequest
+  fields: 10
+  description: Filtering options for keyword search
+- name: FilterValue
+  fields: 4
+  description: Filter Values
+- name: Filters
+  fields: 3
+  description: Filters used for search
+- name: InvoicePackingList
+  fields: 5
+- name: IsoSearchLocale
+  fields: 3
+  description: The validated locale that was used for the search. If the provided locale was invalid, this will
+    show the corrections.
+- name: ItemShipInfo
+  fields: 5
+- name: KeywordRequest
+  fields: 5
+  description: Criteria for Keyword Requests
+- name: KeywordResponse
+  fields: 6
+- name: LineItem
+  fields: 19
+  description: LineItem for a given Sales Order
+- name: ListData
+  fields: 19
+- name: ListPart
+  fields: 41
+- name: ListPartFlags
+  fields: 16
+- name: ListPartQuantity
+  fields: 9
+- name: ListSettings
+  fields: 6
+- name: Manufacturer
+  fields: 2
+  description: Manufacturer Information
+- name: ManufacturerInfo
+  fields: 2
+  description: Manufacturer information
+- name: ManufacturersResponse
+  fields: 1
+  description: List of Manufacturers and information about each manufacturer
+- name: MediaLinks
+  fields: 5
+  description: Media links for a product.
+- name: MediaResponse
+  fields: 1
+  description: Response model for Media
+- name: NextAvailableDeliveryDateView
+  fields: 2
+- name: Operation
+  fields: 4
+- name: Order
+  fields: 7
+- name: OrderRequest
+  fields: 14
+  description: Model that contains all information required for an order.
+- name: OrderResponse
+  fields: 2
+- name: OrderStatusInfo
+  fields: 3
+- name: PackListBarcodeResponse
+  fields: 4
+  description: Data retrieved from a Packlist.
+- name: PackListDetail
+  fields: 2
+  description: A detail from a Packlist containing the DigiKeyPartNumber and Quantity.
+- name: PackOptionWithPricing
+  fields: 16
+- name: PackageType
+  fields: 2
+  description: 'Type of packaging for the product. Not all products are available in all packaging types. Possibilities
+    include but are not limited to: Tape and Reel(TR), Cut Tape(CT), Digi-Reel(DKR), Tube, Tray, and'
+- name: PackageTypeByQuantityProduct
+  fields: 32
+  description: Aggregator Product Dto
+- name: PackageTypeByQuantityResponse
+  fields: 3
+  description: Response from a PackageTypeByQuantity Search Service request
+- name: PackingListItem
+  fields: 19
+- name: Parameter
+  fields: 3
+  description: Parameter Information
+- name: ParameterFilterOptionsResponse
+  fields: 5
+  description: ParameterFilter Options Response
+- name: ParameterFilterRequest
+  fields: 2
+  description: Request information for using parameter filters
+- name: ParameterValue
+  fields: 5
+  description: Parameters are used to refine search results.
+- name: ParametricCategory
+  fields: 2
+  description: Parametric Category
+- name: PartOption
+  fields: 12
+- name: PartsByListIdResponse
+  fields: 2
+- name: PcnResponse
+  fields: 2
+  description: The response containing the Product Change Notifications
+- name: PoNumberPackList
+  fields: 2
+- name: PriceBreak
+  fields: 3
+  description: Price when a product is purchased by specific quantities
+- name: PriceSettingsUsed
+  fields: 2
+- name: PricingOptionsForQuantity
+  fields: 5
+- name: PricingOptionsForQuantityProduct
+  fields: 8
+- name: PricingOptionsForQuantityResponse
+  fields: 11
+  description: Pricing options for quantity response
+- name: Product
+  fields: 26
+  description: Product info
+- name: Product2DBarcodeResponse
+  fields: 11
+  description: Data retrieved from a 2D barcode on a product.
+- name: ProductAssociations
+  fields: 4
+  description: Product Associations
+- name: ProductAssociationsResponse
+  fields: 2
+  description: Response model for ProductAssociations
+- name: ProductBarcodeResponse
+  fields: 5
+  description: Barcode Response model containing a basic product information and the quantity.
+- name: ProductDetails
+  fields: 4
+  description: Product Details Data Transfer Object
+- name: ProductPricing
+  fields: 22
+  description: Product
+- name: ProductPricingResponse
+  fields: 5
+  description: A sub set of the product infromation
+- name: ProductPricingVariation
+  fields: 10
+  description: Variations of the requested ProductPricing
+- name: ProductStatusV4
+  fields: 2
+- name: ProductSubstitute
+  fields: 8
+  description: Product Substitute
+- name: ProductSubstitutesResponse
+  fields: 3
+  description: Response model for ProductSubstitutes
+- name: ProductSummary
+  fields: 7
+  description: Product Summary used by kits and associations
+- name: ProductVariation
+  fields: 12
+  description: Variations of the requested product
+- name: ProductsFromQuoteResponse
+  fields: 2
+  description: A range of Products from a quote
+- name: QuoteInformation
+  fields: 7
+  description: Response for creating a quote
+- name: QuoteProduct
+  fields: 21
+  description: Extends the quote detail class with more information
+- name: QuoteProductQuantity
+  fields: 3
+  description: Contains all quantity information
+- name: QuoteResponse
+  fields: 1
+  description: Quote Information to a quote
+- name: QuotesResponse
+  fields: 2
+  description: Response from querying quotes
+- name: Recommendation
+  fields: 3
+  description: The collection of recommended products for the given product number.
+- name: RecommendedProduct
+  fields: 9
+  description: The recommended product based on the submitted DigiKeyProductNumber.
+- name: RecommendedProductsResponse
+  fields: 1
+  description: The recommended products returned grouped in collections.
+- name: ReferenceList
+  fields: 3
+- name: RequestedPart
+  fields: 12
+- name: RequestedQuantity
+  fields: 4
+- name: Revision
+  fields: 5
+- name: SalesOrder
+  fields: 12
+  description: DTO for a Sales Order
+- name: SalesOrderByPoNumberDetail
+  fields: 8
+- name: SalesOrderDetailView
+  fields: 11
+- name: SalesOrderEligibilityView
+  fields: 3
+- name: SalesOrderPackList
+  fields: 2
+  description: PackList from provided Sales Order Id
+- name: SalesOrderScheduleForUpdate
+  fields: 2
+- name: SalesOrderSchedulesView
+  fields: 5
+- name: SalesOrderStatusInfo
+  fields: 3
+- name: SalesOrderView
+  fields: 6
+- name: SalesOrdersByPoNumberView
+  fields: 1
+- name: Schedule
+  fields: 3
+- name: SchedulePatchView
+  fields: 2
+- name: Series
+  fields: 2
+  description: Manufacturers may group similar products into a series. This can be used to filter search results.
+- name: SettingsUsed
+  fields: 3
+- name: ShippingContact
+  fields: 4
+  description: Shipping contact information
+- name: SortOptions
+  fields: 2
+  description: Options available to sort by
+- name: Supplier
+  fields: 2
+  description: Supplier Information
+- name: TariffInformation
+  fields: 1
+  description: Tariff information regarding this product
+- name: TopCategory
+  fields: 4
+  description: Top Category Information
+- name: TopCategoryNode
+  fields: 3
+  description: Top Category Node Information
+- name: UserInformation
+  fields: 2
+relationships:
+- from: Product2DBarcodeResponse
+  to: SalesOrder
+  type: belongs_to
+  via: SalesorderId
+- from: PackListBarcodeResponse
+  to: SalesOrder
+  type: belongs_to
+  via: SalesorderId
+- from: PackListBarcodeResponse
+  to: PackListDetail
+  type: has_many
+  via: PackListDetails
+- from: ApiErrorResponse
+  to: ApiValidationError
+  type: has_many
+  via: ValidationErrors
+- from: CustomerLocationResponse
+  to: Address
+  type: has_one
+  via: ShippingAddress
+- from: AccountInformation
+  to: AccountAddress
+  type: has_one
+  via: Address
+- from: AccountAssociationResponse
+  to: AccountInformation
+  type: has_many
+  via: Accounts
+- from: ListData
+  to: ListSettings
+  type: has_one
+  via: ListSettings
+- from: ListData
+  to: RequestedPart
+  type: has_many
+  via: PartsList
+- from: ListData
+  to: Revision
+  type: has_many
+  via: Revisions
+- from: ListData
+  to: UserInformation
+  type: has_one
+  via: UserInformation
+- from: ListSettings
+  to: Column
+  type: has_many
+  via: ColumnPreferences
+- from: CreateListRequest
+  to: ListSettings
+  type: has_one
+  via: ListSettings
+- from: CreateListRequest
+  to: ReferenceList
+  type: has_one
+  via: RefList
+- from: Revision
+  to: RequestedPart
+  type: has_many
+  via: Parts
+- from: UserInformation
+  to: Contact
+  type: belongs_to
+  via: ContactId
+- from: RequestedPart
+  to: RequestedQuantity
+  type: has_many
+  via: Quantities
+- from: Order
+  to: OrderStatusInfo
+  type: has_one
+  via: EntireOrderStatus
+- from: Order
+  to: SalesOrder
+  type: has_many
+  via: SalesOrders
+- from: OrderResponse
+  to: Order
+  type: has_many
+  via: Orders
+- from: SalesOrder
+  to: Contact
+  type: has_one
+  via: Contact
+- from: SalesOrder
+  to: SalesOrderStatusInfo
+  type: has_one
+  via: Status
+- from: SalesOrder
+  to: Address
+  type: has_one
+  via: ShippingAddress
+- from: SalesOrder
+  to: LineItem
+  type: has_many
+  via: LineItems
+- from: LineItem
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: LineItem
+  to: ItemShipInfo
+  type: has_many
+  via: ItemShipments
+- from: LineItem
+  to: Schedule
+  type: has_many
+  via: Schedules
+- from: SalesOrdersByPoNumberView
+  to: SalesOrderByPoNumberDetail
+  type: has_many
+  via: SalesOrdersDetails
+- from: SalesOrderView
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: SalesOrderView
+  to: SalesOrderDetailView
+  type: has_many
+  via: Details
+- from: SalesOrderSchedulesView
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: SalesOrderByPoNumberDetail
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: SchedulePatchView
+  to: SalesOrderSchedulesView
+  type: has_one
+  via: Original
+- from: SchedulePatchView
+  to: SalesOrderSchedulesView
+  type: has_one
+  via: Patched
+- from: SalesOrderDetailView
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: SalesOrderDetailView
+  to: SalesOrderSchedulesView
+  type: has_many
+  via: Schedules
+- from: SalesOrderEligibilityView
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: ShippingContact
+  to: Address
+  type: has_one
+  via: Address
+- from: BuyerContact
+  to: Address
+  type: has_one
+  via: Address
+- from: OrderRequest
+  to: BuyerContact
+  type: has_one
+  via: BuyerContact
+- from: OrderRequest
+  to: ShippingContact
+  type: has_one
+  via: ShippingContact
+- from: OrderRequest
+  to: LineItem
+  type: has_many
+  via: LineItems
+- from: OrderRequest
+  to: ExportQuestions
+  type: has_one
+  via: ExportQuestions
+- from: SalesOrderPackList
+  to: InvoicePackingList
+  type: has_many
+  via: PackingListInvoice
+- from: PoNumberPackList
+  to: SalesOrderPackList
+  type: has_many
+  via: SalesOrderPackLists
+- from: PackingListItem
+  to: SalesOrder
+  type: belongs_to
+  via: SalesOrderId
+- from: InvoicePackingList
+  to: PackingListItem
+  type: has_many
+  via: PackingListItem
+- from: ListPart
+  to: ListPartQuantity
+  type: has_many
+  via: Quantities
+- from: ListPart
+  to: PartOption
+  type: has_many
+  via: Substitutes
+- from: ListPart
+  to: PartOption
+  type: has_many
+  via: AlternateParts
+- from: ListPart
+  to: ListPartFlags
+  type: has_one
+  via: Flags
+- from: ListPart
+  to: CrefPartOption
+  type: has_many
+  via: PartsAvailableForCref
+- from: PartsByListIdResponse
+  to: ListPart
+  type: has_many
+  via: PartsList
+- from: ListPartQuantity
+  to: PackOptionWithPricing
+  type: has_many
+  via: PackOptions
+- from: PcnResponse
+  to: ChangeNotification
+  type: has_many
+  via: ProductChangeNotifications
+- from: KeywordResponse
+  to: Product
+  type: has_many
+  via: Products
+- from: KeywordResponse
+  to: Product
+  type: has_many
+  via: ExactMatches
+- from: KeywordResponse
+  to: FilterOptions
+  type: has_one
+  via: FilterOptions
+- from: KeywordResponse
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: KeywordResponse
+  to: Parameter
+  type: has_many
+  via: AppliedParametricFiltersDto
+- from: ProductVariation
+  to: PackageType
+  type: has_one
+  via: PackageType
+- from: ProductVariation
+  to: PriceBreak
+  type: has_many
+  via: StandardPricing
+- from: ProductVariation
+  to: PriceBreak
+  type: has_many
+  via: MyPricing
+- from: ProductVariation
+  to: Supplier
+  type: has_one
+  via: Supplier
+- from: ProductPricingResponse
+  to: ProductPricing
+  type: has_many
+  via: ProductPricings
+- from: ProductPricingResponse
+  to: SettingsUsed
+  type: has_one
+  via: SettingsUsed
+- from: ProductPricingVariation
+  to: PackageType
+  type: has_one
+  via: PackageType
+- from: ProductPricingVariation
+  to: PriceBreak
+  type: has_many
+  via: StandardPricing
+- from: ProductPricingVariation
+  to: PriceBreak
+  type: has_many
+  via: MyPricing
+- from: ProductPricing
+  to: Manufacturer
+  type: has_one
+  via: Manufacturer
+- from: ProductPricing
+  to: Description
+  type: has_one
+  via: Description
+- from: ProductPricing
+  to: CategoryType
+  type: has_many
+  via: Categories
+- from: ProductPricing
+  to: ProductPricingVariation
+  type: has_many
+  via: ProductVariations
+- from: PricingOptionsForQuantityResponse
+  to: Manufacturer
+  type: has_one
+  via: Manufacturer
+- from: PricingOptionsForQuantityResponse
+  to: Description
+  type: has_one
+  via: Description
+- from: PricingOptionsForQuantityResponse
+  to: PriceSettingsUsed
+  type: has_one
+  via: SettingsUsed
+- from: PricingOptionsForQuantityResponse
+  to: PricingOptionsForQuantity
+  type: has_many
+  via: MyPricingOptions
+- from: PricingOptionsForQuantityResponse
+  to: PricingOptionsForQuantity
+  type: has_many
+  via: StandardPricingOptions
+- from: MediaResponse
+  to: MediaLinks
+  type: has_many
+  via: MediaLinks
+- from: CategoriesResponse
+  to: Category
+  type: has_many
+  via: Categories
+- from: CategoriesResponse
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: PackageTypeByQuantityProduct
+  to: CategoryNode
+  type: has_one
+  via: Category
+- from: PackageTypeByQuantityProduct
+  to: PackageType
+  type: has_one
+  via: PackageType
+- from: PackageTypeByQuantityProduct
+  to: PriceBreak
+  type: has_many
+  via: StandardPricing
+- from: PackageTypeByQuantityProduct
+  to: PriceBreak
+  type: has_many
+  via: MyPricing
+- from: DigiReelPricing
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: CategoryResponse
+  to: Category
+  type: has_one
+  via: Category
+- from: CategoryResponse
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: KeywordRequest
+  to: FilterOptionsRequest
+  type: has_one
+  via: FilterOptionsRequest
+- from: KeywordRequest
+  to: SortOptions
+  type: has_one
+  via: SortOptions
+- from: AlternatePackaging
+  to: ProductSummary
+  type: has_many
+  via: AlternatePackaging
+- from: ProductAssociationsResponse
+  to: ProductAssociations
+  type: has_one
+  via: ProductAssociations
+- from: ProductAssociationsResponse
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: ProductSummary
+  to: Manufacturer
+  type: has_one
+  via: Manufacturer
+- from: ProductSubstitutesResponse
+  to: ProductSubstitute
+  type: has_many
+  via: ProductSubstitutes
+- from: ProductSubstitutesResponse
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: ManufacturersResponse
+  to: ManufacturerInfo
+  type: has_many
+  via: Manufacturers
+- from: CategoryNode
+  to: Category
+  type: belongs_to
+  via: CategoryId
+- from: AlternatePackagingResponse
+  to: AlternatePackaging
+  type: has_one
+  via: AlternatePackagings
+- from: AlternatePackagingResponse
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: PricingOptionsForQuantityProduct
+  to: PackageType
+  type: has_one
+  via: PackageType
+- from: PricingOptionsForQuantityProduct
+  to: TariffInformation
+  type: has_one
+  via: TariffInformation
+- from: RecommendedProductsResponse
+  to: Recommendation
+  type: has_many
+  via: Recommendations
+- from: PricingOptionsForQuantity
+  to: PricingOptionsForQuantityProduct
+  type: has_many
+  via: Products
+- from: FilterOptionsRequest
+  to: FilterId
+  type: has_many
+  via: ManufacturerFilter
+- from: FilterOptionsRequest
+  to: FilterId
+  type: has_many
+  via: CategoryFilter
+- from: FilterOptionsRequest
+  to: FilterId
+  type: has_many
+  via: StatusFilter
+- from: FilterOptionsRequest
+  to: FilterId
+  type: has_many
+  via: PackagingFilter
+- from: FilterOptionsRequest
+  to: FilterId
+  type: has_many
+  via: SeriesFilter
+- from: FilterOptionsRequest
+  to: ParameterFilterRequest
+  type: has_one
+  via: ParameterFilterRequest
+- from: PackageTypeByQuantityResponse
+  to: PackageTypeByQuantityProduct
+  type: has_many
+  via: Products
+- from: ProductAssociations
+  to: ProductSummary
+  type: has_many
+  via: Kits
+- from: ProductAssociations
+  to: ProductSummary
+  type: has_many
+  via: MatingProducts
+- from: ProductAssociations
+  to: ProductSummary
+  type: has_many
+  via: AssociatedProducts
+- from: ProductAssociations
+  to: ProductSummary
+  type: has_many
+  via: ForUseWithProducts
+- from: PriceSettingsUsed
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: TopCategory
+  to: TopCategoryNode
+  type: has_one
+  via: RootCategory
+- from: TopCategory
+  to: TopCategoryNode
+  type: has_one
+  via: Category
+- from: CategoryType
+  to: Category
+  type: belongs_to
+  via: CategoryId
+- from: ParametricCategory
+  to: Parameter
+  type: belongs_to
+  via: ParameterId
+- from: ParametricCategory
+  to: FilterId
+  type: has_many
+  via: FilterValues
+- from: ParameterValue
+  to: Parameter
+  type: belongs_to
+  via: ParameterId
+- from: ParameterFilterRequest
+  to: FilterId
+  type: has_one
+  via: CategoryFilter
+- from: ParameterFilterRequest
+  to: ParametricCategory
+  type: has_many
+  via: ParameterFilters
+- from: Recommendation
+  to: RecommendedProduct
+  type: has_many
+  via: RecommendedProducts
+- from: Recommendation
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: Product
+  to: Description
+  type: has_one
+  via: Description
+- from: Product
+  to: Manufacturer
+  type: has_one
+  via: Manufacturer
+- from: Product
+  to: ProductVariation
+  type: has_many
+  via: ProductVariations
+- from: Product
+  to: ProductStatusV4
+  type: has_one
+  via: ProductStatus
+- from: Product
+  to: ParameterValue
+  type: has_many
+  via: Parameters
+- from: Product
+  to: BaseProduct
+  type: has_one
+  via: BaseProductNumber
+- from: Product
+  to: CategoryNode
+  type: has_one
+  via: Category
+- from: Product
+  to: Series
+  type: has_one
+  via: Series
+- from: Product
+  to: Classifications
+  type: has_one
+  via: Classifications
+- from: ParameterFilterOptionsResponse
+  to: BaseFilterV4
+  type: has_one
+  via: Category
+- from: ParameterFilterOptionsResponse
+  to: Parameter
+  type: belongs_to
+  via: ParameterId
+- from: ParameterFilterOptionsResponse
+  to: FilterValue
+  type: has_many
+  via: FilterValues
+- from: ProductSubstitute
+  to: Manufacturer
+  type: has_one
+  via: Manufacturer
+- from: FilterOptions
+  to: BaseFilterV4
+  type: has_many
+  via: Manufacturers
+- from: FilterOptions
+  to: BaseFilterV4
+  type: has_many
+  via: Packaging
+- from: FilterOptions
+  to: BaseFilterV4
+  type: has_many
+  via: Status
+- from: FilterOptions
+  to: BaseFilterV4
+  type: has_many
+  via: Series
+- from: FilterOptions
+  to: ParameterFilterOptionsResponse
+  type: has_many
+  via: ParametricFilters
+- from: FilterOptions
+  to: TopCategory
+  type: has_many
+  via: TopCategories
+- from: ProductDetails
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocaleUsed
+- from: ProductDetails
+  to: Product
+  type: has_one
+  via: Product
+- from: SettingsUsed
+  to: IsoSearchLocale
+  type: has_one
+  via: SearchLocale
+- from: SettingsUsed
+  to: Filters
+  type: has_one
+  via: Filters
+- from: QuotesResponse
+  to: QuoteInformation
+  type: has_many
+  via: Quotes
+- from: QuoteResponse
+  to: QuoteInformation
+  type: has_one
+  via: Quote
+- from: ProductsFromQuoteResponse
+  to: QuoteProduct
+  type: has_many
+  via: QuoteProducts
+- from: QuoteProduct
+  to: QuoteProductQuantity
+  type: has_many
+  via: Quantities

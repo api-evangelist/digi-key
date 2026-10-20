@@ -1,0 +1,32 @@
+name: Digi-Key error codes
+generated: '2026-10-19'
+method: searched
+source: https://developer.digikey.com/faq
+format: custom-json
+envelope:
+- ErrorResponseVersion
+- StatusCode
+- ErrorMessage
+- ErrorDetails
+- RequestId
+- ValidationErrors
+problems:
+- status: 200
+  title: OK
+  description: Successful.
+- status: 400
+  title: Bad Request
+  description: Bad input parameter. Error message should indicate which one and why.
+- status: 401
+  title: Unauthorized
+  description: The client passed in the invalid access token. Client should refresh the token and then try again.
+- status: 405
+  title: Method Not Allowed
+  description: The resource doesn't support the specified HTTP verb.
+- status: 429
+  title: Too Many Requests
+  description: Too many requests in a given period of time (>120 per minute), or more than allowed during the current rate limit window.
+  remediation: Wait the number of seconds in the Retry-After header.
+- status: 500
+  title: Internal Server Error
+  description: Servers are not working as expected. The request is probably valid

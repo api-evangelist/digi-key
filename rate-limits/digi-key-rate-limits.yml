@@ -1,0 +1,86 @@
+name: Digi-Key rate limits
+generated: '2026-10-19'
+method: searched
+source: https://developer.digikey.com/documentation
+scope_note: Rate limits are applied at product level. An application is rate limited by both the number of requests per minute and number of requests per day at the product level.
+headers:
+- X-RateLimit-Limit
+- X-RateLimit-Remaining
+- X-RateLimit-Reset
+- X-RateLimit-ResetTime
+- Retry-After
+- X-BurstLimit-Limit
+- X-BurstLimit-Remaining
+- X-BurstLimit-Reset
+- X-BurstLimit-ResetTime
+exhaustion_status: 429
+limits:
+- name: Barcode per minute
+  plan: standard
+  endpoint: Barcode
+  window: minute
+  max: 120
+  scope: per-application per-product
+  limit_text: 120 per minute
+  kind: burst
+- name: Barcode per day
+  plan: standard
+  endpoint: Barcode
+  window: day
+  max: 1000
+  scope: per-application per-product
+  limit_text: 1000 per day
+- name: Create BOM per minute
+  plan: standard
+  endpoint: Create BOM
+  window: minute
+  max: 10
+  scope: per-application per-product
+  limit_text: 10 per minute
+  kind: burst
+- name: Order Support per minute
+  plan: standard
+  endpoint: Order Support
+  window: minute
+  max: 120
+  scope: per-application per-product
+  limit_text: 120 per minute
+  kind: burst
+- name: Order Support per day
+  plan: standard
+  endpoint: Order Support
+  window: day
+  max: 1000
+  scope: per-application per-product
+  limit_text: 1000 per day
+- name: Ordering per minute
+  plan: standard
+  endpoint: Ordering
+  window: minute
+  max: 10
+  scope: per-application per-product
+  limit_text: 10 per minute
+  kind: burst
+- name: Product Information per minute
+  plan: standard
+  endpoint: Product Information
+  window: minute
+  max: 120
+  scope: per-application per-product
+  limit_text: 120 per minute
+  kind: burst
+- name: Product Information per day
+  plan: standard
+  endpoint: Product Information
+  window: day
+  max: 1000
+  scope: per-application per-product
+  limit_text: 1000 per day
+- name: Quoting per minute
+  plan: standard
+  endpoint: Quoting
+  window: minute
+  max: 10
+  scope: per-application per-product
+  limit_text: 10 per minute
+  kind: burst

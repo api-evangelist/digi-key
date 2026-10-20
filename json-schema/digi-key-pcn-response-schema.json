@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-pcn-response-schema.json",
+  "title": "PcnResponse",
+  "description": "The response containing the Product Change Notifications",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-pcn-api-openapi.yml#/components/schemas/PcnResponse",
+  "required": [
+    "DigiKeyPartNumber",
+    "ProductChangeNotifications"
+  ],
+  "type": "object",
+  "properties": {
+    "DigiKeyPartNumber": {
+      "description": "The product for which we are returning the change notifications.",
+      "type": "string"
+    },
+    "ProductChangeNotifications": {
+      "description": "The list of change notifications for the requested product.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ChangeNotification"
+      }
+    }
+  },
+  "$defs": {
+    "ChangeNotification": {
+      "description": "The change notification details.",
+      "type": "object",
+      "properties": {
+        "DigiKeyPartNumber": {
+          "description": "The Digi-Key part number",
+          "type": "string"
+        },
+        "PcnChangeDate": {
+          "description": "The release date of the product change notification. Date is in ISO 8601.",
+          "type": "string"
+        },
+        "PcnTypeId": {
+          "description": "The product change notification category id - this is included for easy sorting",
+          "type": "string"
+        },
+        "PcnType": {
+          "description": "The product change notification type - in the language of the user (if available) - otherwise English",
+          "type": "string"
+        },
+        "PcnDescription": {
+          "description": "A brief description of the change.",
+          "type": "string"
+        },
+        "PcnLink": {
+          "description": "The link to the online pdf describing the change.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

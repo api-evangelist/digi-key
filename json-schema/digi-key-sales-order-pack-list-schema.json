@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-sales-order-pack-list-schema.json",
+  "title": "SalesOrderPackList",
+  "description": "PackList from provided Sales Order Id",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-packlist-api-openapi.yml#/components/schemas/SalesOrderPackList",
+  "type": "object",
+  "properties": {
+    "PackingListInvoice": {
+      "description": "Invoices from the sales order id provided",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/InvoicePackingList"
+      }
+    },
+    "SalesOrderIdEntered": {
+      "format": "int32",
+      "description": "The SalesOrderID that you entered in the reques",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "InvoicePackingList": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "PackingListItem": {
+          "description": "Item found from Invoice",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PackingListItem"
+          }
+        },
+        "InvoiceIdEntered": {
+          "format": "int32",
+          "description": "The InvoiceID that you entered in the request",
+          "type": "integer"
+        },
+        "IncludePdfEntered": {
+          "description": "The value that you entered in the request. \"True\" is to return the encoded pdf string. \"False\" is to not.",
+          "type": "boolean"
+        },
+        "PdfFound": {
+          "description": "Pdf for this invoice has been found",
+          "type": "boolean"
+        },
+        "EncodedString": {
+          "description": "Enter this string in a string decoder to generate a pdf.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackingListItem": {
+      "type": "object",
+      "properties": {
+        "InvoiceId": {
+          "format": "int32",
+          "description": "Invoice ID of order. There is one per shipment.",
+          "type": "integer"
+        },
+        "SalesOrderId": {
+          "format": "int32",
+          "description": "Sales order ID. There is one per order.",
+          "type": "integer"
+        },
+        "PurchaseOrderNumber": {
+          "description": "Purchase Order Number supplied by the customer when the order was placed.",
+          "type": "string"
+        },
+        "OrderedQuantity": {
+          "format": "int32",
+          "description": "Number of items ordered of products included in the packing list for given line item",
+          "type": "integer"
+        },
+        "QuantityShipped": {
+          "format": "int32",
+          "description": "The quantity of items in the shipment",
+          "type": "integer"
+        },
+        "QuantityBackOrder": {
+          "format": "int32",
+          "description": "The quantity of items on backorder",
+          "type": "integer"
+        },
+        "CustomerLineItemId": {
+          "description": "Customer Line item id",
+          "type": "string"
+        },
+        "LineItem": {
+          "description": "DigiKey’s Line Item number for that Sales Order",
+          "type": "string"
+        },
+        "ProductNumber": {
+          "description": "DigiKey product number for given line item",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Product Description for given line item",
+          "type": "string"
+        },
+        "ECCN": {
+          "description": "Export control class number for given line item. See documentation from the U.S. Department of Commerce.",
+          "type": "string"
+        },
+        "CustomerPartNumber": {
+          "description": "Customer Part Number for given line item",
+          "type": "string"
+        },
+        "HTSUS": {
+          "description": "Harmonized Tariff Schedule of the United States for given line item. See documentation from the U.S. International Trade Commission.",
+          "type": "string"
+        },
+        "ManufacturerProductNumber": {
+          "description": "Manufacturer part number for given line item",
+          "type": "string"
+        },
+        "Manufacturer": {
+          "description": "Manufacturer Name for given line item",
+          "type": "string"
+        },
+        "CountryOfOrigin": {
+          "description": "Country of origin for given line item",
+          "type": "string"
+        },
+        "LotQuantity": {
+          "format": "int32",
+          "description": "Quantity of products in the lot for given line item",
+          "type": "integer"
+        },
+        "DateCode": {
+          "description": "Date Code for given line item. Format is MMM-YYYY",
+          "type": "string"
+        },
+        "LotCode": {
+          "description": "Lot Code for given line item",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

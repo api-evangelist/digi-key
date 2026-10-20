@@ -1,0 +1,29 @@
+name: Digi-Key conventions
+generated: '2026-10-19'
+method: searched
+source:
+- https://developer.digikey.com/documentation
+- https://developer.digikey.com/faq
+auth: OAuth 2.0 (two-legged client credentials and three-legged authorization code) bearer token plus X-DIGIKEY-Client-Id header. Access Token = 30 Minutes, Refresh Token = 90 days, Authorization Code = 1 min.
+tls: TLSv1.2
+localization_headers:
+- X-DIGIKEY-Locale-Site
+- X-DIGIKEY-Locale-Language
+- X-DIGIKEY-Locale-Currency
+idempotency:
+  coverage: none
+  note: No idempotency key or replay protection documented for ordering, quote or list writes.
+errors:
+  envelope:
+  - ErrorResponseVersion
+  - StatusCode
+  - ErrorMessage
+  - ErrorDetails
+  - RequestId
+  - ValidationErrors
+request_id: RequestId field in the error envelope
+rate_limit_signaling: X-RateLimit-* and X-BurstLimit-* headers, Retry-After, 429
+versioning: Version in the base path (/products/v4, /Ordering/v3, /mylists/v1)
+reversibility:
+  status: none-documented
+  note: MyLists exposes delete operations; no cancel/void operation for submitted orders and no reversal window is stated in the public docs.

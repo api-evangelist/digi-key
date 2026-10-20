@@ -1,0 +1,866 @@
+openapi: 3.2.0
+info:
+  title: Digi Key Lists API
+  version: v1
+  contact:
+    name: API Support
+    url: https://developer.digikey.com/support
+  termsOfService: https://www.digikey.com/en/terms-and-conditions
+  description: 'Operations tagged Lists across 2 of this provider''s published API definitions: digi-key-mylists-api-mylists-v1.json, digi-key-mylists-api-mylists-v1-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.digikey.com/mylists/v1
+security:
+- apiKeySecurity: []
+  oauth2ApplicationSecurity: []
+tags:
+- name: Lists
+paths:
+  /lists/{listId}:
+    get:
+      tags:
+      - Lists
+      summary: Gets all data about a list.
+      operationId: GetListByListId
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Account-Id
+        description: Your Digi-Key Account id.
+        schema:
+          type: string
+      - in: path
+        name: listId
+        description: The ID of the list that you want information for
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListData'
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    delete:
+      tags:
+      - Lists
+      summary: Deletes the specified list
+      operationId: DeleteList
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Account-Id
+        description: Your Digi-Key Account id.
+        schema:
+          type: string
+      - in: path
+        name: listId
+        description: The unique identifier of the list to be deleted
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    servers:
+    - url: https://api.digikey.com/mylists/v1
+  /lists:
+    get:
+      tags:
+      - Lists
+      summary: Returns a list of ListData classes for the user to view
+      operationId: Lists
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Account-Id
+        description: Your Digi-Key Account id.
+        schema:
+          type: string
+      - in: query
+        name: startIndex
+        description: starting index to list of MyLists to retrieve
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - in: query
+        name: limit
+        description: The number of MyLists to retrieve in this list
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ListData'
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    post:
+      tags:
+      - Lists
+      summary: Creates a new List based on the information passed in
+      operationId: CreateList
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Account-Id
+        description: Your Digi-Key Account id.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateListRequest'
+        description: The information needed to create a new list
+    servers:
+    - url: https://api.digikey.com/mylists/v1
+  /lists/validate/{listName}:
+    get:
+      tags:
+      - Lists
+      summary: Checks whether or not the list name already exists for a customerId or user
+      operationId: IsValidListName
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: listName
+        description: name to validate
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    servers:
+    - url: https://api.digikey.com/mylists/v1
+  /lists/{listId}/listName/{listName}:
+    put:
+      tags:
+      - Lists
+      summary: Updates list name of the specified list
+      operationId: UpdateListName
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Account-Id
+        description: Your Digi-Key Account id.
+        schema:
+          type: string
+      - in: path
+        name: listId
+        description: The unique identifier of the list to be renamed
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: listName
+        description: The new name of the list
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    servers:
+    - url: https://api.digikey.com/mylists/v1
+  /lists/validate/name/{listName}:
+    get:
+      tags:
+      - Lists
+      summary: Return a valid list name if it is valid, otherwise adds a number to the end of…
+      operationId: ValidListName
+      parameters:
+      - in: header
+        name: Authorization
+        description: OAuth Bearer Token. Please see<a href= "https://developer.digikey.com/documentation/oauth" target= "_blank" > OAuth 2.0 Documentation </a > page for more info.
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Client-Id
+        description: The Client Id for your app.
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-DIGIKEY-Account-Id
+        description: Your Digi-Key Account id.
+        schema:
+          type: string
+      - in: path
+        name: listName
+        description: name to validate
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Bad Request - The input model is invalid or malformed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - Token is expired or Client Id or subscription are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '403':
+          description: The target resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Not Found - The requested resource could not be found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Too Many Requests - Your rate limit has been exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '500':
+          description: An unhandled error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '503':
+          description: Service Unavailable - The service is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    servers:
+    - url: https://api.digikey.com/mylists/v1
+components:
+  schemas:
+    ListData:
+      type: object
+      properties:
+        Id:
+          type: string
+        ListName:
+          type: string
+        CreatedBy:
+          type: string
+        CustomerId:
+          format: int32
+          type: integer
+        AccountId:
+          format: int32
+          type: integer
+        CompanyName:
+          type: string
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Notes:
+          type: string
+        TotalParts:
+          format: int32
+          type: integer
+        DateCreated:
+          format: date-time
+          type: string
+        DateLastAccessed:
+          format: date-time
+          type: string
+        DateModified:
+          format: date-time
+          type: string
+        Tags:
+          type: array
+          items:
+            type: string
+        ListSettings:
+          $ref: '#/components/schemas/ListSettings'
+        PartsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestedPart'
+        Revisions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Revision'
+        CanEdit:
+          type: boolean
+        UserInformation:
+          $ref: '#/components/schemas/UserInformation'
+      additionalProperties: false
+    Column:
+      type: object
+      properties:
+        ColumnName:
+          type: string
+        IsVisible:
+          type: boolean
+      additionalProperties: false
+    RequestedQuantity:
+      type: object
+      properties:
+        SelectedPackType:
+          type: string
+        SelectedSubPackType:
+          type: string
+        Quantity:
+          format: int32
+          type: integer
+        TargetPrice:
+          format: double
+          type: number
+      additionalProperties: false
+    ApiValidationError:
+      description: Error with API input.
+      type: object
+      properties:
+        Field:
+          description: The field that generated the error.
+          type: string
+          example: Keywords
+        Message:
+          description: The error message that was generated. This often explains how to fix your API input to be valid.
+          type: string
+          example: The Keywords field is required.
+      additionalProperties: false
+    ListSettings:
+      type: object
+      properties:
+        Visibility:
+          enum:
+          - Private
+          - ReadOnly
+          - ReadWrite
+          type: string
+        PackagePreference:
+          enum:
+          - CutTapeOrTR
+          - DigiReelOrTR
+          - EnteredPartNumber
+          - StandardPack
+          type: string
+        ColumnPreferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Column'
+        AutoCorrectQuantities:
+          type: boolean
+        AttritionEnabled:
+          type: boolean
+        AutoPopulateCref:
+          type: boolean
+      additionalProperties: false
+    CreateListRequest:
+      description: Information need for creating a new MyList
+      required:
+      - ListName
+      type: object
+      properties:
+        ListName:
+          description: Gets or sets name of the new list
+          minLength: 1
+          type: string
+        CreatedBy:
+          description: Gets or sets who the list was created by (rep or customer)
+          type: string
+        Tags:
+          description: Gets or sets assigns any tags entered to the newly created list
+          type: array
+          items:
+            type: string
+        Source:
+          description: Gets or Sets Source
+          enum:
+          - other
+          - internal
+          - external
+          - mobile
+          - search
+          - b2b
+          type: string
+        ListSettings:
+          $ref: '#/components/schemas/ListSettings'
+        RefList:
+          $ref: '#/components/schemas/ReferenceList'
+      additionalProperties: false
+    ApiErrorResponse:
+      description: Common response model returned for any type of HTTP exception.
+      type: object
+      properties:
+        _ErrorResponseVersion:
+          description: The version of the error handler.
+          type: string
+          readOnly: true
+          example: 3.0.0.0
+        StatusCode:
+          format: int32
+          description: The HttpStatusCode of the error.
+          type: integer
+          example: 404
+        ErrorMessage:
+          description: The message provided by the error handler.
+          type: string
+          example: The specified part was not found
+        ErrorDetails:
+          description: The details of the error.
+          type: string
+          example: Part Not Found
+        RequestId:
+          description: The Id of the request that triggered the error. If contacting API Support, please include the RequestId.
+          type: string
+          example: 22da819d-9517-4a2c-a8c1-0195ea2e7878
+        ValidationErrors:
+          description: The list of validation errors (if applicable).
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiValidationError'
+      additionalProperties: false
+    Revision:
+      type: object
+      properties:
+        Id:
+          type: string
+        ListId:
+          type: string
+        RevisionNumber:
+          format: int32
+          type: integer
+        DateCreated:
+          format: date-time
+          type: string
+        Parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestedPart'
+      additionalProperties: false
+    UserInformation:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        AccountId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    ReferenceList:
+      type: object
+      properties:
+        ListId:
+          type: string
+        IsGuestList:
+          type: boolean
+        IsRevision:
+          type: boolean
+      additionalProperties: false
+    RequestedPart:
+      type: object
+      properties:
+        UniqueId:
+          type: string
+        PartId:
+          format: int32
+          type: integer
+        RequestedPartNumber:
+          type: string
+        OriginalPartNumber:
+          type: string
+        ManufacturerName:
+          type: string
+        CustomerReference:
+          type: string
+        ReferenceDesignator:
+          type: string
+        Notes:
+          type: string
+        SelectedQuantityIndex:
+          format: int32
+          type: integer
+        Attrition:
+          format: double
+          type: number
+        AlternateParts:
+          type: array
+          items:
+            type: string
+        Quantities:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestedQuantity'
+      additionalProperties: false
+  securitySchemes:
+    apiKeySecurity:
+      type: apiKey
+      name: X-DIGIKEY-Client-Id
+      in: header
+    oauth2ApplicationSecurity:
+      type: oauth2
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://api.digikey.com/v1/oauth2/token
+x-refined-from:
+- digi-key-mylists-api-mylists-v1.json
+- digi-key-mylists-api-mylists-v1-openapi.yml
+x-host-sandbox: sandbox-api.digikey.com
+x-host-production: api.digikey.com
+x-source-pages:
+- https://developer.digikey.com/products/ordering/ordermanagement/salesorderbyid
+- https://developer.digikey.com/products/ordering/ordermanagement/salesordersbyponumber
+- https://developer.digikey.com/products/ordering/ordermanagement/changeeligibility
+- https://developer.digikey.com/products/ordering/ordermanagement/nextavailabledeliverydate
+- https://developer.digikey.com/products/ordering/ordermanagement/salesorderdetails
+- https://developer.digikey.com/products/ordering/ordermanagement/salesorderdetailbyid
+- https://developer.digikey.com/products/ordering/ordermanagement/salesorderschedules
+- https://developer.digikey.com/products/ordering/ordermanagement/replaceschedule
+- https://developer.digikey.com/products/ordering/ordermanagement/salesorderschedulebyid
+- https://developer.digikey.com/products/ordering/ordermanagement/partialscheduleupdate

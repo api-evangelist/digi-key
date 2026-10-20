@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-parts-by-list-id-response-schema.json",
+  "title": "PartsByListIdResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-parts-api-openapi.yml#/components/schemas/PartsByListIdResponse",
+  "type": "object",
+  "properties": {
+    "PartsList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ListPart"
+      }
+    },
+    "TotalParts": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "CrefPartOption": {
+      "type": "object",
+      "properties": {
+        "ManufacturerPartnumber": {
+          "type": "string"
+        },
+        "Manufacturer": {
+          "type": "string"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListPart": {
+      "type": "object",
+      "properties": {
+        "PartId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UniqueId": {
+          "type": "string"
+        },
+        "CustomerReference": {
+          "type": "string"
+        },
+        "ReferenceDesignator": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "MinOrderQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MaxOrderQty": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "OriginalPartNumber": {
+          "type": "string"
+        },
+        "RequestedPartNumber": {
+          "type": "string"
+        },
+        "DigiKeyPartNumber": {
+          "type": "string"
+        },
+        "ManufacturerPartNumber": {
+          "type": "string"
+        },
+        "RequestedManufacturerName": {
+          "type": "string"
+        },
+        "Manufacturer": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "PartStatus": {
+          "type": "string"
+        },
+        "PartStatusCode": {
+          "format": "int32",
+          "enum": [
+            "Active",
+            "Obsolete",
+            "Discontinued",
+            "ComingSoon",
+            "LastTimeBuy",
+            "NotForNewDesigns"
+          ],
+          "type": "integer"
+        },
+        "Availability": {
+          "type": "string"
+        },
+        "TariffCode": {
+          "format": "int32",
+          "enum": [
+            "NoTariff",
+            "TariffPending",
+            "TariffApplied"
+          ],
+          "type": "integer"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SelectedQuantityIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Attrition": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ListPartQuantity"
+          }
+        },
+        "VendorLeadWeeks": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PartDetailUrl": {
+          "type": "string"
+        },
+        "PrimaryDatasheetUrl": {
+          "type": "string"
+        },
+        "ImageUrl": {
+          "type": "string"
+        },
+        "ThumbnailUrl": {
+          "type": "string"
+        },
+        "MarketPlaceSupplierLink": {
+          "type": "string"
+        },
+        "SupplierName": {
+          "type": "string"
+        },
+        "Substitutes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PartOption"
+          }
+        },
+        "AlternateParts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PartOption"
+          }
+        },
+        "Flags": {
+          "$ref": "#/$defs/ListPartFlags"
+        },
+        "ReachStatus": {
+          "type": "string"
+        },
+        "RohsStatusMessage": {
+          "type": "string"
+        },
+        "Eccn": {
+          "type": "string"
+        },
+        "Htsus": {
+          "type": "string"
+        },
+        "CountryOfOrigin": {
+          "type": "string"
+        },
+        "EnvironmentalDocs": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "Category": {
+          "type": "string"
+        },
+        "PartsAvailableForCref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CrefPartOption"
+          }
+        },
+        "CrefsAvailableForPart": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListPartFlags": {
+      "type": "object",
+      "properties": {
+        "NonStock": {
+          "type": "boolean"
+        },
+        "IsNCNR": {
+          "type": "boolean"
+        },
+        "IsSDS": {
+          "type": "boolean"
+        },
+        "IsValueAdd": {
+          "type": "boolean"
+        },
+        "IsMatched": {
+          "type": "boolean"
+        },
+        "IsMarketPlace": {
+          "type": "boolean"
+        },
+        "BoNotAllowed": {
+          "type": "boolean"
+        },
+        "DisplayRegularLeadTime": {
+          "type": "boolean"
+        },
+        "DisplayCheckActiveLeadTime": {
+          "type": "boolean"
+        },
+        "MultipleCrefsForPart": {
+          "type": "boolean"
+        },
+        "MultiplePartsForCref": {
+          "type": "boolean"
+        },
+        "IsChecked": {
+          "type": "boolean"
+        },
+        "IsEditable": {
+          "type": "boolean"
+        },
+        "IsDeniedByCountry": {
+          "type": "boolean"
+        },
+        "IsDeniedByCurrency": {
+          "type": "boolean"
+        },
+        "IsDeniedByCustomerId": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListPartQuantity": {
+      "type": "object",
+      "properties": {
+        "QuantityRequested": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CalculatedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TargetPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "SelectedPackType": {
+          "type": "string"
+        },
+        "SelectedSubPackType": {
+          "type": "string"
+        },
+        "IsInactive": {
+          "type": "boolean"
+        },
+        "SelectedPackOptionIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SelectedSubPackOptionIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PackOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PackOptionWithPricing"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackOptionWithPricing": {
+      "type": "object",
+      "properties": {
+        "PartId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DigiKeyPartNumber": {
+          "type": "string"
+        },
+        "ManufacturerPartNumber": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PackType": {
+          "type": "string"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CalculatedUnitPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "ExtendedPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "BreakPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "BreakQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsUpsell": {
+          "type": "boolean"
+        },
+        "ValueAdditionalFee": {
+          "format": "double",
+          "type": "number"
+        },
+        "SubPackOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PackOptionWithPricing"
+          }
+        },
+        "FormattedUnitPrice": {
+          "type": "string"
+        },
+        "FormattedExtendedPrice": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PartOption": {
+      "type": "object",
+      "properties": {
+        "PartId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DigiKeyPartNumber": {
+          "type": "string"
+        },
+        "Manufacturer": {
+          "type": "string"
+        },
+        "ManufacturerPartNumber": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "PartDetailUrl": {
+          "type": "string"
+        },
+        "SubstituteType": {
+          "type": "string"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "QuantityAvailable": {
+          "type": "string"
+        },
+        "TariffStatus": {
+          "format": "int32",
+          "enum": [
+            "NoTariff",
+            "TariffPending",
+            "TariffApplied"
+          ],
+          "type": "integer"
+        },
+        "MasterPartId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

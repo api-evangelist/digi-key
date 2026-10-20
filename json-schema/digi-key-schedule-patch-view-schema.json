@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-schedule-patch-view-schema.json",
+  "title": "SchedulePatchView",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SchedulePatchView",
+  "type": "object",
+  "properties": {
+    "Original": {
+      "$ref": "#/$defs/SalesOrderSchedulesView"
+    },
+    "Patched": {
+      "$ref": "#/$defs/SalesOrderSchedulesView"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "SalesOrderSchedulesView": {
+      "type": "object",
+      "properties": {
+        "ScheduleDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DetailId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "QuantityScheduled": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SalesOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ScheduleIndex": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

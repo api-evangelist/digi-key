@@ -1,0 +1,680 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-keyword-response-schema.json",
+  "title": "KeywordResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-product-search-api-openapi.yml#/components/schemas/KeywordResponse",
+  "type": "object",
+  "properties": {
+    "Products": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Product"
+      }
+    },
+    "ProductsCount": {
+      "format": "int32",
+      "description": "Total number of matching products found.",
+      "type": "integer"
+    },
+    "ExactMatches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Product"
+      }
+    },
+    "FilterOptions": {
+      "$ref": "#/$defs/FilterOptions"
+    },
+    "SearchLocaleUsed": {
+      "$ref": "#/$defs/IsoSearchLocale"
+    },
+    "AppliedParametricFiltersDto": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Parameter"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "BaseFilterV4": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "ProductCount": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BaseProduct": {
+      "description": "Base Product Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Manufacturer Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Manufacturer Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CategoryNode": {
+      "description": "Category Information",
+      "type": "object",
+      "properties": {
+        "CategoryId": {
+          "format": "int32",
+          "description": "The Category Id",
+          "type": "integer"
+        },
+        "ParentId": {
+          "format": "int32",
+          "description": "If this is a child category, this is the Id of the parent category",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Category name",
+          "type": "string"
+        },
+        "ProductCount": {
+          "format": "int64",
+          "description": "The number of products in the category",
+          "type": "integer"
+        },
+        "NewProductCount": {
+          "format": "int64",
+          "description": "The number of new products in the category",
+          "type": "integer"
+        },
+        "ImageUrl": {
+          "description": "The URL of the image of the category",
+          "type": "string"
+        },
+        "SeoDescription": {
+          "description": "The SEO description for the category",
+          "type": "string"
+        },
+        "ChildCategories": {
+          "description": "A list of all children of the category - Their parent Id will be Category Id",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CategoryNode"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Classifications": {
+      "description": "Environmental and Export Classifications",
+      "type": "object",
+      "properties": {
+        "ReachStatus": {
+          "description": "ReachStatus",
+          "type": "string"
+        },
+        "RohsStatus": {
+          "description": "RohsStatus",
+          "type": "string"
+        },
+        "MoistureSensitivityLevel": {
+          "description": "Code for Moisture Sensitivity Level of the product",
+          "type": "string"
+        },
+        "ExportControlClassNumber": {
+          "description": "Export control class number. See documentation from the U.S. Department of Commerce.",
+          "type": "string"
+        },
+        "HtsusCode": {
+          "description": "Harmonized Tariff Schedule of the United States. See documentation from the U.S. International Trade Commission.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Description": {
+      "type": "object",
+      "properties": {
+        "ProductDescription": {
+          "description": "Description of the product. If you entered a valid Locale and Language in the input, we will return the description in that language. Otherwise, we’ll return the English description.",
+          "type": "string"
+        },
+        "DetailedDescription": {
+          "description": "Detailed description of the product. If you entered a valid Locale and Language in the input, we will return the description in that language. Otherwise, we’ll return the English description.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FilterOptions": {
+      "type": "object",
+      "properties": {
+        "Manufacturers": {
+          "description": "The Manufacturers that can be filtered to narrow next search request",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseFilterV4"
+          }
+        },
+        "Packaging": {
+          "description": "Packaging that can be filtered to narrow next search request",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseFilterV4"
+          }
+        },
+        "Status": {
+          "description": "Status that can be filtered to narrow next search request",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseFilterV4"
+          }
+        },
+        "Series": {
+          "description": "Series that can be filtered to narrow next search request",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseFilterV4"
+          }
+        },
+        "ParametricFilters": {
+          "description": "ParaetricFilter that can be filtered to narrow next search request",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParameterFilterOptionsResponse"
+          }
+        },
+        "TopCategories": {
+          "description": "the top Categories to filter",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TopCategory"
+          }
+        },
+        "MarketPlaceFilters": {
+          "description": "Marketplace Filter",
+          "type": "array",
+          "items": {
+            "enum": [
+              "NoFilter",
+              "ExcludeMarketPlace",
+              "MarketPlaceOnly"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FilterValue": {
+      "description": "Filter Values",
+      "type": "object",
+      "properties": {
+        "ProductCount": {
+          "format": "int64",
+          "description": "Number of products with this filter",
+          "type": "integer"
+        },
+        "ValueId": {
+          "description": "Filter Value Id",
+          "type": "string"
+        },
+        "ValueName": {
+          "description": "Filter Value Name",
+          "type": "string"
+        },
+        "RangeFilterType": {
+          "description": "Filter Range - possible values: Min, Max, Range",
+          "enum": [
+            "Min",
+            "Max",
+            "Range"
+          ],
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "IsoSearchLocale": {
+      "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections.",
+      "type": "object",
+      "properties": {
+        "Site": {
+          "description": "The site we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values.",
+          "type": "string"
+        },
+        "Language": {
+          "description": "The language we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "The currency we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Manufacturer": {
+      "description": "Manufacturer Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Manufacturer Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Manufacturer Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackageType": {
+      "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel(TR), Cut Tape(CT), Digi-Reel(DKR), Tube, Tray, and Bulk.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "PackageType Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "PackageType Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Parameter": {
+      "description": "Parameter Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Parameter Id",
+          "type": "integer"
+        },
+        "Text": {
+          "description": "Parameter Description",
+          "type": "string"
+        },
+        "Priority": {
+          "format": "int32",
+          "description": "Parameter priority",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ParameterFilterOptionsResponse": {
+      "description": "ParameterFilter Options Response",
+      "type": "object",
+      "properties": {
+        "Category": {
+          "$ref": "#/$defs/BaseFilterV4"
+        },
+        "ParameterType": {
+          "description": "Parameter Type",
+          "type": "string"
+        },
+        "ParameterId": {
+          "format": "int32",
+          "description": "Parameter Id",
+          "type": "integer"
+        },
+        "ParameterName": {
+          "description": "Parameter Name",
+          "type": "string"
+        },
+        "FilterValues": {
+          "description": "List of Filter Values for the Parameter",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FilterValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ParameterValue": {
+      "description": "Parameters are used to refine search results.\nExample: If searching for batteries you can use the battery size parameter filter with a value of AAA.",
+      "type": "object",
+      "properties": {
+        "ParameterId": {
+          "format": "int32",
+          "description": "Parameter Id",
+          "type": "integer"
+        },
+        "ParameterText": {
+          "description": "Parameter Text",
+          "type": "string"
+        },
+        "ParameterType": {
+          "description": "Parameter Data Type",
+          "enum": [
+            "String",
+            "Integer",
+            "Double",
+            "UnitOfMeasure",
+            "CoupledUnitOfMeasure",
+            "RangeUnitOfMeasure"
+          ],
+          "type": "string"
+        },
+        "ValueId": {
+          "description": "The Id of the Parameter value",
+          "type": "string"
+        },
+        "ValueText": {
+          "description": "The text of the Parameter value",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PriceBreak": {
+      "description": "Price when a product is purchased by specific quantities",
+      "type": "object",
+      "properties": {
+        "BreakQuantity": {
+          "format": "int32",
+          "description": "The quantity at which the price takes effect",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "The unit price for the quantity",
+          "type": "number"
+        },
+        "TotalPrice": {
+          "format": "double",
+          "description": "The total price",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Product": {
+      "description": "Product info",
+      "type": "object",
+      "properties": {
+        "Description": {
+          "$ref": "#/$defs/Description"
+        },
+        "Manufacturer": {
+          "$ref": "#/$defs/Manufacturer"
+        },
+        "ManufacturerProductNumber": {
+          "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+          "type": "string"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "The price for a single unit of this product.",
+          "type": "number"
+        },
+        "ProductUrl": {
+          "description": "Full URL of the Digi-Key catalog page to purchase the product. This is based on your provided Locale values.",
+          "type": "string"
+        },
+        "DatasheetUrl": {
+          "description": "The URL to the product's datasheet.",
+          "type": "string"
+        },
+        "PhotoUrl": {
+          "description": "The URL to the product's image.",
+          "type": "string"
+        },
+        "ProductVariations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProductVariation"
+          }
+        },
+        "QuantityAvailable": {
+          "format": "int64",
+          "description": "The sum of the quantity for all package types that are found in ProductVariations.",
+          "type": "integer"
+        },
+        "ProductStatus": {
+          "$ref": "#/$defs/ProductStatusV4"
+        },
+        "BackOrderNotAllowed": {
+          "description": "True if back order is not allowed for this product",
+          "type": "boolean"
+        },
+        "NormallyStocking": {
+          "description": "Indicates if a product is normally stocked.",
+          "type": "boolean"
+        },
+        "Discontinued": {
+          "description": "This product is no longer sold at Digi-Key and will no longer be stocked.",
+          "type": "boolean"
+        },
+        "EndOfLife": {
+          "description": "This product is no longer manufactured and will no longer be stocked once stock is depleted.",
+          "type": "boolean"
+        },
+        "Ncnr": {
+          "description": "Is product non-cancellable and non-returnable",
+          "type": "boolean"
+        },
+        "PrimaryVideoUrl": {
+          "description": "The URL to the product's video",
+          "type": "string"
+        },
+        "Parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParameterValue"
+          }
+        },
+        "BaseProductNumber": {
+          "$ref": "#/$defs/BaseProduct"
+        },
+        "Category": {
+          "$ref": "#/$defs/CategoryNode"
+        },
+        "DateLastBuyChance": {
+          "format": "date-time",
+          "description": "Last date that the product will be available for purchase. Date is in ISO 8601.",
+          "type": "string"
+        },
+        "ManufacturerLeadWeeks": {
+          "description": "The number of weeks expected to receive stock from manufacturer.",
+          "type": "string"
+        },
+        "ManufacturerPublicQuantity": {
+          "format": "int32",
+          "description": "Quantity of this product available to order from manufacturer.",
+          "type": "integer"
+        },
+        "Series": {
+          "$ref": "#/$defs/Series"
+        },
+        "ShippingInfo": {
+          "description": "Additional shipping information - if available",
+          "type": "string"
+        },
+        "Classifications": {
+          "$ref": "#/$defs/Classifications"
+        },
+        "OtherNames": {
+          "description": "Other Names may include former part numbers (changed through manufacturer acquisition), cross references for parts we don't carry, among other reasons.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProductStatusV4": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProductVariation": {
+      "description": "Variations of the requested product",
+      "type": "object",
+      "properties": {
+        "DigiKeyProductNumber": {
+          "description": "DigiKey Product number of the variation",
+          "type": "string"
+        },
+        "PackageType": {
+          "$ref": "#/$defs/PackageType"
+        },
+        "StandardPricing": {
+          "description": "Standard pricing for the validated locale.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PriceBreak"
+          }
+        },
+        "MyPricing": {
+          "description": "Your pricing for the account with which you authenticated. Also dependent on locale information.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PriceBreak"
+          }
+        },
+        "MarketPlace": {
+          "description": "Product is a Marketplace product that ships direct from the supplier. A separate shipping fee may apply",
+          "type": "boolean"
+        },
+        "TariffActive": {
+          "description": "Indicates if there is a tariff on the item.",
+          "type": "boolean"
+        },
+        "Supplier": {
+          "$ref": "#/$defs/Supplier"
+        },
+        "QuantityAvailableforPackageType": {
+          "format": "int32",
+          "description": "The quantity available for the specified variation.",
+          "type": "integer"
+        },
+        "MaxQuantityForDistribution": {
+          "format": "int64",
+          "description": "Maximum order quantity for Distribution",
+          "type": "integer"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "description": "The Minimum Order Quantity",
+          "type": "integer"
+        },
+        "StandardPackage": {
+          "format": "int32",
+          "description": "The number of products in the manufacturer's standard package.",
+          "type": "integer"
+        },
+        "DigiReelFee": {
+          "format": "double",
+          "description": "Fee per reel ordered.",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Series": {
+      "description": "Manufacturers may group similar products into a series. This can be used to filter search results.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Series Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Series Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Supplier": {
+      "description": "Supplier Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Supplier Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Supplier Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TopCategory": {
+      "description": "Top Category Information",
+      "type": "object",
+      "properties": {
+        "RootCategory": {
+          "$ref": "#/$defs/TopCategoryNode"
+        },
+        "Category": {
+          "$ref": "#/$defs/TopCategoryNode"
+        },
+        "Score": {
+          "format": "double",
+          "description": "Category Score",
+          "type": "number"
+        },
+        "ImageUrl": {
+          "description": "URL for the Category image",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TopCategoryNode": {
+      "description": "Top Category Node Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Category Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Category Name",
+          "type": "string"
+        },
+        "ProductCount": {
+          "format": "int64",
+          "description": "Product count for the Category",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

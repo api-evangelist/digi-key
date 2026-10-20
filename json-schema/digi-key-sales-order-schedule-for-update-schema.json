@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-sales-order-schedule-for-update-schema.json",
+  "title": "SalesOrderScheduleForUpdate",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-ordermanagement-api-openapi.yml#/components/schemas/SalesOrderScheduleForUpdate",
+  "required": [
+    "QuantityScheduled",
+    "ScheduleDate"
+  ],
+  "type": "object",
+  "properties": {
+    "ScheduleDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "QuantityScheduled": {
+      "format": "int32",
+      "maximum": 2147483647,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,6 @@
+name: Digi-Key agent skills
+generated: '2026-10-19'
+method: generated
+skills:
+- file: digi-key-find-part-pricing.md
+- file: digi-key-quote-and-order.md

@@ -23,34 +23,558 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/digi-key.png
 name: Digi-Key
-description: "Retrieve price and inventory of electronic components as well as place orders"
+description: DigiKey is a global distributor of electronic components. Its developer portal (developer.digikey.com) publishes OAuth 2.0 REST APIs
+  on api.digikey.com for product search, pricing and inventory (Product Information V4), product change notifications, quoting, ordering, order
+  status and order management, MyLists, supply chain (consigned inventory locations), barcode decoding and packing lists, with a sandbox at sandbox-api.digikey.com.
 url: https://www.digikey.com/en/resources/api-solutions
 specificationVersion: '0.23'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-10-19'
 x-source: public-apis/public-apis
-x-category: "Shopping"
-x-tier: 3
+x-category: Shopping
+x-tier: '3'
 x-tier-reason: bulk-registered-from-public-apis
 tags:
-  - Shopping
-  - Public APIs
-apis:
-  - name: Digi-Key
-    description: "Retrieve price and inventory of electronic components as well as place orders"
-    humanURL: https://www.digikey.com/en/resources/api-solutions
-    tags:
-      - Shopping
-    properties:
-      - type: Documentation
-        url: https://www.digikey.com/en/resources/api-solutions
-common:
-  - type: DomainSecurity
-    url: security/digi-key-domain-security.yml
-  - type: Website
-    url: https://www.digikey.com/en/resources/api-solutions
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
+- Shopping
+- Public APIs
+- Electronic Components
+- Distribution
+- Ordering
+- Product Search
+- Pricing
+- Inventory
+- Supply Chain
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+common:
+- type: JSONLD
+  url: json-ld/digi-key-context.jsonld
+- type: Overlay
+  url: overlays/digi-key-b2bapi-order-management-api-ordermanagement-v1-overlay.yaml
+- type: AgenticAccess
+  url: agentic-access/digi-key-agentic-access.yml
+- type: RateLimits
+  url: rate-limits/digi-key-rate-limits.yml
+- type: Spectral
+  url: rules/digi-key-rules.yml
+- type: Vocabulary
+  url: vocabulary/digi-key-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/digi-key-data-model.yml
+- type: ChangeLog
+  url: changelog/digi-key-changelog.yml
+- type: Conventions
+  url: conventions/digi-key-conventions.yml
+- type: Sandbox
+  url: sandbox/digi-key-sandbox.yml
+- type: Deprecation
+  url: https://developer.digikey.com/changelog
+- type: Lifecycle
+  url: lifecycle/digi-key-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/digi-key-problem-types.yml
+- type: Conformance
+  url: conformance/digi-key-conformance.yml
+- type: Hosts
+  url: hosts/digi-key-hosts.yml
+- type: Vendors
+  url: vendors/digi-key-vendors.yml
+- type: SDKs
+  url: packages/digi-key-packages.yml
+- type: Packages
+  url: packages/digi-key-packages.yml
+- type: Authentication
+  url: authentication/digi-key-authentication.yml
+- type: OAuthScopes
+  url: scopes/digi-key-scopes.yml
+- type: DomainSecurity
+  url: security/digi-key-domain-security.yml
+- type: PublicAPIsListing
+  url: https://github.com/public-apis/public-apis
+- type: Website
+  url: https://www.digikey.com/
+- type: DeveloperPortal
+  url: https://developer.digikey.com/
+- type: Documentation
+  url: https://developer.digikey.com/documentation
+- type: APIReference
+  url: https://developer.digikey.com/products
+- type: Support
+  url: https://developer.digikey.com/support
+- type: FAQ
+  url: https://developer.digikey.com/faq
+- type: ChangeLog
+  url: https://developer.digikey.com/changelog
+- type: GitHubOrganization
+  url: https://github.com/Digi-Key
+- type: TermsOfService
+  url: https://developer.digikey.com/api-user-agreement
+- type: PrivacyPolicy
+  url: https://www.digikey.com/en/help/Privacy
+apis:
+- aid: digi-key:digi-key-barcoding-api
+  name: Digi-Key Barcoding API
+  description: The Barcoding API from Digi-Key — 4 operation(s) for barcoding.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Barcoding
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-barcoding-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-product2-dbarcode-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-product-barcode-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-pack-list-barcode-response-schema.json
+- aid: digi-key:digi-key-bondedinventory-api
+  name: Digi-Key Bonded Inventory API
+  description: The BondedInventory API from Digi-Key — 5 operation(s) for bondedinventory.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - BondedInventory
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-bondedinventory-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-bonded-inventory-product-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-customer-location-response-schema.json
+- aid: digi-key:digi-key-customerresource-api
+  name: Digi-Key Customer Resource API
+  description: The CustomerResource API from Digi-Key — 1 operation(s) for customerresource.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - CustomerResource
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-customerresource-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-account-association-response-schema.json
+- aid: digi-key:digi-key-lists-api
+  name: Digi-Key Lists API
+  description: The Lists API from Digi-Key — 5 operation(s) for lists.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-lists-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-list-data-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-create-list-request-schema.json
+- aid: digi-key:digi-key-orderhistory-api
+  name: Digi-Key Order History API
+  description: The OrderHistory API from Digi-Key — 2 operation(s) for orderhistory.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - OrderHistory
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-orderhistory-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-order-response-schema.json
+- aid: digi-key:digi-key-ordermanagement-api
+  name: Digi-Key Order Management API
+  description: The OrderManagement API from Digi-Key — 8 operation(s) for ordermanagement.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - OrderManagement
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-ordermanagement-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-detail-view-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-view-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-schedules-view-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-schedule-for-update-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-eligibility-view-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-schedule-patch-view-schema.json
+- aid: digi-key:digi-key-orders-api
+  name: Digi-Key Orders API
+  description: The Orders API from Digi-Key — 1 operation(s) for orders.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-order-request-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-order-response-schema.json
+- aid: digi-key:digi-key-packlist-api
+  name: Digi-Key Pack List API
+  description: The PackList API from Digi-Key — 3 operation(s) for packlist.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - PackList
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-packlist-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-invoice-packing-list-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-sales-order-pack-list-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-po-number-pack-list-schema.json
+- aid: digi-key:digi-key-parts-api
+  name: Digi-Key Parts API
+  description: The Parts API from Digi-Key — 2 operation(s) for parts.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Parts
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-parts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-list-part-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-requested-part-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-parts-by-list-id-response-schema.json
+- aid: digi-key:digi-key-pcn-api
+  name: Digi-Key Pcn API
+  description: The Pcn API from Digi-Key — 1 operation(s) for pcn.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Pcn
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-pcn-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-pcn-response-schema.json
+- aid: digi-key:digi-key-quotes-api
+  name: Digi-Key Quotes API
+  description: The Quotes API from Digi-Key — 3 operation(s) for quotes.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-add-products-to-quote-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-add-product-to-quote-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-products-from-quote-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-quotes-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-create-quote-request-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-quote-response-schema.json
+- aid: digi-key:digi-key-product-search-api
+  name: Digi-Key Product Search API
+  description: The Product Search API from Digi-Key — 14 operation(s) for product search.
+  humanURL: https://developer.digikey.com/products/ordering/ordermanagement
+  baseURL: https://api.digikey.com/OrderManagement/v1
+  tags:
+  - Product Search
+  properties:
+  - type: OpenAPI
+    url: openapi/digi-key-product-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordermanagement
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/barcoding
+  - type: Documentation
+    url: https://developer.digikey.com/products/reference-apis/customerresource
+  - type: Documentation
+    url: https://developer.digikey.com/products/mylists/mylists
+  - type: Documentation
+    url: https://developer.digikey.com/products/ordering/ordering
+  - type: Documentation
+    url: https://developer.digikey.com/products/order-status/orderstatus
+  - type: Documentation
+    url: https://developer.digikey.com/products/barcode/packinglist
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productchangenotifications
+  - type: Documentation
+    url: https://developer.digikey.com/products/product-information-v4/productsearch
+  - type: Documentation
+    url: https://developer.digikey.com/products/quote/quote-v4
+  - type: Documentation
+    url: https://developer.digikey.com/products/supplychain/supplychain
+  - type: JSONSchema
+    url: json-schema/digi-key-pricing-options-for-quantity-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-digi-reel-pricing-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-product-pricing-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-package-type-by-quantity-response-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-keyword-request-schema.json
+  - type: JSONSchema
+    url: json-schema/digi-key-keyword-response-schema.json
+x-enrichment:
+  date: '2026-10-19'
+  status: enriched
+  artifacts_added: 24
+  pass: local-v5

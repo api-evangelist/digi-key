@@ -1,0 +1,7 @@
+name: Digi-Key sandbox
+generated: '2026-10-19'
+method: searched
+source: https://developer.digikey.com/faq
+description: Sandbox host sandbox-api.digikey.com (x-host-sandbox in the published specs). Apps can call the sandbox API; Organization Production Apps call production. Sandbox Product Search always returns the example product in the response; its purpose is to test authorization and authentication.
+host: https://sandbox-api.digikey.com
+docs: https://developer.digikey.com/documentation

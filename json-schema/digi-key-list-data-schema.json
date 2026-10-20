@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-list-data-schema.json",
+  "title": "ListData",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-lists-api-openapi.yml#/components/schemas/ListData",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string"
+    },
+    "ListName": {
+      "type": "string"
+    },
+    "CreatedBy": {
+      "type": "string"
+    },
+    "CustomerId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "AccountId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "CompanyName": {
+      "type": "string"
+    },
+    "FirstName": {
+      "type": "string"
+    },
+    "LastName": {
+      "type": "string"
+    },
+    "Notes": {
+      "type": "string"
+    },
+    "TotalParts": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "DateCreated": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DateLastAccessed": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DateModified": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ListSettings": {
+      "$ref": "#/$defs/ListSettings"
+    },
+    "PartsList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/RequestedPart"
+      }
+    },
+    "Revisions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Revision"
+      }
+    },
+    "CanEdit": {
+      "type": "boolean"
+    },
+    "UserInformation": {
+      "$ref": "#/$defs/UserInformation"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Column": {
+      "type": "object",
+      "properties": {
+        "ColumnName": {
+          "type": "string"
+        },
+        "IsVisible": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ListSettings": {
+      "type": "object",
+      "properties": {
+        "Visibility": {
+          "enum": [
+            "Private",
+            "ReadOnly",
+            "ReadWrite"
+          ],
+          "type": "string"
+        },
+        "PackagePreference": {
+          "enum": [
+            "CutTapeOrTR",
+            "DigiReelOrTR",
+            "EnteredPartNumber",
+            "StandardPack"
+          ],
+          "type": "string"
+        },
+        "ColumnPreferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Column"
+          }
+        },
+        "AutoCorrectQuantities": {
+          "type": "boolean"
+        },
+        "AttritionEnabled": {
+          "type": "boolean"
+        },
+        "AutoPopulateCref": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RequestedPart": {
+      "type": "object",
+      "properties": {
+        "UniqueId": {
+          "type": "string"
+        },
+        "PartId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RequestedPartNumber": {
+          "type": "string"
+        },
+        "OriginalPartNumber": {
+          "type": "string"
+        },
+        "ManufacturerName": {
+          "type": "string"
+        },
+        "CustomerReference": {
+          "type": "string"
+        },
+        "ReferenceDesignator": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "SelectedQuantityIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Attrition": {
+          "format": "double",
+          "type": "number"
+        },
+        "AlternateParts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Quantities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RequestedQuantity"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "RequestedQuantity": {
+      "type": "object",
+      "properties": {
+        "SelectedPackType": {
+          "type": "string"
+        },
+        "SelectedSubPackType": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TargetPrice": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Revision": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "ListId": {
+          "type": "string"
+        },
+        "RevisionNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Parts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RequestedPart"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserInformation": {
+      "type": "object",
+      "properties": {
+        "ContactId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AccountId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

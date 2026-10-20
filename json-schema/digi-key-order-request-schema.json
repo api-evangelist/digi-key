@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-order-request-schema.json",
+  "title": "OrderRequest",
+  "description": "Model that contains all information required for an order.",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-orders-api-openapi.yml#/components/schemas/OrderRequest",
+  "required": [
+    "Currency",
+    "LineItems",
+    "PurchaseOrderNumber",
+    "ShippingContact"
+  ],
+  "type": "object",
+  "properties": {
+    "PurchaseOrderNumber": {
+      "description": "Purchase order number",
+      "type": "string"
+    },
+    "Currency": {
+      "description": "Currency to use for the order",
+      "type": "string"
+    },
+    "ShipControl": {
+      "description": "If some products are not in stock, how would you like this order released?\nImmediate-Ship in stock products immediately and each backorder as soon as it's available - Default Options\nSingle-No products from the SalesOrder will ship until all items are available",
+      "type": "string"
+    },
+    "MfgCOfCRequired": {
+      "description": "Indicates if the manufacturer certificate of compliance is required. Applies to the whole shipment.",
+      "type": "boolean"
+    },
+    "BuyerContact": {
+      "$ref": "#/$defs/BuyerContact"
+    },
+    "ShippingContact": {
+      "$ref": "#/$defs/ShippingContact"
+    },
+    "BillingAccount": {
+      "format": "int64",
+      "description": "This field is no longer used. We use the information in the ShippingContract section to identify the accounts to use for this order.",
+      "type": "integer"
+    },
+    "ShipMethod": {
+      "description": "Shipping method. Not all options are available in all times and locations. The following options are accepted: \"DHL worldwide Express\"  \"FedEx ground\"  \"FedEx 3 day\"  \"FedEx 2 day\"  \"FedEx standard overnight\"  \"FedEx priority overnight\"  \"FedEx first overnight\"  \"FedEx international priority\"  \"FedEx international economy\"  \"UPS ground\"  \"UPS 3 day\"  \"UPS 2 day\"  \"UPS 2 day noon\"  \"UPS 1 day\"  \"UPS 1 day 3 p.m.\"  \"UPS 1 day early a.m.\"  \"UPS worldwide expedited\"  \"UPS worldwide express\"  \"UPS worldwide saver\"  \"USPS express mail international\"  \"USPS express mail\"  \"USPS priority mail\"  \"USPS ground advantage\"  \"USPS standard mail\"",
+      "type": "string"
+    },
+    "ShipperAccountNumber": {
+      "description": "Optional shipping account to use",
+      "type": "string"
+    },
+    "LineItems": {
+      "description": "List of one of more Part Details",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/LineItem"
+      }
+    },
+    "OrderNotes": {
+      "description": "Optional notes",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "PackagingPreference": {
+      "description": "Optional field for which type of part to prefer: DKR (Digi-Key Reel) or CT (cut tape)",
+      "type": "string"
+    },
+    "Taxable": {
+      "description": "Whether the order is taxable or not",
+      "type": "boolean"
+    },
+    "ExportQuestions": {
+      "$ref": "#/$defs/ExportQuestions"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Address": {
+      "description": "Address information for contacts",
+      "type": "object",
+      "properties": {
+        "Company": {
+          "description": "Company name",
+          "type": "string"
+        },
+        "FirstName": {
+          "description": "Contact's first name",
+          "type": "string"
+        },
+        "LastName": {
+          "description": "Contact's last name",
+          "type": "string"
+        },
+        "Email": {
+          "description": "Contact's email address",
+          "type": "string"
+        },
+        "AddressLineOne": {
+          "description": "First line of delivery address",
+          "maxLength": 40,
+          "minLength": 0,
+          "type": "string"
+        },
+        "AddressLineTwo": {
+          "description": "Second line of delivery address",
+          "maxLength": 40,
+          "minLength": 0,
+          "type": "string"
+        },
+        "City": {
+          "description": "Contact's city",
+          "type": "string"
+        },
+        "Province": {
+          "description": "Province or state",
+          "type": "string"
+        },
+        "PostalCode": {
+          "description": "Postal code or zip code",
+          "type": "string"
+        },
+        "Country": {
+          "description": "Contact's country 2 character ISO code",
+          "maxLength": 2,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BuyerContact": {
+      "description": "Contact information for buyer",
+      "required": [
+        "Address",
+        "Name"
+      ],
+      "type": "object",
+      "properties": {
+        "CustomerId": {
+          "description": "Your DigiKey AccountID to be used for billing purposes. Populate this CustomerID field with your AccountID.\nWe use this information to ensure the order is placed for the correct company and location.\nSelect ‘My account’ above to learn more about AccountIDs.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Customer's name",
+          "type": "string"
+        },
+        "Address": {
+          "$ref": "#/$defs/Address"
+        },
+        "Telephone": {
+          "description": "Contact's telephone number",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExportQuestions": {
+      "description": "Required structure for Independent Distributors if product is shipping outside of the US. Otherwise do not include.",
+      "required": [
+        "ConsigneeName",
+        "CountryCode",
+        "PrimaryApplication",
+        "SecondaryApplication"
+      ],
+      "type": "object",
+      "properties": {
+        "CountryCode": {
+          "description": "The 2 digit ISO code for the country of final destination",
+          "type": "string"
+        },
+        "ConsigneeName": {
+          "description": "End customer name",
+          "type": "string"
+        },
+        "PrimaryApplication": {
+          "description": "The category of use for the product. Must exactly match one of the following items: \"Aerospace\", \"Automotive\", \"Computer & Peripherals\", \"Consumer Electronics\", \"Industrial\", \"Medical\", \"Military\".",
+          "type": "string"
+        },
+        "SecondaryApplication": {
+          "description": "The use for the product, valid options are determined by PrimaryApplication. It must match one of the following items exactly. \nIf Primary is \"Aerospace\", valid options are: \"Aircraft, commercial transport\", \"Aircraft, UAV\", \"Communications equipment\", \"Computer systems\", \"Entertainment systems\", \"Sensors, controls, test equipment\", \"Safety systems\", \"Satellites, commercial\", \"Other\".\nIf Primary is \"Automotive\", valid options are: \"Drive train\", \"Instrumentation\", \"Safety systems\", \"Other\".\nIf Primary is \"Computer & Peripherals\", valid options are: \"Accessories\", \"Desktop\", \"Laptop\", \"Server/storage\", \"Other\".\nIf Primary is \"Consumer Electronics\", valid options are: \"Audio/video\", \"Gaming systems\", \"Home appliances\", \"Lighting systems\", \"Wired communications\", \"Wireless communications\", \"Other\".\nIf Primary is \"Industrial\", valid options are: \"Appliances/white goods\", \"Automation and control\", \"Renewable/fossil fuels energy\", \"Nuclear energy\", \"Lighting systems\", \"Sensors, controls, test equipment\", \"Tools\", \"Other\".\nIf Primary is \"Medical\", valid options are: \"Diagnostic equipment\", \"Instruments, devices\", \"Imaging / scanning\", \"Other\".\nIf Primary is \"Military\", valid options are: \"Aircraft, military\", \"Aircraft, UAV\", \"Communications equipment\", \"Computer systems\", \"Missile systems\", \"Satellites, military\", \"Sensors, controls, test equipment\", \"Vehicles, personnel transport\", \"Vehicles, weapon transport\", \"Weapons systems\", \"Other\".",
+          "type": "string"
+        },
+        "AdditionalInfo": {
+          "description": "Free form text to provide any additional application information",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "LineItem": {
+      "description": "Details for each line item in the order",
+      "required": [
+        "RequestedQuantity",
+        "UnitPrice"
+      ],
+      "type": "object",
+      "properties": {
+        "MfgCOfCRequired": {
+          "description": "Indicates if the manufacturer certificate of compliance is required. Applies to the only this line item.",
+          "type": "boolean"
+        },
+        "CustomerLineItemId": {
+          "description": "Line item number for customer use",
+          "type": "string"
+        },
+        "ProductDescription": {
+          "description": "Optional description of the product",
+          "type": "string"
+        },
+        "CustomerPartNumber": {
+          "description": "Optional special customer part number if your company has a special part number system with Digi-Key",
+          "type": "string"
+        },
+        "DigiKeyPartNumber": {
+          "description": "Digi-Key part number. Either this or ManufacturerPartNumber must be provided.",
+          "type": "string"
+        },
+        "ManufacturerPartNumber": {
+          "description": "Manufacturer part number. Either this or Digi-Key part number must be provided.",
+          "type": "string"
+        },
+        "ManufacturerName": {
+          "description": "Optional name of manufacturer/part supplier. May assist with unresolved manufacturer part numbers.",
+          "type": "string"
+        },
+        "RequestedQuantity": {
+          "format": "int32",
+          "description": "Quantity that must be greater than zero.",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "Expected price. This is required so any discrepancies between between the expected and actual price can be addressed.",
+          "type": "number"
+        },
+        "QuoteId": {
+          "format": "int32",
+          "description": "Optional QuoteId to use price from.",
+          "type": "integer"
+        },
+        "DeliveryDate": {
+          "format": "date-time",
+          "description": "Optional future date that the product is expected to be in-house. This should be in ISO 8601 format.",
+          "type": "string"
+        },
+        "LineItemNotes": {
+          "description": "Optional notes",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Schedules": {
+          "description": "Optional array of Schedules for shipping this LineItem. If blank, will use LineItem's delivery date with the full quantity.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Schedule"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Schedule": {
+      "description": "Optional schedule to determine how many of the lineitem are shipped on which dates",
+      "required": [
+        "ScheduledDate",
+        "ScheduledQuantity"
+      ],
+      "type": "object",
+      "properties": {
+        "ScheduledDate": {
+          "format": "date-time",
+          "description": "Valid future date for shipping. This should be in ISO 8601 format.",
+          "type": "string"
+        },
+        "ScheduledQuantity": {
+          "format": "int32",
+          "description": "Number to schedule on the selected date.",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ShippingContact": {
+      "description": "Shipping contact information",
+      "required": [
+        "Address",
+        "Name"
+      ],
+      "type": "object",
+      "properties": {
+        "CustomerId": {
+          "description": "Your DigiKey AccountID to be used for billing purposes. Populate this CustomerID field with your AccountID.\nWe use this information to ensure the order is placed for the correct company and location.\nSelect ‘My account’ above to learn more about AccountIDs.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Customer's name",
+          "type": "string"
+        },
+        "Address": {
+          "$ref": "#/$defs/Address"
+        },
+        "Telephone": {
+          "description": "Contact's telephone number",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

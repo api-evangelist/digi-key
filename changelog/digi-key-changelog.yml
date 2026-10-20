@@ -1,0 +1,44 @@
+name: Digi-Key changelog
+generated: '2026-10-19'
+method: searched
+source: https://developer.digikey.com/changelog
+scheme: Semantic Versioning (per API changelog)
+entries:
+- version: 1.0.0
+  date: '2025-11-24'
+  api: Sunsetting X-DIGIKEY-Customer-Id
+  breaking: true
+  highlights:
+  - Removed X-DIGIKEY-Customer-Id from multiple endpoints. Added X-DIGIKEY-Account-ID where applicable.
+  - Removed DeleteProductFromQuote endpoint.
+  - 'MyLists: removed IsValidListName, DeleteTag, CreateTag, UpdateListSettings, CreateRevision, UpdateRevision, GetRevisionByRevisionId, GetPriceTable, GetAlternatePartInfo.'
+- version: 4.0.4
+  date: '2025-06-04'
+  api: ProductSearch
+  breaking: false
+  highlights:
+  - 'KeywordSearch: added a filtering option to exclude products that have the TariffActive flag set to yes.'
+- version: 1.0.1
+  date: '2024-07-15'
+  api: Quote
+  breaking: false
+  highlights:
+  - The new Quote-v4API is replacing the current QuotingAPI. QuotingAPI will continue to be supported into 2025.
+- version: 4.0.2
+  date: '2024-05-29'
+  api: ProductSearch
+  breaking: false
+  highlights:
+  - Added ProductPricing operation.
+- version: 4.0.1
+  date: '2023-06-05'
+  api: ProductSearch
+  breaking: true
+  highlights:
+  - MinimumOrderQuantity moved from Product to ProductVariations.
+- version: 4.0.0
+  date: '2023-03-10'
+  api: ProductSearch
+  breaking: true
+  highlights:
+  - 'Product roll up: results grouped by manufacturer part number.'

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-requested-part-schema.json",
+  "title": "RequestedPart",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-parts-api-openapi.yml#/components/schemas/RequestedPart",
+  "type": "object",
+  "properties": {
+    "UniqueId": {
+      "type": "string"
+    },
+    "PartId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "RequestedPartNumber": {
+      "type": "string"
+    },
+    "OriginalPartNumber": {
+      "type": "string"
+    },
+    "ManufacturerName": {
+      "type": "string"
+    },
+    "CustomerReference": {
+      "type": "string"
+    },
+    "ReferenceDesignator": {
+      "type": "string"
+    },
+    "Notes": {
+      "type": "string"
+    },
+    "SelectedQuantityIndex": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "Attrition": {
+      "format": "double",
+      "type": "number"
+    },
+    "AlternateParts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Quantities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/RequestedQuantity"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "RequestedQuantity": {
+      "type": "object",
+      "properties": {
+        "SelectedPackType": {
+          "type": "string"
+        },
+        "SelectedSubPackType": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TargetPrice": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-product-pricing-response-schema.json",
+  "title": "ProductPricingResponse",
+  "description": "A sub set of the product infromation",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-product-search-api-openapi.yml#/components/schemas/ProductPricingResponse",
+  "type": "object",
+  "properties": {
+    "ProductPricings": {
+      "description": "List of Products",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ProductPricing"
+      }
+    },
+    "ProductsCount": {
+      "format": "int32",
+      "description": "Total number of matching products found.",
+      "type": "integer"
+    },
+    "SettingsUsed": {
+      "$ref": "#/$defs/SettingsUsed"
+    },
+    "AccountIdUsed": {
+      "format": "int32",
+      "description": "The AccountID we used for the transaction. It may have been entered in the X-DIGIKEY-Account-ID field or determined from the API user’s authentication request.",
+      "type": "integer"
+    },
+    "CustomerIdUsed": {
+      "format": "int32",
+      "description": "The CustomerID we used for the transaction.",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "CategoryType": {
+      "type": "object",
+      "properties": {
+        "CategoryId": {
+          "format": "int32",
+          "description": "ID for DigiKey product category",
+          "type": "integer"
+        },
+        "Level": {
+          "format": "int32",
+          "description": "DigiKey Product Category level",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Name of DigiKey product category",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Description": {
+      "type": "object",
+      "properties": {
+        "ProductDescription": {
+          "description": "Description of the product. If you entered a valid Locale and Language in the input, we will return the description in that language. Otherwise, we’ll return the English description.",
+          "type": "string"
+        },
+        "DetailedDescription": {
+          "description": "Detailed description of the product. If you entered a valid Locale and Language in the input, we will return the description in that language. Otherwise, we’ll return the English description.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Filters": {
+      "description": "Filters used for search",
+      "type": "object",
+      "properties": {
+        "IsInStock": {
+          "description": "Did we use the “IsInStock” limit?",
+          "type": "boolean"
+        },
+        "ExcludeMarketplace": {
+          "description": "Did we use the “ExcludeMarketplace” limit?",
+          "type": "boolean"
+        },
+        "ExcludeTariff": {
+          "description": "Did we use the \"ExcludeTariff\" limit?",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "IsoSearchLocale": {
+      "description": "The validated locale that was used for the search. If the provided locale was invalid, this will show the corrections.",
+      "type": "object",
+      "properties": {
+        "Site": {
+          "description": "The site we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values.",
+          "type": "string"
+        },
+        "Language": {
+          "description": "The language we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "The currency we used for the API call. Note this may be different than the value you entered if that value was not one of our allowed values or not valid for the entered site.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Manufacturer": {
+      "description": "Manufacturer Information",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "Manufacturer Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Manufacturer Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PackageType": {
+      "description": "Type of packaging for the product. Not all products are available in all packaging types. Possibilities include but are not limited to: Tape and Reel(TR), Cut Tape(CT), Digi-Reel(DKR), Tube, Tray, and Bulk.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "description": "PackageType Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "PackageType Name",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PriceBreak": {
+      "description": "Price when a product is purchased by specific quantities",
+      "type": "object",
+      "properties": {
+        "BreakQuantity": {
+          "format": "int32",
+          "description": "The quantity at which the price takes effect",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "description": "The unit price for the quantity",
+          "type": "number"
+        },
+        "TotalPrice": {
+          "format": "double",
+          "description": "The total price",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProductPricing": {
+      "description": "Product",
+      "type": "object",
+      "properties": {
+        "ManufacturerProductNumber": {
+          "description": "The manufacturer part number. Note that some manufacturer part numbers may be used by multiple manufacturers for different parts.",
+          "type": "string"
+        },
+        "Manufacturer": {
+          "$ref": "#/$defs/Manufacturer"
+        },
+        "Description": {
+          "$ref": "#/$defs/Description"
+        },
+        "QuantityAvailable": {
+          "format": "int32",
+          "description": "In-stock quantity that is available for immediate shipping.",
+          "type": "integer"
+        },
+        "ProductUrl": {
+          "description": "Full URL of the Digi-Key catalog page to purchase the product. This is based on your provided Locale values.",
+          "type": "string"
+        },
+        "IsDiscontinued": {
+          "description": "This product is no longer sold at DigiKey and will no longer be restocked.",
+          "type": "boolean"
+        },
+        "NormallyStocking": {
+          "description": "Indicates if a product is normally stocked.",
+          "type": "boolean"
+        },
+        "IsObsolete": {
+          "description": "Product is obsolete",
+          "type": "boolean"
+        },
+        "ManufacturerLeadWeeks": {
+          "description": "The number of weeks expected to receive stock from manufacturer to DigiKey.",
+          "type": "string"
+        },
+        "ManufacturerPublicQuantity": {
+          "format": "int32",
+          "description": "The manufacturer’s factory stock that can be ordered and will ship once DigiKey receives it from the manufacturer.",
+          "type": "integer"
+        },
+        "StandardPackage": {
+          "format": "int32",
+          "description": "The number of products in the manufacturer's standard package.",
+          "type": "integer"
+        },
+        "ExportControlClassNumber": {
+          "description": "Export control class number. See documentation from the U.S. Department of Commerce.",
+          "type": "string"
+        },
+        "HtsusCode": {
+          "description": "Harmonized Tariff Schedule of the United States. See documentation from the U.S. International Trade Commission.",
+          "type": "string"
+        },
+        "MoistureSensitivityLevel": {
+          "description": "Code for Moisture Sensitivity Level of the product",
+          "type": "string"
+        },
+        "IsBoNotAllowed": {
+          "description": "Is Back Order not allowed? True if you cannot place a backorder; false if we will allow the product to be back-ordered.",
+          "type": "boolean"
+        },
+        "IsNcnr": {
+          "description": "Is product non-cancellable and non-returnable",
+          "type": "boolean"
+        },
+        "Categories": {
+          "description": "The main category that the part is in(this does not include sub categories)",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CategoryType"
+          }
+        },
+        "ContainsLithium": {
+          "description": "Indicates if product contains lithium",
+          "type": "boolean"
+        },
+        "ContainsMercury": {
+          "description": "Indicates if product contains mercury",
+          "type": "boolean"
+        },
+        "IsEndOfLife": {
+          "description": "This product is no longer manufactured and will no longer be stocked once stock is depleted.",
+          "type": "boolean"
+        },
+        "OtherNames": {
+          "description": "Other Names may include former part numbers (changed through manufacturer acquisition), cross references for parts we don't carry, among other reasons.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProductVariations": {
+          "description": "Variations of the requested ProductPricing",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProductPricingVariation"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProductPricingVariation": {
+      "description": "Variations of the requested ProductPricing",
+      "type": "object",
+      "properties": {
+        "DigiKeyProductNumber": {
+          "description": "DigiKey Product number of the variation",
+          "type": "string"
+        },
+        "QuantityAvailableforPackageType": {
+          "format": "int32",
+          "description": "The quantity available for the specified variation.",
+          "type": "integer"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "description": "Minimum quantity required to order variation",
+          "type": "integer"
+        },
+        "MaxQuantityForDistribution": {
+          "format": "int64",
+          "description": "Maximum quantity available to distribute for variation",
+          "type": "integer"
+        },
+        "PackageType": {
+          "$ref": "#/$defs/PackageType"
+        },
+        "MarketPlace": {
+          "description": "Product is a Marketplace product that ships direct from the supplier. A separate shipping fee may apply",
+          "type": "boolean"
+        },
+        "StandardPricing": {
+          "description": "Standard pricing for the validated locale.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PriceBreak"
+          }
+        },
+        "MyPricing": {
+          "description": "Your pricing for the DigiKey customer number with which you authenticated. Also dependent on locale information.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PriceBreak"
+          }
+        },
+        "IsTariffActive": {
+          "description": "Indicates if tariff is active for variation",
+          "type": "boolean"
+        },
+        "DigiReelingFee": {
+          "format": "double",
+          "description": "Reeling fee per product ordered",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SettingsUsed": {
+      "type": "object",
+      "properties": {
+        "CustomerId": {
+          "format": "int32",
+          "description": "The CustomerId that was used for the search and pricing",
+          "type": "integer"
+        },
+        "SearchLocale": {
+          "$ref": "#/$defs/IsoSearchLocale"
+        },
+        "Filters": {
+          "$ref": "#/$defs/Filters"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

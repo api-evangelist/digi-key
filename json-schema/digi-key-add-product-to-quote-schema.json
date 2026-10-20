@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-add-product-to-quote-schema.json",
+  "title": "AddProductToQuote",
+  "description": "Add Product information to a quote",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-quotes-api-openapi.yml#/components/schemas/AddProductToQuote",
+  "type": "object",
+  "properties": {
+    "ProductNumber": {
+      "description": "Product number to add to the quote. Only Manufacturer Part Numbers and DigiKey Part Numbers are accepted.",
+      "type": "string"
+    },
+    "CustomerReference": {
+      "description": "The Customer Reference for the product. Maximum is 40 characters.",
+      "type": "string"
+    },
+    "Quantities": {
+      "description": "Quantity of the product to add to the quote.",
+      "type": "array",
+      "items": {
+        "format": "int32",
+        "type": "integer"
+      }
+    }
+  },
+  "additionalProperties": false
+}

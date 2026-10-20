@@ -1,0 +1,8 @@
+publisher: DigiKey
+method: assembled from provider-published fragments
+how: each DigiKey developer-portal operation page embeds its Swagger 2.0 fragment verbatim in drupalSettings.spec;
+     the fragments were fetched 2026-10-19 and merged by info.title + basePath. Content is DigiKey's; the merge is ours.
+pages:
+  - https://developer.digikey.com/products/barcode/packinglist/getpackinglist
+  - https://developer.digikey.com/products/barcode/packinglist/getpackinglistbysalesorderid
+  - https://developer.digikey.com/products/barcode/packinglist/getpackinglistbyponumber

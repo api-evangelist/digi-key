@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-quote-response-schema.json",
+  "title": "QuoteResponse",
+  "description": "Quote Information to a quote",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-quotes-api-openapi.yml#/components/schemas/QuoteResponse",
+  "type": "object",
+  "properties": {
+    "Quote": {
+      "$ref": "#/$defs/QuoteInformation"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ExpirationStatus": {
+      "enum": [
+        "Active",
+        "Error",
+        "Expired"
+      ],
+      "type": "string"
+    },
+    "QuoteInformation": {
+      "description": "Response for creating a quote",
+      "type": "object",
+      "properties": {
+        "TotalProducts": {
+          "format": "int32",
+          "description": "The total number of products on a quote, not just what may be returned.",
+          "type": "integer"
+        },
+        "QuoteId": {
+          "format": "int64",
+          "description": "The unique ID which identifies this quote.",
+          "type": "integer"
+        },
+        "CustomerId": {
+          "format": "int32",
+          "description": "CustomerId that is on the quote",
+          "type": "integer"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "description": "Date the quote was created",
+          "type": "string"
+        },
+        "ExpirationStatus": {
+          "$ref": "#/$defs/ExpirationStatus"
+        },
+        "Currency": {
+          "description": "   The currency used for the quote. Note this may be different from the value you entered if that value\nwas not one of our allowed values or not valid the for the CustomerId’s country.",
+          "type": "string"
+        },
+        "QuoteName": {
+          "description": "The name the user gave to the quote when it was created.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

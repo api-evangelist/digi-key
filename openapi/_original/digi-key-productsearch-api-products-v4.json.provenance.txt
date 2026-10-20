@@ -1,0 +1,19 @@
+publisher: DigiKey
+method: assembled from provider-published fragments
+how: each DigiKey developer-portal operation page embeds its Swagger 2.0 fragment verbatim in drupalSettings.spec;
+     the fragments were fetched 2026-10-19 and merged by info.title + basePath. Content is DigiKey's; the merge is ours.
+pages:
+  - https://developer.digikey.com/products/product-information-v4/productsearch/keywordsearch
+  - https://developer.digikey.com/products/product-information-v4/productsearch/productpricing
+  - https://developer.digikey.com/products/product-information-v4/productsearch/productdetails
+  - https://developer.digikey.com/products/product-information-v4/productsearch/packagetypebyquantity
+  - https://developer.digikey.com/products/product-information-v4/productsearch/manufacturers
+  - https://developer.digikey.com/products/product-information-v4/productsearch/media
+  - https://developer.digikey.com/products/product-information-v4/productsearch/categories
+  - https://developer.digikey.com/products/product-information-v4/productsearch/categoriesbyid
+  - https://developer.digikey.com/products/product-information-v4/productsearch/alternatepackaging
+  - https://developer.digikey.com/products/product-information-v4/productsearch/digireelpricing
+  - https://developer.digikey.com/products/product-information-v4/productsearch/recommendedproducts
+  - https://developer.digikey.com/products/product-information-v4/productsearch/substitutions
+  - https://developer.digikey.com/products/product-information-v4/productsearch/associations
+  - https://developer.digikey.com/products/product-information-v4/productsearch/pricingoptionsbyquantity

@@ -1,0 +1,1629 @@
+{
+  "@context": {
+    "@vocab": "https://digikey.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "digi": "https://digikey.com/schema#",
+    "Product2DBarcodeResponse": "digi:Product2DBarcodeResponse",
+    "DigiKeyPartNumber": {
+      "@id": "digi:DigiKeyPartNumber",
+      "@type": "xsd:string"
+    },
+    "ManufacturerPartNumber": {
+      "@id": "digi:ManufacturerPartNumber",
+      "@type": "xsd:string"
+    },
+    "ManufacturerName": {
+      "@id": "digi:ManufacturerName",
+      "@type": "xsd:string"
+    },
+    "ProductDescription": {
+      "@id": "digi:ProductDescription",
+      "@type": "xsd:string"
+    },
+    "Quantity": {
+      "@id": "digi:Quantity",
+      "@type": "xsd:integer"
+    },
+    "SalesorderId": {
+      "@id": "digi:SalesorderId",
+      "@type": "xsd:integer"
+    },
+    "InvoiceId": {
+      "@id": "digi:InvoiceId",
+      "@type": "xsd:integer"
+    },
+    "PurchaseOrder": {
+      "@id": "digi:PurchaseOrder",
+      "@type": "xsd:string"
+    },
+    "CountryOfOrigin": {
+      "@id": "digi:CountryOfOrigin",
+      "@type": "xsd:string"
+    },
+    "LotCode": {
+      "@id": "digi:LotCode",
+      "@type": "xsd:string"
+    },
+    "DateCode": {
+      "@id": "digi:DateCode",
+      "@type": "xsd:string"
+    },
+    "PackListBarcodeResponse": "digi:PackListBarcodeResponse",
+    "PackListNumber": {
+      "@id": "digi:PackListNumber",
+      "@type": "xsd:integer"
+    },
+    "PackListDetails": {
+      "@id": "digi:PackListDetails",
+      "@container": "@list"
+    },
+    "ApiErrorResponse": "digi:ApiErrorResponse",
+    "ErrorResponseVersion": {
+      "@id": "digi:ErrorResponseVersion",
+      "@type": "xsd:string"
+    },
+    "StatusCode": {
+      "@id": "digi:StatusCode",
+      "@type": "xsd:integer"
+    },
+    "ErrorMessage": {
+      "@id": "digi:ErrorMessage",
+      "@type": "xsd:string"
+    },
+    "ErrorDetails": {
+      "@id": "digi:ErrorDetails",
+      "@type": "xsd:string"
+    },
+    "RequestId": {
+      "@id": "digi:RequestId",
+      "@type": "xsd:string"
+    },
+    "ValidationErrors": {
+      "@id": "digi:ValidationErrors",
+      "@container": "@list"
+    },
+    "ProductBarcodeResponse": "digi:ProductBarcodeResponse",
+    "PackListDetail": "digi:PackListDetail",
+    "ApiValidationError": "digi:ApiValidationError",
+    "Field": {
+      "@id": "digi:Field",
+      "@type": "xsd:string"
+    },
+    "Message": {
+      "@id": "digi:Message",
+      "@type": "xsd:string"
+    },
+    "BondedInventoryProductResponse": "digi:BondedInventoryProductResponse",
+    "CustomerPartNumber": {
+      "@id": "digi:CustomerPartNumber",
+      "@type": "xsd:string"
+    },
+    "Manufacturer": {
+      "@id": "digi:Manufacturer",
+      "@type": "xsd:string"
+    },
+    "UnitPrice": {
+      "@id": "digi:UnitPrice",
+      "@type": "xsd:decimal"
+    },
+    "PackType": {
+      "@id": "digi:PackType",
+      "@type": "xsd:string"
+    },
+    "ReserveQuantity": {
+      "@id": "digi:ReserveQuantity",
+      "@type": "xsd:integer"
+    },
+    "BackOrderReserveQuantity": {
+      "@id": "digi:BackOrderReserveQuantity",
+      "@type": "xsd:integer"
+    },
+    "VendorLeadWeeks": {
+      "@id": "digi:VendorLeadWeeks",
+      "@type": "xsd:string"
+    },
+    "CustomerId": {
+      "@id": "digi:CustomerId",
+      "@type": "xsd:integer"
+    },
+    "NcnrQuantity": {
+      "@id": "digi:NcnrQuantity",
+      "@type": "xsd:integer"
+    },
+    "NcnrDateSigned": {
+      "@id": "digi:NcnrDateSigned",
+      "@type": "xsd:dateTime"
+    },
+    "MinimumReleaseQuantityOverride": {
+      "@id": "digi:MinimumReleaseQuantityOverride",
+      "@type": "xsd:boolean"
+    },
+    "MinimumQuantityThreshold": {
+      "@id": "digi:MinimumQuantityThreshold",
+      "@type": "xsd:integer"
+    },
+    "NonCancelable": {
+      "@id": "digi:NonCancelable",
+      "@type": "xsd:boolean"
+    },
+    "StandardPackage": {
+      "@id": "digi:StandardPackage",
+      "@type": "xsd:integer"
+    },
+    "CustomerLocationResponse": "digi:CustomerLocationResponse",
+    "BondedInventory": {
+      "@id": "digi:BondedInventory",
+      "@type": "xsd:boolean"
+    },
+    "Currency": {
+      "@id": "digi:Currency",
+      "@type": "xsd:string"
+    },
+    "ShippingAddress": {
+      "@id": "digi:ShippingAddress",
+      "@type": "@id"
+    },
+    "Address": "digi:Address",
+    "Company": {
+      "@id": "digi:Company",
+      "@type": "xsd:string"
+    },
+    "AddressLineOne": {
+      "@id": "digi:AddressLineOne",
+      "@type": "xsd:string"
+    },
+    "AddressLineTwo": {
+      "@id": "digi:AddressLineTwo",
+      "@type": "xsd:string"
+    },
+    "AddressLineThree": {
+      "@id": "digi:AddressLineThree",
+      "@type": "xsd:string"
+    },
+    "City": {
+      "@id": "digi:City",
+      "@type": "xsd:string"
+    },
+    "Province": {
+      "@id": "digi:Province",
+      "@type": "xsd:string"
+    },
+    "PostalCode": {
+      "@id": "digi:PostalCode",
+      "@type": "xsd:string"
+    },
+    "Country": {
+      "@id": "digi:Country",
+      "@type": "xsd:string"
+    },
+    "AccountAddress": "digi:AccountAddress",
+    "CompanyName": {
+      "@id": "digi:CompanyName",
+      "@type": "xsd:string"
+    },
+    "AddressLine1": {
+      "@id": "digi:AddressLine1",
+      "@type": "xsd:string"
+    },
+    "AddressLine2": {
+      "@id": "digi:AddressLine2",
+      "@type": "xsd:string"
+    },
+    "AddressLine3": {
+      "@id": "digi:AddressLine3",
+      "@type": "xsd:string"
+    },
+    "State": {
+      "@id": "digi:State",
+      "@type": "xsd:string"
+    },
+    "CountryCode": {
+      "@id": "digi:CountryCode",
+      "@type": "xsd:string"
+    },
+    "AccountInformation": "digi:AccountInformation",
+    "AccountId": {
+      "@id": "digi:AccountId",
+      "@type": "xsd:integer"
+    },
+    "DKProblemDetails": "digi:DKProblemDetails",
+    "type": {
+      "@id": "digi:type",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "digi:title",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "digi:status",
+      "@type": "xsd:integer"
+    },
+    "detail": {
+      "@id": "digi:detail",
+      "@type": "xsd:string"
+    },
+    "instance": {
+      "@id": "digi:instance",
+      "@type": "xsd:string"
+    },
+    "correlationId": {
+      "@id": "digi:correlationId",
+      "@type": "xsd:string"
+    },
+    "errors": {
+      "@id": "digi:errors"
+    },
+    "AccountAssociationResponse": "digi:AccountAssociationResponse",
+    "Accounts": {
+      "@id": "digi:Accounts",
+      "@container": "@list"
+    },
+    "EmailAddressUsed": {
+      "@id": "digi:EmailAddressUsed",
+      "@type": "xsd:string"
+    },
+    "ListData": "digi:ListData",
+    "Id": {
+      "@id": "digi:Id",
+      "@type": "xsd:string"
+    },
+    "ListName": {
+      "@id": "digi:ListName",
+      "@type": "xsd:string"
+    },
+    "CreatedBy": {
+      "@id": "digi:CreatedBy",
+      "@type": "xsd:string"
+    },
+    "FirstName": {
+      "@id": "digi:FirstName",
+      "@type": "xsd:string"
+    },
+    "LastName": {
+      "@id": "digi:LastName",
+      "@type": "xsd:string"
+    },
+    "Notes": {
+      "@id": "digi:Notes",
+      "@type": "xsd:string"
+    },
+    "TotalParts": {
+      "@id": "digi:TotalParts",
+      "@type": "xsd:integer"
+    },
+    "DateCreated": {
+      "@id": "digi:DateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "DateLastAccessed": {
+      "@id": "digi:DateLastAccessed",
+      "@type": "xsd:dateTime"
+    },
+    "DateModified": {
+      "@id": "digi:DateModified",
+      "@type": "xsd:dateTime"
+    },
+    "Tags": {
+      "@id": "digi:Tags",
+      "@container": "@list"
+    },
+    "ListSettings": {
+      "@id": "digi:ListSettings",
+      "@type": "@id"
+    },
+    "PartsList": {
+      "@id": "digi:PartsList",
+      "@container": "@list"
+    },
+    "Revisions": {
+      "@id": "digi:Revisions",
+      "@container": "@list"
+    },
+    "CanEdit": {
+      "@id": "digi:CanEdit",
+      "@type": "xsd:boolean"
+    },
+    "UserInformation": {
+      "@id": "digi:UserInformation",
+      "@type": "@id"
+    },
+    "Column": "digi:Column",
+    "ColumnName": {
+      "@id": "digi:ColumnName",
+      "@type": "xsd:string"
+    },
+    "IsVisible": {
+      "@id": "digi:IsVisible",
+      "@type": "xsd:boolean"
+    },
+    "RequestedQuantity": "digi:RequestedQuantity",
+    "SelectedPackType": {
+      "@id": "digi:SelectedPackType",
+      "@type": "xsd:string"
+    },
+    "SelectedSubPackType": {
+      "@id": "digi:SelectedSubPackType",
+      "@type": "xsd:string"
+    },
+    "TargetPrice": {
+      "@id": "digi:TargetPrice",
+      "@type": "xsd:decimal"
+    },
+    "CreateListRequest": "digi:CreateListRequest",
+    "Source": {
+      "@id": "digi:Source",
+      "@type": "xsd:string"
+    },
+    "RefList": {
+      "@id": "digi:RefList",
+      "@type": "@id"
+    },
+    "Revision": "digi:Revision",
+    "ListId": {
+      "@id": "digi:ListId",
+      "@type": "xsd:string"
+    },
+    "RevisionNumber": {
+      "@id": "digi:RevisionNumber",
+      "@type": "xsd:integer"
+    },
+    "Parts": {
+      "@id": "digi:Parts",
+      "@container": "@list"
+    },
+    "ReferenceList": "digi:ReferenceList",
+    "IsGuestList": {
+      "@id": "digi:IsGuestList",
+      "@type": "xsd:boolean"
+    },
+    "IsRevision": {
+      "@id": "digi:IsRevision",
+      "@type": "xsd:boolean"
+    },
+    "RequestedPart": "digi:RequestedPart",
+    "UniqueId": {
+      "@id": "digi:UniqueId",
+      "@type": "xsd:string"
+    },
+    "PartId": {
+      "@id": "digi:PartId",
+      "@type": "xsd:integer"
+    },
+    "RequestedPartNumber": {
+      "@id": "digi:RequestedPartNumber",
+      "@type": "xsd:string"
+    },
+    "OriginalPartNumber": {
+      "@id": "digi:OriginalPartNumber",
+      "@type": "xsd:string"
+    },
+    "CustomerReference": {
+      "@id": "digi:CustomerReference",
+      "@type": "xsd:string"
+    },
+    "ReferenceDesignator": {
+      "@id": "digi:ReferenceDesignator",
+      "@type": "xsd:string"
+    },
+    "SelectedQuantityIndex": {
+      "@id": "digi:SelectedQuantityIndex",
+      "@type": "xsd:integer"
+    },
+    "Attrition": {
+      "@id": "digi:Attrition",
+      "@type": "xsd:decimal"
+    },
+    "AlternateParts": {
+      "@id": "digi:AlternateParts",
+      "@container": "@list"
+    },
+    "Quantities": {
+      "@id": "digi:Quantities",
+      "@container": "@list"
+    },
+    "Schedule": "digi:Schedule",
+    "QuantityScheduled": {
+      "@id": "digi:QuantityScheduled",
+      "@type": "xsd:integer"
+    },
+    "ScheduledDate": {
+      "@id": "digi:ScheduledDate",
+      "@type": "xsd:dateTime"
+    },
+    "DigiKeyReleaseDate": {
+      "@id": "digi:DigiKeyReleaseDate",
+      "@type": "xsd:dateTime"
+    },
+    "SalesOrderStatusInfo": "digi:SalesOrderStatusInfo",
+    "SalesOrderStatus": {
+      "@id": "digi:SalesOrderStatus",
+      "@type": "xsd:string"
+    },
+    "ShortDescription": {
+      "@id": "digi:ShortDescription",
+      "@type": "xsd:string"
+    },
+    "LongDescription": {
+      "@id": "digi:LongDescription",
+      "@type": "xsd:string"
+    },
+    "Order": "digi:Order",
+    "OrderNumber": {
+      "@id": "digi:OrderNumber",
+      "@type": "xsd:integer"
+    },
+    "DateEntered": {
+      "@id": "digi:DateEntered",
+      "@type": "xsd:dateTime"
+    },
+    "PONumber": {
+      "@id": "digi:PONumber",
+      "@type": "xsd:string"
+    },
+    "EntireOrderStatus": {
+      "@id": "digi:EntireOrderStatus",
+      "@type": "@id"
+    },
+    "SalesOrders": {
+      "@id": "digi:SalesOrders",
+      "@container": "@list"
+    },
+    "ItemShipInfo": "digi:ItemShipInfo",
+    "QuantityShipped": {
+      "@id": "digi:QuantityShipped",
+      "@type": "xsd:integer"
+    },
+    "ShippedDate": {
+      "@id": "digi:ShippedDate",
+      "@type": "xsd:dateTime"
+    },
+    "TrackingNumber": {
+      "@id": "digi:TrackingNumber",
+      "@type": "xsd:string"
+    },
+    "ExpectedDeliveryDate": {
+      "@id": "digi:ExpectedDeliveryDate",
+      "@type": "xsd:string"
+    },
+    "OrderStatusInfo": "digi:OrderStatusInfo",
+    "OrderStatus": {
+      "@id": "digi:OrderStatus",
+      "@type": "xsd:string"
+    },
+    "Contact": "digi:Contact",
+    "Email": {
+      "@id": "digi:Email",
+      "@type": "xsd:string"
+    },
+    "OrderResponse": "digi:OrderResponse",
+    "TotalOrders": {
+      "@id": "digi:TotalOrders",
+      "@type": "xsd:integer"
+    },
+    "Orders": {
+      "@id": "digi:Orders",
+      "@container": "@list"
+    },
+    "SalesOrder": "digi:SalesOrder",
+    "SalesOrderId": {
+      "@id": "digi:SalesOrderId",
+      "@type": "xsd:integer"
+    },
+    "Status": {
+      "@id": "digi:Status",
+      "@type": "@id"
+    },
+    "TotalPrice": {
+      "@id": "digi:TotalPrice",
+      "@type": "xsd:decimal"
+    },
+    "ShipMethod": {
+      "@id": "digi:ShipMethod",
+      "@type": "xsd:string"
+    },
+    "LineItems": {
+      "@id": "digi:LineItems",
+      "@container": "@list"
+    },
+    "LineItem": "digi:LineItem",
+    "DetailId": {
+      "@id": "digi:DetailId",
+      "@type": "xsd:integer"
+    },
+    "DigiKeyProductNumber": {
+      "@id": "digi:DigiKeyProductNumber",
+      "@type": "xsd:string"
+    },
+    "ManufacturerProductNumber": {
+      "@id": "digi:ManufacturerProductNumber",
+      "@type": "xsd:string"
+    },
+    "Description": {
+      "@id": "digi:Description",
+      "@type": "xsd:string"
+    },
+    "QuantityInitialRequested": {
+      "@id": "digi:QuantityInitialRequested",
+      "@type": "xsd:integer"
+    },
+    "QuantityOrdered": {
+      "@id": "digi:QuantityOrdered",
+      "@type": "xsd:integer"
+    },
+    "QuantityReserved": {
+      "@id": "digi:QuantityReserved",
+      "@type": "xsd:integer"
+    },
+    "QuantityBackOrder": {
+      "@id": "digi:QuantityBackOrder",
+      "@type": "xsd:integer"
+    },
+    "PoLineItemNumber": {
+      "@id": "digi:PoLineItemNumber",
+      "@type": "xsd:string"
+    },
+    "ItemShipments": {
+      "@id": "digi:ItemShipments",
+      "@container": "@list"
+    },
+    "Schedules": {
+      "@id": "digi:Schedules",
+      "@container": "@list"
+    },
+    "SalesOrderScheduleForUpdate": "digi:SalesOrderScheduleForUpdate",
+    "ScheduleDate": {
+      "@id": "digi:ScheduleDate",
+      "@type": "xsd:dateTime"
+    },
+    "SalesOrdersByPoNumberView": "digi:SalesOrdersByPoNumberView",
+    "SalesOrdersDetails": {
+      "@id": "digi:SalesOrdersDetails",
+      "@container": "@list"
+    },
+    "Operation": "digi:Operation",
+    "path": {
+      "@id": "digi:path",
+      "@type": "xsd:string"
+    },
+    "op": {
+      "@id": "digi:op",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "digi:from",
+      "@type": "xsd:string"
+    },
+    "SalesOrderView": "digi:SalesOrderView",
+    "PurchaseOrderNumber": {
+      "@id": "digi:PurchaseOrderNumber",
+      "@type": "xsd:string"
+    },
+    "Details": {
+      "@id": "digi:Details",
+      "@container": "@list"
+    },
+    "SalesOrderSchedulesView": "digi:SalesOrderSchedulesView",
+    "ScheduleIndex": {
+      "@id": "digi:ScheduleIndex",
+      "@type": "xsd:integer"
+    },
+    "SalesOrderByPoNumberDetail": "digi:SalesOrderByPoNumberDetail",
+    "OrderName": {
+      "@id": "digi:OrderName",
+      "@type": "xsd:string"
+    },
+    "ProcessingState": {
+      "@id": "digi:ProcessingState",
+      "@type": "xsd:integer"
+    },
+    "DisplayFlag": {
+      "@id": "digi:DisplayFlag",
+      "@type": "xsd:string"
+    },
+    "SchedulePatchView": "digi:SchedulePatchView",
+    "Original": {
+      "@id": "digi:Original",
+      "@type": "@id"
+    },
+    "Patched": {
+      "@id": "digi:Patched",
+      "@type": "@id"
+    },
+    "SalesOrderDetailView": "digi:SalesOrderDetailView",
+    "QuantityBackorder": {
+      "@id": "digi:QuantityBackorder",
+      "@type": "xsd:integer"
+    },
+    "StandardPackSize": {
+      "@id": "digi:StandardPackSize",
+      "@type": "xsd:integer"
+    },
+    "NextAvailableDeliveryDateView": "digi:NextAvailableDeliveryDateView",
+    "NextRelease": {
+      "@id": "digi:NextRelease",
+      "@type": "xsd:dateTime"
+    },
+    "EstimatedDeliveryDate": {
+      "@id": "digi:EstimatedDeliveryDate",
+      "@type": "xsd:dateTime"
+    },
+    "SalesOrderEligibilityView": "digi:SalesOrderEligibilityView",
+    "Eligibility": {
+      "@id": "digi:Eligibility",
+      "@type": "xsd:boolean"
+    },
+    "DetailsWithOpenSchedulesCount": {
+      "@id": "digi:DetailsWithOpenSchedulesCount",
+      "@type": "xsd:integer"
+    },
+    "ShippingContact": "digi:ShippingContact",
+    "Name": {
+      "@id": "digi:Name",
+      "@type": "xsd:string"
+    },
+    "Telephone": {
+      "@id": "digi:Telephone",
+      "@type": "xsd:string"
+    },
+    "ExportQuestions": "digi:ExportQuestions",
+    "ConsigneeName": {
+      "@id": "digi:ConsigneeName",
+      "@type": "xsd:string"
+    },
+    "PrimaryApplication": {
+      "@id": "digi:PrimaryApplication",
+      "@type": "xsd:string"
+    },
+    "SecondaryApplication": {
+      "@id": "digi:SecondaryApplication",
+      "@type": "xsd:string"
+    },
+    "AdditionalInfo": {
+      "@id": "digi:AdditionalInfo",
+      "@type": "xsd:string"
+    },
+    "BuyerContact": "digi:BuyerContact",
+    "OrderRequest": "digi:OrderRequest",
+    "ShipControl": {
+      "@id": "digi:ShipControl",
+      "@type": "xsd:string"
+    },
+    "MfgCOfCRequired": {
+      "@id": "digi:MfgCOfCRequired",
+      "@type": "xsd:boolean"
+    },
+    "BillingAccount": {
+      "@id": "digi:BillingAccount",
+      "@type": "xsd:integer"
+    },
+    "ShipperAccountNumber": {
+      "@id": "digi:ShipperAccountNumber",
+      "@type": "xsd:string"
+    },
+    "OrderNotes": {
+      "@id": "digi:OrderNotes",
+      "@container": "@list"
+    },
+    "PackagingPreference": {
+      "@id": "digi:PackagingPreference",
+      "@type": "xsd:string"
+    },
+    "Taxable": {
+      "@id": "digi:Taxable",
+      "@type": "xsd:boolean"
+    },
+    "SalesOrderPackList": "digi:SalesOrderPackList",
+    "PackingListInvoice": {
+      "@id": "digi:PackingListInvoice",
+      "@container": "@list"
+    },
+    "SalesOrderIdEntered": {
+      "@id": "digi:SalesOrderIdEntered",
+      "@type": "xsd:integer"
+    },
+    "PoNumberPackList": "digi:PoNumberPackList",
+    "SalesOrderPackLists": {
+      "@id": "digi:SalesOrderPackLists",
+      "@container": "@list"
+    },
+    "PoNumber": {
+      "@id": "digi:PoNumber",
+      "@type": "xsd:string"
+    },
+    "PackingListItem": "digi:PackingListItem",
+    "OrderedQuantity": {
+      "@id": "digi:OrderedQuantity",
+      "@type": "xsd:integer"
+    },
+    "CustomerLineItemId": {
+      "@id": "digi:CustomerLineItemId",
+      "@type": "xsd:string"
+    },
+    "ProductNumber": {
+      "@id": "digi:ProductNumber",
+      "@type": "xsd:string"
+    },
+    "ECCN": {
+      "@id": "digi:ECCN",
+      "@type": "xsd:string"
+    },
+    "HTSUS": {
+      "@id": "digi:HTSUS",
+      "@type": "xsd:string"
+    },
+    "LotQuantity": {
+      "@id": "digi:LotQuantity",
+      "@type": "xsd:integer"
+    },
+    "InvoicePackingList": "digi:InvoicePackingList",
+    "InvoiceIdEntered": {
+      "@id": "digi:InvoiceIdEntered",
+      "@type": "xsd:integer"
+    },
+    "IncludePdfEntered": {
+      "@id": "digi:IncludePdfEntered",
+      "@type": "xsd:boolean"
+    },
+    "PdfFound": {
+      "@id": "digi:PdfFound",
+      "@type": "xsd:boolean"
+    },
+    "EncodedString": {
+      "@id": "digi:EncodedString",
+      "@type": "xsd:string"
+    },
+    "ListPart": "digi:ListPart",
+    "MinOrderQty": {
+      "@id": "digi:MinOrderQty",
+      "@type": "xsd:integer"
+    },
+    "MaxOrderQty": {
+      "@id": "digi:MaxOrderQty",
+      "@type": "xsd:integer"
+    },
+    "RequestedManufacturerName": {
+      "@id": "digi:RequestedManufacturerName",
+      "@type": "xsd:string"
+    },
+    "PartStatus": {
+      "@id": "digi:PartStatus",
+      "@type": "xsd:string"
+    },
+    "PartStatusCode": {
+      "@id": "digi:PartStatusCode",
+      "@type": "xsd:integer"
+    },
+    "Availability": {
+      "@id": "digi:Availability",
+      "@type": "xsd:string"
+    },
+    "TariffCode": {
+      "@id": "digi:TariffCode",
+      "@type": "xsd:integer"
+    },
+    "QuantityAvailable": {
+      "@id": "digi:QuantityAvailable",
+      "@type": "xsd:integer"
+    },
+    "PartDetailUrl": {
+      "@id": "digi:PartDetailUrl",
+      "@type": "xsd:string"
+    },
+    "PrimaryDatasheetUrl": {
+      "@id": "digi:PrimaryDatasheetUrl",
+      "@type": "xsd:string"
+    },
+    "ImageUrl": {
+      "@id": "digi:ImageUrl",
+      "@type": "xsd:string"
+    },
+    "ThumbnailUrl": {
+      "@id": "digi:ThumbnailUrl",
+      "@type": "xsd:string"
+    },
+    "MarketPlaceSupplierLink": {
+      "@id": "digi:MarketPlaceSupplierLink",
+      "@type": "xsd:string"
+    },
+    "SupplierName": {
+      "@id": "digi:SupplierName",
+      "@type": "xsd:string"
+    },
+    "Substitutes": {
+      "@id": "digi:Substitutes",
+      "@container": "@list"
+    },
+    "Flags": {
+      "@id": "digi:Flags",
+      "@type": "@id"
+    },
+    "ReachStatus": {
+      "@id": "digi:ReachStatus",
+      "@type": "xsd:string"
+    },
+    "RohsStatusMessage": {
+      "@id": "digi:RohsStatusMessage",
+      "@type": "xsd:string"
+    },
+    "Eccn": {
+      "@id": "digi:Eccn",
+      "@type": "xsd:string"
+    },
+    "Htsus": {
+      "@id": "digi:Htsus",
+      "@type": "xsd:string"
+    },
+    "EnvironmentalDocs": {
+      "@id": "digi:EnvironmentalDocs"
+    },
+    "Category": {
+      "@id": "digi:Category",
+      "@type": "xsd:string"
+    },
+    "PartsAvailableForCref": {
+      "@id": "digi:PartsAvailableForCref",
+      "@container": "@list"
+    },
+    "CrefsAvailableForPart": {
+      "@id": "digi:CrefsAvailableForPart",
+      "@container": "@list"
+    },
+    "PackOptionWithPricing": "digi:PackOptionWithPricing",
+    "MinimumOrderQuantity": {
+      "@id": "digi:MinimumOrderQuantity",
+      "@type": "xsd:integer"
+    },
+    "CalculatedUnitPrice": {
+      "@id": "digi:CalculatedUnitPrice",
+      "@type": "xsd:decimal"
+    },
+    "ExtendedPrice": {
+      "@id": "digi:ExtendedPrice",
+      "@type": "xsd:decimal"
+    },
+    "BreakPrice": {
+      "@id": "digi:BreakPrice",
+      "@type": "xsd:decimal"
+    },
+    "BreakQuantity": {
+      "@id": "digi:BreakQuantity",
+      "@type": "xsd:integer"
+    },
+    "IsUpsell": {
+      "@id": "digi:IsUpsell",
+      "@type": "xsd:boolean"
+    },
+    "ValueAdditionalFee": {
+      "@id": "digi:ValueAdditionalFee",
+      "@type": "xsd:decimal"
+    },
+    "SubPackOptions": {
+      "@id": "digi:SubPackOptions",
+      "@container": "@list"
+    },
+    "FormattedUnitPrice": {
+      "@id": "digi:FormattedUnitPrice",
+      "@type": "xsd:string"
+    },
+    "FormattedExtendedPrice": {
+      "@id": "digi:FormattedExtendedPrice",
+      "@type": "xsd:string"
+    },
+    "PartOption": "digi:PartOption",
+    "SubstituteType": {
+      "@id": "digi:SubstituteType",
+      "@type": "xsd:string"
+    },
+    "TariffStatus": {
+      "@id": "digi:TariffStatus",
+      "@type": "xsd:integer"
+    },
+    "MasterPartId": {
+      "@id": "digi:MasterPartId",
+      "@type": "xsd:integer"
+    },
+    "CrefPartOption": "digi:CrefPartOption",
+    "ManufacturerPartnumber": {
+      "@id": "digi:ManufacturerPartnumber",
+      "@type": "xsd:string"
+    },
+    "PartsByListIdResponse": "digi:PartsByListIdResponse",
+    "ListPartQuantity": "digi:ListPartQuantity",
+    "QuantityRequested": {
+      "@id": "digi:QuantityRequested",
+      "@type": "xsd:integer"
+    },
+    "CalculatedQuantity": {
+      "@id": "digi:CalculatedQuantity",
+      "@type": "xsd:integer"
+    },
+    "IsInactive": {
+      "@id": "digi:IsInactive",
+      "@type": "xsd:boolean"
+    },
+    "SelectedPackOptionIndex": {
+      "@id": "digi:SelectedPackOptionIndex",
+      "@type": "xsd:integer"
+    },
+    "SelectedSubPackOptionIndex": {
+      "@id": "digi:SelectedSubPackOptionIndex",
+      "@type": "xsd:integer"
+    },
+    "PackOptions": {
+      "@id": "digi:PackOptions",
+      "@container": "@list"
+    },
+    "ListPartFlags": "digi:ListPartFlags",
+    "NonStock": {
+      "@id": "digi:NonStock",
+      "@type": "xsd:boolean"
+    },
+    "IsNCNR": {
+      "@id": "digi:IsNCNR",
+      "@type": "xsd:boolean"
+    },
+    "IsSDS": {
+      "@id": "digi:IsSDS",
+      "@type": "xsd:boolean"
+    },
+    "IsValueAdd": {
+      "@id": "digi:IsValueAdd",
+      "@type": "xsd:boolean"
+    },
+    "IsMatched": {
+      "@id": "digi:IsMatched",
+      "@type": "xsd:boolean"
+    },
+    "IsMarketPlace": {
+      "@id": "digi:IsMarketPlace",
+      "@type": "xsd:boolean"
+    },
+    "BoNotAllowed": {
+      "@id": "digi:BoNotAllowed",
+      "@type": "xsd:boolean"
+    },
+    "DisplayRegularLeadTime": {
+      "@id": "digi:DisplayRegularLeadTime",
+      "@type": "xsd:boolean"
+    },
+    "DisplayCheckActiveLeadTime": {
+      "@id": "digi:DisplayCheckActiveLeadTime",
+      "@type": "xsd:boolean"
+    },
+    "MultipleCrefsForPart": {
+      "@id": "digi:MultipleCrefsForPart",
+      "@type": "xsd:boolean"
+    },
+    "MultiplePartsForCref": {
+      "@id": "digi:MultiplePartsForCref",
+      "@type": "xsd:boolean"
+    },
+    "IsChecked": {
+      "@id": "digi:IsChecked",
+      "@type": "xsd:boolean"
+    },
+    "IsEditable": {
+      "@id": "digi:IsEditable",
+      "@type": "xsd:boolean"
+    },
+    "IsDeniedByCountry": {
+      "@id": "digi:IsDeniedByCountry",
+      "@type": "xsd:boolean"
+    },
+    "IsDeniedByCurrency": {
+      "@id": "digi:IsDeniedByCurrency",
+      "@type": "xsd:boolean"
+    },
+    "IsDeniedByCustomerId": {
+      "@id": "digi:IsDeniedByCustomerId",
+      "@type": "xsd:boolean"
+    },
+    "ChangeNotification": "digi:ChangeNotification",
+    "PcnChangeDate": {
+      "@id": "digi:PcnChangeDate",
+      "@type": "xsd:string"
+    },
+    "PcnTypeId": {
+      "@id": "digi:PcnTypeId",
+      "@type": "xsd:string"
+    },
+    "PcnType": {
+      "@id": "digi:PcnType",
+      "@type": "xsd:string"
+    },
+    "PcnDescription": {
+      "@id": "digi:PcnDescription",
+      "@type": "xsd:string"
+    },
+    "PcnLink": {
+      "@id": "digi:PcnLink",
+      "@type": "xsd:string"
+    },
+    "PcnResponse": "digi:PcnResponse",
+    "ProductChangeNotifications": {
+      "@id": "digi:ProductChangeNotifications",
+      "@container": "@list"
+    },
+    "KeywordResponse": "digi:KeywordResponse",
+    "Products": {
+      "@id": "digi:Products",
+      "@container": "@list"
+    },
+    "ProductsCount": {
+      "@id": "digi:ProductsCount",
+      "@type": "xsd:integer"
+    },
+    "ExactMatches": {
+      "@id": "digi:ExactMatches",
+      "@container": "@list"
+    },
+    "FilterOptions": {
+      "@id": "digi:FilterOptions",
+      "@type": "@id"
+    },
+    "SearchLocaleUsed": {
+      "@id": "digi:SearchLocaleUsed",
+      "@type": "@id"
+    },
+    "AppliedParametricFiltersDto": {
+      "@id": "digi:AppliedParametricFiltersDto",
+      "@container": "@list"
+    },
+    "ProductStatusV4": "digi:ProductStatusV4",
+    "SortOptions": "digi:SortOptions",
+    "SortOrder": {
+      "@id": "digi:SortOrder",
+      "@type": "xsd:string"
+    },
+    "Supplier": "digi:Supplier",
+    "PriceBreak": "digi:PriceBreak",
+    "ProductVariation": "digi:ProductVariation",
+    "PackageType": {
+      "@id": "digi:PackageType",
+      "@type": "@id"
+    },
+    "StandardPricing": {
+      "@id": "digi:StandardPricing",
+      "@container": "@list"
+    },
+    "MyPricing": {
+      "@id": "digi:MyPricing",
+      "@container": "@list"
+    },
+    "MarketPlace": {
+      "@id": "digi:MarketPlace",
+      "@type": "xsd:boolean"
+    },
+    "TariffActive": {
+      "@id": "digi:TariffActive",
+      "@type": "xsd:boolean"
+    },
+    "QuantityAvailableforPackageType": {
+      "@id": "digi:QuantityAvailableforPackageType",
+      "@type": "xsd:integer"
+    },
+    "MaxQuantityForDistribution": {
+      "@id": "digi:MaxQuantityForDistribution",
+      "@type": "xsd:integer"
+    },
+    "DigiReelFee": {
+      "@id": "digi:DigiReelFee",
+      "@type": "xsd:decimal"
+    },
+    "ProductPricingResponse": "digi:ProductPricingResponse",
+    "ProductPricings": {
+      "@id": "digi:ProductPricings",
+      "@container": "@list"
+    },
+    "SettingsUsed": {
+      "@id": "digi:SettingsUsed",
+      "@type": "@id"
+    },
+    "AccountIdUsed": {
+      "@id": "digi:AccountIdUsed",
+      "@type": "xsd:integer"
+    },
+    "CustomerIdUsed": {
+      "@id": "digi:CustomerIdUsed",
+      "@type": "xsd:integer"
+    },
+    "ProductPricingVariation": "digi:ProductPricingVariation",
+    "IsTariffActive": {
+      "@id": "digi:IsTariffActive",
+      "@type": "xsd:boolean"
+    },
+    "DigiReelingFee": {
+      "@id": "digi:DigiReelingFee",
+      "@type": "xsd:decimal"
+    },
+    "ProductPricing": "digi:ProductPricing",
+    "ProductUrl": {
+      "@id": "digi:ProductUrl",
+      "@type": "xsd:string"
+    },
+    "IsDiscontinued": {
+      "@id": "digi:IsDiscontinued",
+      "@type": "xsd:boolean"
+    },
+    "NormallyStocking": {
+      "@id": "digi:NormallyStocking",
+      "@type": "xsd:boolean"
+    },
+    "IsObsolete": {
+      "@id": "digi:IsObsolete",
+      "@type": "xsd:boolean"
+    },
+    "ManufacturerLeadWeeks": {
+      "@id": "digi:ManufacturerLeadWeeks",
+      "@type": "xsd:string"
+    },
+    "ManufacturerPublicQuantity": {
+      "@id": "digi:ManufacturerPublicQuantity",
+      "@type": "xsd:integer"
+    },
+    "ExportControlClassNumber": {
+      "@id": "digi:ExportControlClassNumber",
+      "@type": "xsd:string"
+    },
+    "HtsusCode": {
+      "@id": "digi:HtsusCode",
+      "@type": "xsd:string"
+    },
+    "MoistureSensitivityLevel": {
+      "@id": "digi:MoistureSensitivityLevel",
+      "@type": "xsd:string"
+    },
+    "IsBoNotAllowed": {
+      "@id": "digi:IsBoNotAllowed",
+      "@type": "xsd:boolean"
+    },
+    "IsNcnr": {
+      "@id": "digi:IsNcnr",
+      "@type": "xsd:boolean"
+    },
+    "Categories": {
+      "@id": "digi:Categories",
+      "@container": "@list"
+    },
+    "ContainsLithium": {
+      "@id": "digi:ContainsLithium",
+      "@type": "xsd:boolean"
+    },
+    "ContainsMercury": {
+      "@id": "digi:ContainsMercury",
+      "@type": "xsd:boolean"
+    },
+    "IsEndOfLife": {
+      "@id": "digi:IsEndOfLife",
+      "@type": "xsd:boolean"
+    },
+    "OtherNames": {
+      "@id": "digi:OtherNames",
+      "@container": "@list"
+    },
+    "ProductVariations": {
+      "@id": "digi:ProductVariations",
+      "@container": "@list"
+    },
+    "PricingOptionsForQuantityResponse": "digi:PricingOptionsForQuantityResponse",
+    "RequestedProduct": {
+      "@id": "digi:RequestedProduct",
+      "@type": "xsd:string"
+    },
+    "MyPricingOptions": {
+      "@id": "digi:MyPricingOptions",
+      "@container": "@list"
+    },
+    "StandardPricingOptions": {
+      "@id": "digi:StandardPricingOptions",
+      "@container": "@list"
+    },
+    "MediaResponse": "digi:MediaResponse",
+    "MediaLinks": {
+      "@id": "digi:MediaLinks",
+      "@container": "@list"
+    },
+    "CategoriesResponse": "digi:CategoriesResponse",
+    "ProductCount": {
+      "@id": "digi:ProductCount",
+      "@type": "xsd:integer"
+    },
+    "RecommendedProduct": "digi:RecommendedProduct",
+    "PrimaryPhoto": {
+      "@id": "digi:PrimaryPhoto",
+      "@type": "xsd:string"
+    },
+    "PackageTypeByQuantityProduct": "digi:PackageTypeByQuantityProduct",
+    "RecommendedQuantity": {
+      "@id": "digi:RecommendedQuantity",
+      "@type": "xsd:integer"
+    },
+    "DetailedDescription": {
+      "@id": "digi:DetailedDescription",
+      "@type": "xsd:string"
+    },
+    "PrimaryPhotoUrl": {
+      "@id": "digi:PrimaryPhotoUrl",
+      "@type": "xsd:string"
+    },
+    "ProductStatus": {
+      "@id": "digi:ProductStatus",
+      "@type": "xsd:string"
+    },
+    "ManufacturerWarehouseQuantity": {
+      "@id": "digi:ManufacturerWarehouseQuantity",
+      "@type": "xsd:integer"
+    },
+    "RohsStatus": {
+      "@id": "digi:RohsStatus",
+      "@type": "xsd:string"
+    },
+    "RoHSCompliant": {
+      "@id": "digi:RoHSCompliant",
+      "@type": "xsd:boolean"
+    },
+    "QuantityOnOrder": {
+      "@id": "digi:QuantityOnOrder",
+      "@type": "xsd:integer"
+    },
+    "StockNote": {
+      "@id": "digi:StockNote",
+      "@type": "xsd:string"
+    },
+    "PackageTypes": {
+      "@id": "digi:PackageTypes",
+      "@container": "@list"
+    },
+    "DigiReelPricing": "digi:DigiReelPricing",
+    "ReelingFee": {
+      "@id": "digi:ReelingFee",
+      "@type": "xsd:decimal"
+    },
+    "CategoryResponse": "digi:CategoryResponse",
+    "KeywordRequest": "digi:KeywordRequest",
+    "Keywords": {
+      "@id": "digi:Keywords",
+      "@type": "xsd:string"
+    },
+    "Limit": {
+      "@id": "digi:Limit",
+      "@type": "xsd:integer"
+    },
+    "Offset": {
+      "@id": "digi:Offset",
+      "@type": "xsd:integer"
+    },
+    "FilterOptionsRequest": {
+      "@id": "digi:FilterOptionsRequest",
+      "@type": "@id"
+    },
+    "AlternatePackaging": "digi:AlternatePackaging",
+    "ProductAssociationsResponse": "digi:ProductAssociationsResponse",
+    "ProductAssociations": {
+      "@id": "digi:ProductAssociations",
+      "@type": "@id"
+    },
+    "ProductSummary": "digi:ProductSummary",
+    "ProductSubstitutesResponse": "digi:ProductSubstitutesResponse",
+    "ProductSubstitutesCount": {
+      "@id": "digi:ProductSubstitutesCount",
+      "@type": "xsd:integer"
+    },
+    "ProductSubstitutes": {
+      "@id": "digi:ProductSubstitutes",
+      "@container": "@list"
+    },
+    "FilterValue": "digi:FilterValue",
+    "ValueId": {
+      "@id": "digi:ValueId",
+      "@type": "xsd:string"
+    },
+    "ValueName": {
+      "@id": "digi:ValueName",
+      "@type": "xsd:string"
+    },
+    "RangeFilterType": {
+      "@id": "digi:RangeFilterType",
+      "@type": "xsd:string"
+    },
+    "ManufacturersResponse": "digi:ManufacturersResponse",
+    "Manufacturers": {
+      "@id": "digi:Manufacturers",
+      "@container": "@list"
+    },
+    "CategoryNode": "digi:CategoryNode",
+    "CategoryId": {
+      "@id": "digi:CategoryId",
+      "@type": "xsd:integer"
+    },
+    "ParentId": {
+      "@id": "digi:ParentId",
+      "@type": "xsd:integer"
+    },
+    "NewProductCount": {
+      "@id": "digi:NewProductCount",
+      "@type": "xsd:integer"
+    },
+    "SeoDescription": {
+      "@id": "digi:SeoDescription",
+      "@type": "xsd:string"
+    },
+    "ChildCategories": {
+      "@id": "digi:ChildCategories",
+      "@container": "@list"
+    },
+    "AlternatePackagingResponse": "digi:AlternatePackagingResponse",
+    "AlternatePackagings": {
+      "@id": "digi:AlternatePackagings",
+      "@type": "@id"
+    },
+    "PricingOptionsForQuantityProduct": "digi:PricingOptionsForQuantityProduct",
+    "QuantityPriced": {
+      "@id": "digi:QuantityPriced",
+      "@type": "xsd:integer"
+    },
+    "TariffInformation": {
+      "@id": "digi:TariffInformation",
+      "@type": "@id"
+    },
+    "Marketplace": {
+      "@id": "digi:Marketplace",
+      "@type": "xsd:boolean"
+    },
+    "RecommendedProductsResponse": "digi:RecommendedProductsResponse",
+    "Recommendations": {
+      "@id": "digi:Recommendations",
+      "@container": "@list"
+    },
+    "PricingOptionsForQuantity": "digi:PricingOptionsForQuantity",
+    "PricingOption": {
+      "@id": "digi:PricingOption",
+      "@type": "xsd:string"
+    },
+    "TotalQuantityPriced": {
+      "@id": "digi:TotalQuantityPriced",
+      "@type": "xsd:integer"
+    },
+    "PackageTypeByQuantityResponse": "digi:PackageTypeByQuantityResponse",
+    "Parameter": "digi:Parameter",
+    "Text": {
+      "@id": "digi:Text",
+      "@type": "xsd:string"
+    },
+    "Priority": {
+      "@id": "digi:Priority",
+      "@type": "xsd:integer"
+    },
+    "BaseProduct": "digi:BaseProduct",
+    "Filters": "digi:Filters",
+    "IsInStock": {
+      "@id": "digi:IsInStock",
+      "@type": "xsd:boolean"
+    },
+    "ExcludeMarketplace": {
+      "@id": "digi:ExcludeMarketplace",
+      "@type": "xsd:boolean"
+    },
+    "ExcludeTariff": {
+      "@id": "digi:ExcludeTariff",
+      "@type": "xsd:boolean"
+    },
+    "PriceSettingsUsed": "digi:PriceSettingsUsed",
+    "TopCategory": "digi:TopCategory",
+    "RootCategory": {
+      "@id": "digi:RootCategory",
+      "@type": "@id"
+    },
+    "Score": {
+      "@id": "digi:Score",
+      "@type": "xsd:decimal"
+    },
+    "CategoryType": "digi:CategoryType",
+    "Level": {
+      "@id": "digi:Level",
+      "@type": "xsd:integer"
+    },
+    "ParametricCategory": "digi:ParametricCategory",
+    "ParameterId": {
+      "@id": "digi:ParameterId",
+      "@type": "xsd:integer"
+    },
+    "FilterValues": {
+      "@id": "digi:FilterValues",
+      "@container": "@list"
+    },
+    "TopCategoryNode": "digi:TopCategoryNode",
+    "ParameterValue": "digi:ParameterValue",
+    "ParameterText": {
+      "@id": "digi:ParameterText",
+      "@type": "xsd:string"
+    },
+    "ParameterType": {
+      "@id": "digi:ParameterType",
+      "@type": "xsd:string"
+    },
+    "ValueText": {
+      "@id": "digi:ValueText",
+      "@type": "xsd:string"
+    },
+    "FilterId": "digi:FilterId",
+    "ParameterFilterRequest": "digi:ParameterFilterRequest",
+    "CategoryFilter": {
+      "@id": "digi:CategoryFilter",
+      "@type": "@id"
+    },
+    "ParameterFilters": {
+      "@id": "digi:ParameterFilters",
+      "@container": "@list"
+    },
+    "Recommendation": "digi:Recommendation",
+    "RecommendedProducts": {
+      "@id": "digi:RecommendedProducts",
+      "@container": "@list"
+    },
+    "Product": "digi:Product",
+    "DatasheetUrl": {
+      "@id": "digi:DatasheetUrl",
+      "@type": "xsd:string"
+    },
+    "PhotoUrl": {
+      "@id": "digi:PhotoUrl",
+      "@type": "xsd:string"
+    },
+    "BackOrderNotAllowed": {
+      "@id": "digi:BackOrderNotAllowed",
+      "@type": "xsd:boolean"
+    },
+    "Discontinued": {
+      "@id": "digi:Discontinued",
+      "@type": "xsd:boolean"
+    },
+    "EndOfLife": {
+      "@id": "digi:EndOfLife",
+      "@type": "xsd:boolean"
+    },
+    "Ncnr": {
+      "@id": "digi:Ncnr",
+      "@type": "xsd:boolean"
+    },
+    "PrimaryVideoUrl": {
+      "@id": "digi:PrimaryVideoUrl",
+      "@type": "xsd:string"
+    },
+    "Parameters": {
+      "@id": "digi:Parameters",
+      "@container": "@list"
+    },
+    "BaseProductNumber": {
+      "@id": "digi:BaseProductNumber",
+      "@type": "@id"
+    },
+    "DateLastBuyChance": {
+      "@id": "digi:DateLastBuyChance",
+      "@type": "xsd:dateTime"
+    },
+    "Series": {
+      "@id": "digi:Series",
+      "@type": "@id"
+    },
+    "ShippingInfo": {
+      "@id": "digi:ShippingInfo",
+      "@type": "xsd:string"
+    },
+    "Classifications": {
+      "@id": "digi:Classifications",
+      "@type": "@id"
+    },
+    "ParameterFilterOptionsResponse": "digi:ParameterFilterOptionsResponse",
+    "ParameterName": {
+      "@id": "digi:ParameterName",
+      "@type": "xsd:string"
+    },
+    "ManufacturerInfo": "digi:ManufacturerInfo",
+    "BaseFilterV4": "digi:BaseFilterV4",
+    "Value": {
+      "@id": "digi:Value",
+      "@type": "xsd:string"
+    },
+    "ProductSubstitute": "digi:ProductSubstitute",
+    "ProductDetails": "digi:ProductDetails",
+    "IsoSearchLocale": "digi:IsoSearchLocale",
+    "Site": {
+      "@id": "digi:Site",
+      "@type": "xsd:string"
+    },
+    "Language": {
+      "@id": "digi:Language",
+      "@type": "xsd:string"
+    },
+    "QuoteInformation": "digi:QuoteInformation",
+    "TotalProducts": {
+      "@id": "digi:TotalProducts",
+      "@type": "xsd:integer"
+    },
+    "QuoteId": {
+      "@id": "digi:QuoteId",
+      "@type": "xsd:integer"
+    },
+    "ExpirationStatus": {
+      "@id": "digi:ExpirationStatus",
+      "@type": "@id"
+    },
+    "QuoteName": {
+      "@id": "digi:QuoteName",
+      "@type": "xsd:string"
+    },
+    "QuoteProductQuantity": "digi:QuoteProductQuantity",
+    "RoHSStatusCode": "digi:RoHSStatusCode",
+    "ReachStatusCode": "digi:ReachStatusCode",
+    "CreateQuoteRequest": "digi:CreateQuoteRequest",
+    "AddProductToQuote": "digi:AddProductToQuote",
+    "QuotesResponse": "digi:QuotesResponse",
+    "TotalQuotes": {
+      "@id": "digi:TotalQuotes",
+      "@type": "xsd:integer"
+    },
+    "Quotes": {
+      "@id": "digi:Quotes",
+      "@container": "@list"
+    },
+    "QuoteResponse": "digi:QuoteResponse",
+    "Quote": {
+      "@id": "digi:Quote",
+      "@type": "@id"
+    },
+    "AddProductsToQuoteResponse": "digi:AddProductsToQuoteResponse",
+    "Errors": {
+      "@id": "digi:Errors",
+      "@container": "@list"
+    },
+    "Comments": {
+      "@id": "digi:Comments",
+      "@container": "@list"
+    },
+    "ProductsFromQuoteResponse": "digi:ProductsFromQuoteResponse",
+    "QuoteProducts": {
+      "@id": "digi:QuoteProducts",
+      "@container": "@list"
+    },
+    "QuoteProduct": "digi:QuoteProduct",
+    "DigikeyProductNumber": {
+      "@id": "digi:DigikeyProductNumber",
+      "@type": "xsd:string"
+    },
+    "RequestedProductNumber": {
+      "@id": "digi:RequestedProductNumber",
+      "@type": "xsd:string"
+    },
+    "IsMfgQuoteRequired": {
+      "@id": "digi:IsMfgQuoteRequired",
+      "@type": "xsd:boolean"
+    },
+    "IsMarketplace": {
+      "@id": "digi:IsMarketplace",
+      "@type": "xsd:boolean"
+    },
+    "RoHSStatus": {
+      "@id": "digi:RoHSStatus",
+      "@type": "@id"
+    },
+    "ExpirationDate": {
+      "@id": "digi:ExpirationDate",
+      "@type": "xsd:dateTime"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Digi-Key API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Digi-Key's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/digi-key-barcoding-api-openapi.yml, openapi/digi-key-bondedinventory-api-openapi.yml, openapi/digi-key-customerresource-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/digi-key-barcoding-api-openapi.yml",
+    "openapi/digi-key-bondedinventory-api-openapi.yml",
+    "openapi/digi-key-customerresource-api-openapi.yml",
+    "openapi/digi-key-lists-api-openapi.yml",
+    "openapi/digi-key-orderhistory-api-openapi.yml"
+  ]
+}

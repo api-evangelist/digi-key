@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-account-association-response-schema.json",
+  "title": "AccountAssociationResponse",
+  "description": "AccountAssociationResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-customerresource-api-openapi.yml#/components/schemas/AccountAssociationResponse",
+  "type": "object",
+  "properties": {
+    "Accounts": {
+      "description": "List of accounts associated with your customer ID",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AccountInformation"
+      }
+    },
+    "EmailAddressUsed": {
+      "description": "Email address used to look up associated AccountIDs. This is the email address that you used for authentication.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "AccountAddress": {
+      "description": "Address for account",
+      "type": "object",
+      "properties": {
+        "CompanyName": {
+          "description": "Company name on address",
+          "type": "string"
+        },
+        "AddressLine1": {
+          "description": "First address line",
+          "type": "string"
+        },
+        "AddressLine2": {
+          "description": "Second address line",
+          "type": "string"
+        },
+        "AddressLine3": {
+          "description": "Third address line",
+          "type": "string"
+        },
+        "City": {
+          "description": "City on address",
+          "type": "string"
+        },
+        "State": {
+          "description": "State code on address",
+          "type": "string"
+        },
+        "PostalCode": {
+          "description": "Postal code on address",
+          "type": "string"
+        },
+        "CountryCode": {
+          "description": "Country on address",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AccountInformation": {
+      "description": "Information on a particular account",
+      "type": "object",
+      "properties": {
+        "AccountId": {
+          "format": "int32",
+          "description": "Your DigiKey AccountID. You may need to populate this value in some search, quote, list, and account history API calls. It is also needed when placing an order. Select ‘My account’ above to learn more about AccountIDs.",
+          "type": "integer"
+        },
+        "Address": {
+          "$ref": "#/$defs/AccountAddress"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

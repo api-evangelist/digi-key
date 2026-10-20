@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/digi-key/main/json-schema/digi-key-create-quote-request-schema.json",
+  "title": "CreateQuoteRequest",
+  "description": "Create request parameters",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/digi-key-quotes-api-openapi.yml#/components/schemas/CreateQuoteRequest",
+  "required": [
+    "QuoteName"
+  ],
+  "type": "object",
+  "properties": {
+    "QuoteName": {
+      "description": "The name you want to give for your quote. Maximum length is 40 characters.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

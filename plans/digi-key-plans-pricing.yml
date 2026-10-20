@@ -1,0 +1,12 @@
+name: Digi-Key pricing
+generated: '2026-10-19'
+method: none
+source: https://developer.digikey.com/documentation
+audience: unclear
+pricing_basis: none
+published: false
+delivery:
+  delivery: managed
+plan_count: 0
+plans: []
+note: No API pricing page published; docs describe rate limits for "standard products" only.

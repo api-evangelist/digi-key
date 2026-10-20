@@ -1,0 +1,11 @@
+name: Digi-Key MCP
+generated: '2026-10-19'
+method: probed
+source: https://www.digikey.com/mcp/v1
+note: 'Pre-flight contract discovery: https://www.digikey.com/mcp/v1 answered 403 while a control path answered 404 (gated). www.digikey.com also bot-challenges browsers, so the 403 cannot be confirmed as an MCP server; no public MCP documentation found on developer.digikey.com.'
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+status: unconfirmed
+tools: []

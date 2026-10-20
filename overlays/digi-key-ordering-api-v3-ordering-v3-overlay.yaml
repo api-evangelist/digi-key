@@ -1,0 +1,13 @@
+overlay: 1.0.0
+info:
+  title: DigiKey Ordering Api V3 enhancements
+  version: 1.0.0
+extends: ../openapi/_original/digi-key-ordering-api-v3-ordering-v3-openapi.yml
+x-generated: '2026-10-19'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-sandbox-host: sandbox-api.digikey.com
+    x-rate-limits: rate-limits/digi-key-rate-limits.yml
+    x-docs: https://developer.digikey.com/documentation

@@ -1,0 +1,17 @@
+publisher: DigiKey
+method: assembled from provider-published fragments
+how: each DigiKey developer-portal operation page embeds its Swagger 2.0 fragment verbatim in drupalSettings.spec;
+     the fragments were fetched 2026-10-19 and merged by info.title + basePath. Content is DigiKey's; the merge is ours.
+pages:
+  - https://developer.digikey.com/products/mylists/mylists/getpartfromlistbyuniqueid
+  - https://developer.digikey.com/products/mylists/mylists/getlistbylistid
+  - https://developer.digikey.com/products/mylists/mylists/updatepartfromlistbyuniqueid
+  - https://developer.digikey.com/products/mylists/mylists/deletelist
+  - https://developer.digikey.com/products/mylists/mylists/deletepartfromlistbyuniqueid
+  - https://developer.digikey.com/products/mylists/mylists/lists
+  - https://developer.digikey.com/products/mylists/mylists/createlist
+  - https://developer.digikey.com/products/mylists/mylists/isvalidlistname
+  - https://developer.digikey.com/products/mylists/mylists/getpartsbylistid
+  - https://developer.digikey.com/products/mylists/mylists/updatelistname
+  - https://developer.digikey.com/products/mylists/mylists/addpartstolistid
+  - https://developer.digikey.com/products/mylists/mylists/validlistname

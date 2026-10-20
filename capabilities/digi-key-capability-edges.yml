@@ -1,0 +1,81 @@
+slug: digi-key
+provider: Digi-Key
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Electrical Components & Equipment
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Quotes
+  spec_file: digi-key-quotes-api-openapi.yml
+  capability_id: BC-410.40
+  capability_id_l1: BC-410
+  capability_name: Quote & Configuration Management
+  confidence: 0.8
+  evidence: POST /quotes CreateQuote 'Create a quote. Products are added to it in the AddProductsToQuote
+    operation'; POST /quotes/{quoteId}/details AddProductsToQuote
+  reason: Operations create quotes, add priced products to them and retrieve quote contents with expiration
+    status (schemas QuoteInformation, QuoteProductQuantity, ExpirationStatus) — this is quote management
+    in the lead-to-order flow. Some ambiguity remains over whether it is read as seller-side CPQ or buyer-side
+    RFQ, hence 0.8 rather than 0.95.
+- tag: BondedInventory
+  spec_file: digi-key-bondedinventory-api-openapi.yml
+  capability_id: BC-530.10
+  capability_id_l1: BC-530
+  capability_name: Stock Level Management
+  confidence: 0.75
+  evidence: Returns all the products with bonded inventory for all authorized locations / GET /BondedQuantity/Locations/{accountId}/Products/{partNumber}  Returns
+    Bonded Quantity for a specific part from a specific location
+  reason: Operations expose on-hand bonded (consigned) inventory quantities per part and per stocking
+    location, which is stock level visibility across a supply network. Sub-capability choice between stock
+    level and allocation is somewhat ambiguous, hence moderate confidence.
+- tag: OrderManagement
+  spec_file: digi-key-ordermanagement-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.75
+  evidence: GET /SalesOrders/{salesOrderId}/NextAvailableDeliveryDate  provides an estimate of the earliest
+    delivery…; PUT /SalesOrders/{salesOrderId}/Details/{detailId}/Schedules  Create or Replace schedules
+  reason: Operations manage sales order lines, delivery schedules, change eligibility and earliest delivery
+    dates — order promising and fulfilment scheduling. Clear order-fulfilment orchestration, though it
+    straddles the buyer-side purchase-order view.
+- tag: Pcn
+  spec_file: digi-key-pcn-api-openapi.yml
+  capability_id: BC-1930.20
+  capability_id_l1: BC-1930
+  capability_name: Component Lifecycle & Obsolescence Management
+  confidence: 0.75
+  evidence: '"This returns all change notifications for the given DigiKey product"; schema "ChangeNotification"
+    / "PcnResponse"'
+  reason: Product Change Notification retrieval per component part number is the canonical feed for tracking
+    component change/EOL events, i.e. component lifecycle and obsolescence tracking. Confidence held below
+    0.8 because the single operation does not itself expose lifecycle status fields or obsolescence workflow.
+- tag: OrderHistory
+  spec_file: digi-key-orderhistory-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: GET /orders  SearchOrders  Retrieves a list of orders in a specified date range; GET /salesorder/{salesOrderId}  RetrieveSalesOrder
+  reason: Retrieval of sales orders and order status (OrderStatusInfo, ItemShipInfo, Schedule schemas)
+    — order status/fulfilment visibility from the distributor's side. Mapped to Order Fulfilment Management;
+    from a buyer's perspective it could instead read as procure-to-pay, hence not full confidence.
+- tag: Orders
+  spec_file: digi-key-orders-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: POST /Orders  Order  This action queues an order for processing.
+  reason: Order submission endpoint with OrderRequest/LineItem/ShippingContact/Schedule schemas — placing
+    an order into the distributor's fulfilment flow. Single operation; could also be framed as purchase
+    order creation on the buyer side, so moderate confidence.

@@ -48,6 +48,9 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: CapabilityMap
+  url: capabilities/digi-key-capability-edges.yml
+  name: Digi-Key Business Capability Map
 - type: JSONLD
   url: json-ld/digi-key-context.jsonld
 - type: Overlay
